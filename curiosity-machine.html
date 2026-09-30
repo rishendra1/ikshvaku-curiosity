@@ -3,7 +3,7 @@
      A digital curiosity playground by Ikshvaku Vidya Academy
      Single-file HTML — Blogger-compatible
      ============================================================ -->
-<style>
+<style>/*<![CDATA[*/
 /* ── RESET (scoped) ── */
 #iva-curiosity-machine *,
 #iva-curiosity-machine *::before,
@@ -1091,14 +1091,14 @@
     font-size: 1.6rem;
   }
 }
-</style>
+/*]]>*/</style>
 
 <div id="iva-curiosity-machine">
   <!-- ── HEADER ── -->
   <header class="iva-header" role="banner">
     <div class="iva-header-inner">
       <div class="iva-logo" id="ivaLogoBtn" role="button" tabindex="0" title="Return to Curiosity Machine Home">
-        <img src="assets/IVA.jpeg" alt="Ikshvaku Vidya Academy Seal" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'44\' height=\'44\' viewBox=\'0 0 44 44\'><circle cx=\'22\' cy=\'22\' r=\'22\' fill=\'%23f5a623\'/><text x=\'22\' y=\'27\' font-size=\'15\' font-weight=\'bold\' fill=\'%231a1a2e\' text-anchor=\'middle\'>IVA</text></svg>'">
+        <img src="assets/IVA.jpeg" alt="Ikshvaku Vidya Academy Seal" onerror="this.onerror=null;this.src=\'https://rishendra1.github.io/ikshvaku-curiosity/assets/IVA.jpeg\';" />
         <div class="iva-logo-text">
           <span class="iva-logo-title">IKSHVAKU CURIOSITY MACHINE</span>
           <span class="iva-logo-sub">Education Beyond Commerce</span>
@@ -1146,11 +1146,11 @@
       <section class="iva-search-section">
         <div class="iva-search-box">
           <span class="iva-search-icon">🔍</span>
-          <input type="text" id="ivaSearchInput" placeholder="Search questions, keywords, or enter Question # (1 - 500,000)..." autocomplete="off">
+          <input type="text" id="ivaSearchInput" placeholder="Search questions, keywords, or enter Question # (1 - 500,000)..." autocomplete="off" />
         </div>
         <div style="text-align: center; margin-top: 12px; display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap;">
           <span style="font-size: 0.85rem; color: rgba(255,255,255,0.7);">Or jump directly to inquiry:</span>
-          <input type="number" id="ivaJumpInput" min="1" max="500000" placeholder="e.g. 42195" style="width: 130px; padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-family: inherit; font-size: 0.85rem; outline: none;">
+          <input type="number" id="ivaJumpInput" min="1" max="500000" placeholder="e.g. 42195" style="width: 130px; padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-family: inherit; font-size: 0.85rem; outline: none;" />
           <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaJumpBtn" style="padding: 6px 14px; font-size: 0.85rem;">Jump →</button>
         </div>
         <!-- Dynamic search results dropdown -->
@@ -1328,7 +1328,7 @@
             <div style="font-weight: 700; color: var(--iva-accent3); margin-bottom: 6px;" id="ivaExperimentTitle">🔬 Interactive Thought Experiment</div>
             <p style="font-size: 0.9rem; color: #555;" id="ivaExperimentDesc">Slide to adjust:</p>
             <div class="iva-experiment-slider-wrapper">
-              <input type="range" id="ivaExperimentSlider" min="1" max="100" value="50">
+              <input type="range" id="ivaExperimentSlider" min="1" max="100" value="50" />
               <div class="iva-experiment-slider-labels">
                 <span id="ivaExpSliderMin">Min</span>
                 <span id="ivaExpSliderMax">Max</span>
@@ -1483,7 +1483,7 @@
   </div>
 </div>
 
-<script>
+<script>//<![CDATA[
 (function() {
   'use strict';
 
@@ -3366,4 +3366,4 @@
     init();
   }
 })();
-</script>
+//]]></script>
