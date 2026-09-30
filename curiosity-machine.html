@@ -1610,14 +1610,29 @@
   function loadState() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
+      var today = new Date().toDateString();
       if (raw) {
         var parsed = JSON.parse(raw);
         appState.exploredIds = parsed.exploredIds || [];
         appState.savedIds = parsed.savedIds || [];
         appState.reflections = parsed.reflections || {};
         appState.sparkQuestions = parsed.sparkQuestions || [];
-        appState.streak = parsed.streak || 1;
-        appState.lastActiveDate = parsed.lastActiveDate || new Date().toDateString();
+        
+        // Accurate day-based streak calculation
+        var last = parsed.lastActiveDate || today;
+        var lastDate = new Date(last);
+        var nowDate = new Date(today);
+        var diffDays = Math.floor((nowDate.getTime() - lastDate.getTime()) / (1000 * 60 * 60 * 24));
+        
+        if (diffDays === 0) {
+          appState.streak = parsed.streak || 1;
+        } else if (diffDays === 1) {
+          appState.streak = (parsed.streak || 1) + 1;
+          appState.lastActiveDate = today;
+        } else {
+          appState.streak = 1;
+          appState.lastActiveDate = today;
+        }
       }
     } catch(e) {}
   }
@@ -1653,6 +1668,10 @@
     if (fillEl) fillEl.style.width = pct + "%";
     if (labelEl) labelEl.textContent = count + " / " + nextGoal + " Explored";
 
+    // Dynamic Live Streak Header Update
+    var streakEl = document.getElementById('ivaStreakCount');
+    if (streakEl) streakEl.textContent = appState.streak + (appState.streak === 1 ? " Day" : " Days");
+
     var expEl = document.getElementById('ivaJourneyExplored');
     var refEl = document.getElementById('ivaJourneyReflections');
     var savEl = document.getElementById('ivaJourneySaved');
@@ -1662,7 +1681,7 @@
     if (expEl) expEl.textContent = count;
     if (refEl) refEl.textContent = Object.keys(appState.reflections).length;
     if (savEl) savEl.textContent = appState.savedIds.length;
-    if (strEl) strEl.textContent = appState.streak;
+    if (strEl) strEl.textContent = appState.streak + (appState.streak === 1 ? " Day" : " Days");
     if (badEl) badEl.textContent = "(" + appState.savedIds.length + ")";
   }
 
@@ -1718,6 +1737,7 @@
     if (appState.exploredIds.indexOf(q.id) === -1) {
       appState.exploredIds.push(q.id);
       saveState();
+      updateLearnerProgress();
     }
 
     document.getElementById('ivaCuriosityCategoryBadge').className = "iva-today-badge " + (q.badgeClass || 'iva-badge-space');
@@ -2157,6 +2177,15 @@
       this.textContent = isZen ? "☀️ Exit Focus" : "🌙 Focus Mode";
       showToast(isZen ? "🌙" : "☀️", isZen ? "Focus mode enabled" : "Standard mode restored");
     });
+
+    // Streak click feedback
+    var streakEl = document.getElementById('ivaStreakCount');
+    if (streakEl && streakEl.parentElement) {
+      streakEl.parentElement.style.cursor = "pointer";
+      streakEl.parentElement.addEventListener('click', function() {
+        showToast("🔥", appState.streak + "-Day Learning Streak! Active daily inquiry builds polymathic intuition.");
+      });
+    }
 
     // About Modal
     document.getElementById('ivaNavAboutBtn').addEventListener('click', function() {
