@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:defaultwidgetversion='1' b:layoutsversion='3' b:responsive='true' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
   <!-- Official Logo: https://drive.google.com/file/d/1BTG258U0vRF7FLK8nGyxMBCTPaKWLmYa/view?usp=drive_link -->
 
@@ -1801,6 +1801,8 @@ a:hover {
 .quickedit { display: none !important; }
 
 
+
+
 /* ==========================================================================
    IKSHVAKU CURIOSITY MACHINE STYLES
    ========================================================================== */
@@ -2446,9 +2448,10 @@ a:hover {
         </a>
 
         <nav aria-label='Primary Navigation' class='nav-desktop'>
-          <a class='nav-link' expr:href='data:blog.homepageUrl + "#about"'>About</a>
-          <a class='nav-link' expr:href='data:blog.homepageUrl + "#curiosity-machine"' style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
-          <a class='btn btn-primary' expr:href='data:blog.homepageUrl + "#contact"' style='padding: 0.55rem 1.25rem;'>Contact</a>
+          <a class='nav-link' href="#about">About</a>
+          <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
+          <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
+          <a class='btn btn-primary' href="#contact" style='padding: 0.55rem 1.25rem;'>Contact</a>
         </nav>
 
         <button aria-controls='mobileDrawer' aria-expanded='false' aria-label='Open Navigation Menu' class='mobile-menu-toggle' type='button'>
@@ -2462,10 +2465,12 @@ a:hover {
 
     <!-- Mobile Navigation Drawer (Full Viewport Opaque Overlay) -->
     <div aria-hidden='true' class='mobile-drawer' id='mobileDrawer'>
-      <a class='nav-link' expr:href='data:blog.homepageUrl + "#about"'>About Academy</a>
-      <a class='nav-link' expr:href='data:blog.homepageUrl + "#curiosity-machine"' style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
-      <a class='nav-link' expr:href='data:blog.homepageUrl + "#curiosity-machine"' style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
-          <a class='btn btn-primary' expr:href='data:blog.homepageUrl + "#contact"' style='margin-top: 1rem; text-align: center; justify-content: center;'>Contact Academy</a>
+      <a class='nav-link' href="#about">About Academy</a>
+      <a class='nav-link' href="#curiosity-machine" style="color: var(--color-accent-gold); font-weight: 600;">Curiosity Machine ✦</a>
+      <a class='nav-link' href="#curiosity-machine" style="color: var(--color-accent-gold); font-weight: 600;">Curiosity Machine ✦</a>
+      <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
+          <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
+          <a class='btn btn-primary' href="#contact" style='margin-top: 1rem; text-align: center; justify-content: center;'>Contact Academy</a>
     </div>
 
     <main id='main-content' role='main'>
@@ -2474,7 +2479,7 @@ a:hover {
            HOMEPAGE INSTITUTIONAL NARRATIVE
            Only rendered on the main homepage
            ===================================================================== -->
-      <b:if cond='data:view.isHomepage'>
+      <b:if cond='!data:view.isPost'>
 
         <!-- 2. HERO / ABOUT SECTION -->
         <section aria-labelledby='heroTitle' class='hero-section' id='hero'>
@@ -2756,6 +2761,7 @@ a:hover {
           </div>
         </section>
 
+        
         
         <!-- =====================================================================
              6.5 THE CURIOSITY MACHINE (Interactive First-Principles Inquiry Engine)
@@ -3521,8 +3527,8 @@ a:hover {
            14. BLOGGER JOURNAL & ARTICLES SECTION
            ===================================================================== -->
       <section class='journal-section' id='journal'>
-        <b:section class='main-section' id='main' showaddelement='false'>
-          <b:widget id='Blog1' locked='true' title='Ikshvaku Journal' type='Blog' version='2'>
+        <b:section class='main-section' id='main' showaddelement='no'>
+          <b:widget id='Blog1' locked='true' title='Ikshvaku Journal' type='Blog' version='1'>
             <b:includable id='main'>
               <b:if cond='data:view.isMultipleItems'>
                 <!-- Journal Feed View (Homepage & Archive) - Only renders if posts exist -->
@@ -3634,8 +3640,8 @@ a:hover {
           <div>
             <div class='footer-col-title'>Navigation</div>
             <ul class='footer-links'>
-              <li><a expr:href='data:blog.homepageUrl + "#about"'>About Academy</a></li>
-              <li><a expr:href='data:blog.homepageUrl + "#contact"'>Contact Us</a></li>
+              <li><a href="#about">About Academy</a></li>
+              <li><a href="#contact">Contact Us</a></li>
             </ul>
           </div>
 
@@ -3759,6 +3765,7 @@ a:hover {
   //]]>
   </script>
 
+  
   <script type='text/javascript'>
   //<![CDATA[
 (function() {
