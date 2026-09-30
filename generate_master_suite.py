@@ -64,12 +64,12 @@ master_html = f"""<div id="iva-curiosity-machine">
       </button>
 
       <nav class="iva-nav-actions" aria-label="Primary Actions">
-        <button type="button" class="iva-nav-btn active" id="ivaNavHomeBtn"><span>🏛️</span> Home</button>
-        <button type="button" class="iva-nav-btn" id="ivaNavBoredBtn"><span>⚡</span> I'm Bored</button>
-        <button type="button" class="iva-nav-btn" id="ivaNavStrangeBtn"><span>🌌</span> Strange Truths</button>
-        <button type="button" class="iva-nav-btn" id="ivaNavSavedBtn"><span>🔖</span> Saved (<span id="ivaSavedNavCount">0</span>)</button>
-        <button type="button" class="iva-nav-btn" id="ivaNavJourneyBtn"><span>🧭</span> My Journey</button>
-        <button type="button" class="iva-nav-btn" id="ivaNavAboutBtn"><span>ℹ️</span> About</button>
+        <button type="button" class="iva-nav-btn active" id="ivaNavHomeBtn">Home</button>
+        <button type="button" class="iva-nav-btn" id="ivaNavBoredBtn">I'm Bored</button>
+        <button type="button" class="iva-nav-btn" id="ivaNavStrangeBtn">Strange Truths</button>
+        <button type="button" class="iva-nav-btn" id="ivaNavSavedBtn">Saved (<span id="ivaSavedNavCount">0</span>)</button>
+        <button type="button" class="iva-nav-btn" id="ivaNavJourneyBtn">My Journey</button>
+        <button type="button" class="iva-nav-btn" id="ivaNavAboutBtn">About</button>
       </nav>
     </div>
   </header>
@@ -96,26 +96,26 @@ master_html = f"""<div id="iva-curiosity-machine">
             ✦ START WONDERING
           </button>
           <button type="button" class="iva-btn iva-btn-secondary iva-btn-large" id="ivaHeroSurpriseBtn">
-            🎲 SURPRISE ME
+            SURPRISE ME
           </button>
           <button type="button" class="iva-btn iva-btn-secondary iva-btn-large" id="ivaHeroBoredBtn">
-            ⚡ I'M BORED
+            I'M BORED
           </button>
         </div>
 
         <!-- Live Reactive Statistics Bar -->
         <div class="iva-stats-bar">
-          <span class="iva-stat-chip">🔥 Active Streak: <strong id="ivaLiveStreak">1 Day</strong></span>
-          <span class="iva-stat-chip">💡 Inquiries Explored: <strong id="ivaLiveExplored">0</strong></span>
-          <span class="iva-stat-chip">🔖 Inquiries Saved: <strong id="ivaLiveSaved">0</strong></span>
-          <span class="iva-stat-chip">🌐 Combinatorial Paths: <strong>500,000+</strong></span>
+          <span class="iva-stat-chip">Active Streak: <strong id="ivaLiveStreak">1 Day</strong></span>
+          <span class="iva-stat-chip">Inquiries Explored: <strong id="ivaLiveExplored">0</strong></span>
+          <span class="iva-stat-chip">Inquiries Saved: <strong id="ivaLiveSaved">0</strong></span>
+          <span class="iva-stat-chip">Combinatorial Paths: <strong>500,000+</strong></span>
         </div>
       </section>
 
       <!-- Today's Curiosity Deterministic Spotlight (Section 10) -->
       <section class="iva-daily-card" aria-labelledby="ivaDailyTitle">
         <div style="flex: 1; min-width: 280px;">
-          <div class="iva-daily-badge">🌅 TODAY'S CURIOSITY • DETERMINISTIC SPOTLIGHT</div>
+          <div class="iva-daily-badge">TODAY'S CURIOSITY • DETERMINISTIC SPOTLIGHT</div>
           <div class="iva-daily-question" id="ivaDailyTitle">Why doesn't the Moon fall into Earth?</div>
           <div class="iva-daily-sub">Consistent for today. Tomorrow, we continue somewhere unexpected.</div>
         </div>
@@ -127,7 +127,7 @@ master_html = f"""<div id="iva-curiosity-machine">
       <!-- Search Section -->
       <section class="iva-search-section" aria-label="Curiosity Search">
         <div class="iva-search-box">
-          <span class="iva-search-icon">🔍</span>
+          <span class="iva-search-icon"></span>
           <input type="text" class="iva-search-input" id="ivaSearchInput" placeholder="Search any question, curiosity, or phenomenon (e.g. moon, ice, sound, time, brain)..." aria-label="Search curiosity questions" />
         </div>
         <div class="iva-search-chips">
@@ -181,7 +181,7 @@ master_html = f"""<div id="iva-curiosity-machine">
           <span class="iva-spark-plus">+</span>
           <span class="iva-spark-pill" id="ivaSparkConcept3">MEMORY</span>
           <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaRerollSparksBtn" style="margin-left: 8px;">
-            🎲 Reroll Concepts
+            Reroll Concepts
           </button>
         </div>
 
@@ -189,14 +189,14 @@ master_html = f"""<div id="iva-curiosity-machine">
           <textarea class="iva-spark-textarea" id="ivaSparkTextarea" placeholder="Write your original connecting question here... (e.g., How does information storage at a black hole event horizon compare to collective memory encoding in a beehive?)"></textarea>
           <div style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
             <button type="button" class="iva-btn iva-btn-primary" id="ivaAnalyzeSparkBtn">
-              💡 Analyze My Question
+              Analyze Question
             </button>
           </div>
           <div class="iva-spark-response-box" id="ivaSparkResponseBox">
             <div style="font-weight: 700; color: var(--iva-gold-light); margin-bottom: 6px;" id="ivaSparkFeedbackHeader">Fascinating Question.</div>
             <div id="ivaSparkAnalysisContent"></div>
             <div style="margin-top: 14px; display: flex; gap: 8px; justify-content: flex-end;">
-              <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaSaveSparkToJournalBtn">🔖 Save to My Journal</button>
+              <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaSaveSparkToJournalBtn">Save to Journal</button>
             </div>
           </div>
         </div>
@@ -233,7 +233,7 @@ master_html = f"""<div id="iva-curiosity-machine">
           <div class="iva-detail-meta">
             <span class="iva-badge iva-badge-space" id="ivaDetailBadge">ASTROPHYSICS</span>
             <span style="font-size: 0.84rem; color: var(--iva-text-muted);" id="ivaDetailInquiryNumber">Inquiry #001</span>
-            <span style="font-size: 0.84rem; color: var(--iva-text-muted);" id="ivaDetailReadTime">⏱️ 3 min read</span>
+            <span style="font-size: 0.84rem; color: var(--iva-text-muted);" id="ivaDetailReadTime">3 min read</span>
           </div>
           <h1 class="iva-detail-title" id="ivaDetailTitle">Why doesn't the Moon fall into Earth?</h1>
         </header>
@@ -245,13 +245,13 @@ master_html = f"""<div id="iva-curiosity-machine">
 
         <!-- ── THINK FIRST ACTIVE GATE (Section 2) ── -->
         <div class="iva-think-gate" id="ivaThinkGate">
-          <div class="iva-think-title">💡 Think First: Before We Explain It...</div>
+          <div class="iva-think-title">Think First: Before We Explain It</div>
           <div class="iva-think-subtitle">Curiosity begins the moment you formulate a hypothesis. Choose your starting point:</div>
           
           <div class="iva-think-choices">
-            <button type="button" class="iva-think-choice-btn active" id="ivaThinkChoiceGuess">✍️ My Guess</button>
-            <button type="button" class="iva-think-choice-btn" id="ivaThinkChoiceNoIdea">🤷 I Have No Idea</button>
-            <button type="button" class="iva-think-choice-btn" id="ivaThinkChoiceHint">💡 Give Me a Hint</button>
+            <button type="button" class="iva-think-choice-btn active" id="ivaThinkChoiceGuess">My Guess</button>
+            <button type="button" class="iva-think-choice-btn" id="ivaThinkChoiceNoIdea">I Don't Know</button>
+            <button type="button" class="iva-think-choice-btn" id="ivaThinkChoiceHint">Give Me a Hint</button>
           </div>
 
           <!-- Choice 1: My Guess Box -->
@@ -261,7 +261,7 @@ master_html = f"""<div id="iva-curiosity-machine">
             </div>
             <div class="iva-think-input-row">
               <input type="text" class="iva-think-input" id="ivaThinkInput" placeholder="I think it might be because..." aria-label="Your thoughts on this inquiry" />
-              <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaLockIdeaBtn">🔒 Lock Hypothesis</button>
+              <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaLockIdeaBtn">Lock Hypothesis</button>
             </div>
           </div>
 
@@ -318,7 +318,7 @@ master_html = f"""<div id="iva-curiosity-machine">
         <!-- ── LIVE DYNAMIC SIMULATOR (Section 16) ── -->
         <div class="iva-sim-box" id="ivaSimBox">
           <div class="iva-sim-header">
-            <span class="iva-sim-title" id="ivaSimTitle">🔬 Interactive Dynamic Simulator</span>
+            <span class="iva-sim-title" id="ivaSimTitle">Interactive Dynamic Simulator</span>
             <div class="iva-sim-controls">
               <span style="font-size: 0.8rem; color: var(--iva-text-secondary);" id="ivaSimModeLabel">Gravitational Orbit</span>
               <input type="range" min="1" max="100" value="50" id="ivaSimSlider" style="width: 100px;" title="Velocity / Phase Slider" />
@@ -347,7 +347,7 @@ master_html = f"""<div id="iva-curiosity-machine">
         <!-- ── WHY SHOULD I CARE? (Section 2) ── -->
         <div class="iva-care-box">
           <div class="iva-care-title">
-            <span>🌍 Why Should I Care?</span>
+            <span>Why Should I Care?</span>
           </div>
           <div class="iva-care-text" id="ivaCareText">
             Every GPS satellite orbiting above you, weather monitoring network, and telecommunications relay uses this exact balance of free fall and forward speed.
@@ -357,7 +357,7 @@ master_html = f"""<div id="iva-curiosity-machine">
         <!-- ── INTERACTIVE WHAT-IF ENGINE (Section 6) ── -->
         <div class="iva-whatif-box" id="ivaWhatIfBox">
           <div class="iva-whatif-title">
-            <span>🔮 What If? (Interactive Variable Lab)</span>
+            <span>What If? (Interactive Variable Lab)</span>
           </div>
           <div class="iva-whatif-desc" id="ivaWhatIfDesc">
             What happens when we perturb the physical variables of this universe? Select an adjustment:
@@ -374,15 +374,15 @@ master_html = f"""<div id="iva-curiosity-machine">
 
           <div class="iva-whatif-reaction-grid">
             <div class="iva-whatif-reaction-col">
-              <div class="iva-whatif-reaction-label">🔄 What Changed</div>
+              <div class="iva-whatif-reaction-label">What Changed</div>
               <div class="iva-whatif-reaction-text" id="ivaWhatIfChanged">Stable baseline equilibrium (1.022 km/s).</div>
             </div>
             <div class="iva-whatif-reaction-col">
-              <div class="iva-whatif-reaction-label">⚙️ Why It Changed</div>
+              <div class="iva-whatif-reaction-label">Why It Changed</div>
               <div class="iva-whatif-reaction-text" id="ivaWhatIfWhy">Inward gravitational acceleration precisely matches centripetal requirements.</div>
             </div>
             <div class="iva-whatif-reaction-col">
-              <div class="iva-whatif-reaction-label">💥 Consequence Follows</div>
+              <div class="iva-whatif-reaction-label">Consequence Follows</div>
               <div class="iva-whatif-reaction-text" id="ivaWhatIfConsequence">Stable 27.3-day lunar orbit, regular tides, and climate stability.</div>
             </div>
           </div>
@@ -390,7 +390,7 @@ master_html = f"""<div id="iva-curiosity-machine">
 
         <!-- ── WHERE ELSE DOES THIS APPEAR? (Section 2) ── -->
         <div class="iva-where-else-box" id="ivaWhereElseBox">
-          <h3 class="iva-where-else-title">🌐 Where Else Does This Principle Appear?</h3>
+          <h3 class="iva-where-else-title"> Where Else Does This Principle Appear?</h3>
           <div class="iva-where-else-grid" id="ivaWhereElseGrid">
             <!-- Populated dynamically -->
           </div>
@@ -399,7 +399,7 @@ master_html = f"""<div id="iva-curiosity-machine">
         <!-- ── CONNECT THE DOTS: CROSS-DISCIPLINE BRIDGE (Section 2 &amp; 15) ── -->
         <div class="iva-bridge-box" id="ivaBridgeBox">
           <h3 class="iva-bridge-title">
-            <span>🔗 Connect The Dots:</span>
+            <span>Connect The Dots:</span>
             <span class="iva-bridge-pill" id="ivaBridgeDisciplineFrom">Astrophysics</span>
             <span>➔</span>
             <span class="iva-bridge-pill" id="ivaBridgeDisciplineTo">Evolutionary Biology</span>
@@ -411,11 +411,11 @@ master_html = f"""<div id="iva-curiosity-machine">
 
         <!-- ── YOUR TURN: SPARK FOLLOW-UP (Section 2) ── -->
         <div class="iva-your-turn-box">
-          <h3 class="iva-your-turn-title">🤔 Your Turn: What Question Does This Spark?</h3>
+          <h3 class="iva-your-turn-title">Your Turn: What Question Does This Spark?</h3>
           <div class="iva-your-turn-desc" id="ivaYourTurnDesc">Every answer reveals a dozen new doors. What do you wonder now?</div>
           <textarea class="iva-your-turn-textarea" id="ivaYourTurnInput" placeholder="What question does this discovery make you curious about?"></textarea>
           <div style="display: flex; justify-content: flex-end;">
-            <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaSaveYourTurnBtn">📝 Save to My Journal</button>
+            <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaSaveYourTurnBtn">Save to Journal</button>
           </div>
         </div>
 
@@ -444,10 +444,10 @@ master_html = f"""<div id="iva-curiosity-machine">
 
         <!-- Action Toolbar -->
         <div style="display: flex; gap: 10px; flex-wrap: wrap; border-top: 1px solid var(--iva-border); padding-top: 20px;">
-          <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaBookmarkBtn">🔖 Save Inquiry</button>
-          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaExportCardBtn">🎨 Download Insight Card (PNG)</button>
-          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaShareBtn">📤 Share Link</button>
-          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaZenModeBtn">🌙 Focus Mode</button>
+          <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaBookmarkBtn">Save Inquiry</button>
+          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaExportCardBtn">Download Insight Card (PNG)</button>
+          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaShareBtn">Share Link</button>
+          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaZenModeBtn">Focus Mode</button>
         </div>
 
       </article>
@@ -467,7 +467,7 @@ master_html = f"""<div id="iva-curiosity-machine">
 
       <div class="iva-bored-card">
         <h2 style="font-family: var(--iva-font-serif); font-size: 2rem; color: #fff; margin-bottom: 10px;">
-          ⚡ 60-Second Boredom Antidote
+          60-Second Boredom Antidote
         </h2>
         <p style="color: var(--iva-text-secondary); max-width: 580px; margin: 0 auto 24px;">
           Boredom is your prefrontal cortex asking for active, high-quality observation.<br/>
@@ -476,9 +476,9 @@ master_html = f"""<div id="iva-curiosity-machine">
 
         <!-- 3 Modes Tabs -->
         <div class="iva-bored-modes">
-          <button type="button" class="iva-bored-mode-btn active" data-mode="observe" id="ivaBoredModeObserve">👁️ OBSERVE</button>
-          <button type="button" class="iva-bored-mode-btn" data-mode="think" id="ivaBoredModeThink">🧠 THINK</button>
-          <button type="button" class="iva-bored-mode-btn" data-mode="do" id="ivaBoredModeDo">✋ DO</button>
+          <button type="button" class="iva-bored-mode-btn active" data-mode="observe" id="ivaBoredModeObserve">OBSERVE</button>
+          <button type="button" class="iva-bored-mode-btn" data-mode="think" id="ivaBoredModeThink">THINK</button>
+          <button type="button" class="iva-bored-mode-btn" data-mode="do" id="ivaBoredModeDo">DO</button>
         </div>
 
         <div class="iva-bored-challenge-text" id="ivaBoredChallengeText">
@@ -487,7 +487,7 @@ master_html = f"""<div id="iva-curiosity-machine">
 
         <div style="margin-bottom: 18px;">
           <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaBoredRevealBtn">
-            💡 What Did You Notice? (Reveal Mechanism) ↓
+            What Did You Notice? (Reveal Mechanism) ↓
           </button>
         </div>
 
@@ -499,8 +499,8 @@ master_html = f"""<div id="iva-curiosity-machine">
         </div>
 
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <button type="button" class="iva-btn iva-btn-primary" id="ivaNextBoredBtn">⚡ Another Challenge</button>
-          <button type="button" class="iva-btn iva-btn-secondary" id="ivaBoredExploreBtn">✦ Turn Into Curiosity Inquiry</button>
+          <button type="button" class="iva-btn iva-btn-primary" id="ivaNextBoredBtn">Another Challenge</button>
+          <button type="button" class="iva-btn iva-btn-secondary" id="ivaBoredExploreBtn">Explore Deep Inquiry</button>
         </div>
       </div>
 
@@ -546,7 +546,7 @@ master_html = f"""<div id="iva-curiosity-machine">
         </div>
 
         <div style="display: flex; gap: 12px; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-          <button type="button" class="iva-btn iva-btn-primary" id="ivaNextStrangeBtn">💡 Next Strange Truth</button>
+          <button type="button" class="iva-btn iva-btn-primary" id="ivaNextStrangeBtn">Next Strange Truth</button>
           <button type="button" class="iva-btn iva-btn-secondary" id="ivaStrangeExploreRelatedBtn">Explore Related Inquiry →</button>
         </div>
       </div>
@@ -560,7 +560,7 @@ master_html = f"""<div id="iva-curiosity-machine">
       
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;">
         <div>
-          <h2 style="font-family: var(--iva-font-serif); font-size: 2rem; color: #fff;">🔖 Your Saved Inquiries</h2>
+          <h2 style="font-family: var(--iva-font-serif); font-size: 2rem; color: #fff;">Saved Inquiries</h2>
           <div style="font-size: 0.9rem; color: var(--iva-text-secondary);">Discoveries and personal reflections preserved in your private browser memory.</div>
         </div>
         <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaSavedBackHomeBtn">
@@ -569,7 +569,7 @@ master_html = f"""<div id="iva-curiosity-machine">
       </div>
 
       <div id="ivaSavedEmptyState" style="text-align: center; padding: 60px 20px; color: var(--iva-text-muted); display: none;">
-        <div style="font-size: 3rem; margin-bottom: 12px;">🔖</div>
+        
         <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 8px;">No Inquiries Saved Yet</h3>
         <p style="font-size: 0.9rem; max-width: 440px; margin: 0 auto 20px;">
           When an inquiry surprises or challenges you, click "Save Inquiry" to build your personal intellectual archive.
@@ -592,7 +592,7 @@ master_html = f"""<div id="iva-curiosity-machine">
       
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;">
         <div>
-          <h2 style="font-family: var(--iva-font-serif); font-size: 2rem; color: #fff;">🧭 My Curiosity Journey</h2>
+          <h2 style="font-family: var(--iva-font-serif); font-size: 2rem; color: #fff;">My Curiosity Journey</h2>
           <div style="font-size: 0.9rem; color: var(--iva-text-secondary);">An authentic record of your questions, hypotheses, and intellectual trajectory. (Zero competition, zero fake XP).</div>
         </div>
         <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaJourneyBackHomeBtn">
@@ -627,7 +627,7 @@ master_html = f"""<div id="iva-curiosity-machine">
       <!-- Visual Concept Trail (Section 12) -->
       <div style="margin-bottom: 24px;">
         <h3 style="font-family: var(--iva-font-serif); font-size: 1.25rem; color: #fff; margin-bottom: 10px;">
-          🗺️ Visual Discovery Trail
+          Visual Discovery Trail
         </h3>
         <p style="font-size: 0.86rem; color: var(--iva-text-secondary); margin-bottom: 14px;">
           The web of concepts you have walked through:
@@ -640,7 +640,7 @@ master_html = f"""<div id="iva-curiosity-machine">
       <!-- Created Questions &amp; Hypotheses History -->
       <div>
         <h3 style="font-family: var(--iva-font-serif); font-size: 1.25rem; color: #fff; margin-bottom: 12px;">
-          📝 Your Created Questions &amp; Hypotheses
+           Your Created Questions &amp; Hypotheses
         </h3>
         <div id="ivaJourneyNotesList">
           <!-- Populated dynamically -->
@@ -656,11 +656,11 @@ master_html = f"""<div id="iva-curiosity-machine">
     <div class="iva-modal-box">
       <button type="button" class="iva-modal-close" id="ivaCardCloseBtn" aria-label="Close Modal">✕</button>
       <h3 style="font-family: var(--iva-font-serif); font-size: 1.4rem; color: #fff; margin-bottom: 14px; text-align: center;">
-        🎨 Your Downloadable Insight Card
+        Your Downloadable Insight Card
       </h3>
       <canvas id="ivaCardCanvas" width="600" height="420" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--iva-border); margin-bottom: 18px;"></canvas>
       <div style="display: flex; gap: 10px; justify-content: center;">
-        <button type="button" class="iva-btn iva-btn-primary" id="ivaDownloadCardBtn">💾 Download Image (PNG)</button>
+        <button type="button" class="iva-btn iva-btn-primary" id="ivaDownloadCardBtn">Download Image (PNG)</button>
         <button type="button" class="iva-btn iva-btn-secondary" id="ivaCardDismissBtn">Close</button>
       </div>
     </div>
@@ -703,7 +703,7 @@ master_html = f"""<div id="iva-curiosity-machine">
 
   <!-- ── 6. TOAST NOTIFICATION ── -->
   <div id="ivaToast" class="iva-hidden">
-    <span id="ivaToastIcon" style="font-size: 1.2rem;">✨</span>
+    <span id="ivaToastIcon" style="font-size: 1.2rem;"></span>
     <span id="ivaToastMessage">Curiosity awakened.</span>
   </div>
 
@@ -728,14 +728,14 @@ master_js = r"""(function() {
   // ════════════════════════════════════════════════════════════════
 
   var CATEGORIES = [
-    { key: "space", label: "Astrophysics & Cosmos", icon: "🌌", badge: "iva-badge-space", desc: "Black holes, orbital mechanics, planetary atmospheres, cosmic radiation." },
-    { key: "science", label: "Quantum & Relativity", icon: "⚛️", badge: "iva-badge-physics", desc: "Wave-particle duality, atomic lattice, relativity, entropy, thermodynamics." },
-    { key: "math", label: "Pure Mathematics & Logic", icon: "📐", badge: "iva-badge-math", desc: "Topology, primes, infinity, game theory, cryptography, probability." },
-    { key: "nature", label: "Everyday Physics & Nature", icon: "🌿", badge: "iva-badge-biology", desc: "Molecular geometry, ice density inversion, cellular energy, emergent systems." },
-    { key: "tech", label: "Cognitive Tech & Computing", icon: "💻", badge: "iva-badge-tech", desc: "Information theory, error correction, neural networks, silicon logic." },
-    { key: "thinking", label: "Philosophy of Mind", icon: "🧠", badge: "iva-badge-math", desc: "Predictive perception, optical scotomas, consciousness, epistemology." },
-    { key: "how", label: "Wave Physics & Optics", icon: "🔬", badge: "iva-badge-physics", desc: "Acoustic phase cancellation, Rayleigh scattering, wave superposition." },
-    { key: "behavior", label: "Systems & Civilizations", icon: "🏛️", badge: "iva-badge-biology", desc: "Complex adaptive systems, institutional evolution, game theory of societies." }
+    { key: "space", label: "Astrophysics & Cosmos", icon: "01", badge: "iva-badge-space", desc: "Black holes, orbital mechanics, planetary atmospheres, cosmic radiation." },
+    { key: "science", label: "Quantum & Relativity", icon: "02", badge: "iva-badge-physics", desc: "Wave-particle duality, atomic lattice, relativity, entropy, thermodynamics." },
+    { key: "math", label: "Pure Mathematics & Logic", icon: "03", badge: "iva-badge-math", desc: "Topology, primes, infinity, game theory, cryptography, probability." },
+    { key: "nature", label: "Everyday Physics & Nature", icon: "04", badge: "iva-badge-biology", desc: "Molecular geometry, ice density inversion, cellular energy, emergent systems." },
+    { key: "tech", label: "Cognitive Tech & Computing", icon: "05", badge: "iva-badge-tech", desc: "Information theory, error correction, neural networks, silicon logic." },
+    { key: "thinking", label: "Philosophy of Mind", icon: "06", badge: "iva-badge-math", desc: "Predictive perception, optical scotomas, consciousness, epistemology." },
+    { key: "how", label: "Wave Physics & Optics", icon: "07", badge: "iva-badge-physics", desc: "Acoustic phase cancellation, Rayleigh scattering, wave superposition." },
+    { key: "behavior", label: "Systems & Civilizations", icon: "08", badge: "iva-badge-biology", desc: "Complex adaptive systems, institutional evolution, game theory of societies." }
   ];
 
   var FLAGSHIP_INQUIRIES = [
@@ -2084,7 +2084,7 @@ master_js = r"""(function() {
     var btn = document.getElementById('ivaBookmarkBtn');
     if (!btn) return;
     var isSaved = appState.savedIds.indexOf(qId) !== -1;
-    btn.textContent = isSaved ? "✓ Inquiry Saved" : "🔖 Save Inquiry";
+    btn.textContent = isSaved ? "Saved" : "Save Inquiry";
     btn.classList.toggle('iva-btn-primary', !isSaved);
     btn.classList.toggle('iva-btn-secondary', isSaved);
   }
@@ -2093,10 +2093,10 @@ master_js = r"""(function() {
     var idx = appState.savedIds.indexOf(qId);
     if (idx === -1) {
       appState.savedIds.push(qId);
-      showToast("🔖", "Inquiry saved to your intellectual memory!");
+      showToast("", "Inquiry saved to your intellectual memory!");
     } else {
       appState.savedIds.splice(idx, 1);
-      showToast("🗑️", "Inquiry removed from saved.");
+      showToast("", "Inquiry removed from saved.");
     }
     saveState();
     updateBookmarkState(qId);
@@ -2137,7 +2137,7 @@ master_js = r"""(function() {
     } else {
       q = generateProceduralQuestion(randIndex - FLAGSHIP_INQUIRIES.length);
     }
-    showToast("🎲", "Serendipity doorway opened: " + q.categoryLabel);
+    showToast("", "Serendipity doorway opened: " + q.categoryLabel);
     openCuriosity(q.id, q);
   }
 
@@ -2217,7 +2217,7 @@ master_js = r"""(function() {
   function analyzeOriginalQuestion() {
     var text = document.getElementById('ivaSparkTextarea').value.trim();
     if (!text) {
-      showToast("⚠️", "Please write your question first!");
+      showToast("", "Please write your question first!");
       return;
     }
     var c1 = document.getElementById('ivaSparkConcept1').textContent;
@@ -2244,7 +2244,7 @@ master_js = r"""(function() {
       saveState();
     }
     playSynthChord('discover');
-    showToast("✨", "Brilliant synthesis! Question registered.");
+    showToast("", "Brilliant synthesis! Question registered.");
   }
 
   // ════════════════════════════════════════════════════════════════
@@ -2484,7 +2484,7 @@ master_js = r"""(function() {
   function showToast(icon, msg) {
     var toast = document.getElementById('ivaToast');
     if (!toast) return;
-    document.getElementById('ivaToastIcon').textContent = icon || "✨";
+    document.getElementById('ivaToastIcon').textContent = icon || "";
     document.getElementById('ivaToastMessage').textContent = msg;
     toast.classList.remove('iva-hidden');
     clearTimeout(toastTimer);
@@ -2576,19 +2576,19 @@ master_js = r"""(function() {
     document.getElementById('ivaLockIdeaBtn').onclick = function() {
       var val = document.getElementById('ivaThinkInput').value.trim();
       if (!val) {
-        showToast("💡", "Take a guess first!");
+        showToast("", "Take a guess first!");
         return;
       }
       appState.reflections[appState.currentQuestionId] = val;
       saveState();
       document.getElementById('ivaThinkSavedMsg').style.display = 'block';
-      showToast("🔒", "Hypothesis locked in memory!");
+      showToast("", "Hypothesis locked in memory!");
     };
     document.getElementById('ivaRevealExplanationBtn').onclick = function() {
       var explBox = document.getElementById('ivaExplanationContainer');
       if (explBox) {
         explBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        showToast("✨", "Core explanation revealed.");
+        showToast("", "Core explanation revealed.");
       }
     };
 
@@ -2609,14 +2609,14 @@ master_js = r"""(function() {
     document.getElementById('ivaSaveYourTurnBtn').onclick = function() {
       var val = document.getElementById('ivaYourTurnInput').value.trim();
       if (!val) {
-        showToast("⚠️", "Please write your question first!");
+        showToast("", "Please write your question first!");
         return;
       }
       if (appState.sparkQuestions.indexOf(val) === -1) {
         appState.sparkQuestions.push(val);
         saveState();
       }
-      showToast("📝", "Follow-up question saved to your curiosity journey!");
+      showToast("", "Follow-up question saved to your curiosity journey!");
       document.getElementById('ivaYourTurnInput').value = "";
     };
 
@@ -2635,9 +2635,9 @@ master_js = r"""(function() {
       } else {
         if (navigator.clipboard) {
           navigator.clipboard.writeText(window.location.href);
-          showToast("📋", "Inquiry link copied to clipboard!");
+          showToast("", "Inquiry link copied to clipboard!");
         } else {
-          showToast("🔗", "Link ready to share!");
+          showToast("", "Link ready to share!");
         }
       }
     };
@@ -2647,7 +2647,7 @@ master_js = r"""(function() {
       var isZen = top.style.display === 'none';
       top.style.display = isZen ? 'block' : 'none';
       hdr.style.display = isZen ? 'block' : 'none';
-      showToast(isZen ? "☀️" : "🌙", isZen ? "Standard view restored." : "Focus Mode enabled. Press Esc to exit.");
+      showToast("", isZen ? "Standard view restored." : "Focus Mode enabled. Press Esc to exit.");
     };
 
     // Simulator Slider
@@ -2664,7 +2664,7 @@ master_js = r"""(function() {
     document.getElementById('ivaRerollSparksBtn').onclick = rerollConcepts;
     document.getElementById('ivaAnalyzeSparkBtn').onclick = analyzeOriginalQuestion;
     document.getElementById('ivaSaveSparkToJournalBtn').onclick = function() {
-      showToast("🔖", "Original inquiry saved to your journey!");
+      showToast("", "Original inquiry saved to your journey!");
     };
 
     // Bored Mode Buttons
@@ -2701,7 +2701,7 @@ master_js = r"""(function() {
       link.download = 'ikshvaku-curiosity-' + appState.currentQuestionId + '.png';
       link.href = cardCanvas.toDataURL('image/png');
       link.click();
-      showToast("💾", "Insight card downloaded!");
+      showToast("", "Insight card downloaded!");
     };
 
     // Keyboard Shortcuts
