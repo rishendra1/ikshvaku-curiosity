@@ -1803,6 +1803,8 @@ a:hover {
 
 
 
+
+
 /* ==========================================================================
    IKSHVAKU CURIOSITY MACHINE STYLES
    ========================================================================== */
@@ -2429,6 +2431,84 @@ a:hover {
   #iva-curiosity-machine .iva-header-actions { width: 100%; overflow-x: auto; padding-bottom: 4px; }
   #iva-curiosity-machine .iva-level-bar { font-size: 0.75rem; }
 }
+
+/* ── PHONE & DESKTOP RESPONSIVE ENHANCEMENTS ── */
+@media (max-width: 991px) {
+  #iva-curiosity-machine {
+    padding: 1.5rem 1rem !important;
+  }
+  #iva-curiosity-machine .iva-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  #iva-curiosity-machine .iva-header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  #iva-curiosity-machine .iva-hero-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #iva-curiosity-machine {
+    padding: 1rem 0.5rem !important;
+  }
+  #iva-curiosity-machine .iva-categories-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  #iva-curiosity-machine .iva-category-chip {
+    padding: 12px 10px !important;
+    font-size: 0.8rem !important;
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+  #iva-curiosity-machine .iva-curiosity-card {
+    padding: 1.25rem 1rem !important;
+    border-radius: 16px !important;
+  }
+  #iva-curiosity-machine .iva-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  #iva-curiosity-machine .iva-hero-actions .iva-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  #iva-curiosity-machine .iva-card-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  #iva-curiosity-machine .iva-card-actions .iva-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  #iva-curiosity-machine .iva-modal-content {
+    width: 95vw !important;
+    max-height: 90vh !important;
+    padding: 1.25rem 1rem !important;
+    margin: 8px !important;
+  }
+  #iva-curiosity-machine #ivaExportCardCanvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  #iva-curiosity-machine .iva-saved-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 400px) {
+  #iva-curiosity-machine .iva-categories-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 ]]></b:skin>
 </head>
 <body>
@@ -2451,6 +2531,7 @@ a:hover {
           <a class='nav-link' href="#about">About</a>
           <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
           <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
+          <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
           <a class='btn btn-primary' href="#contact" style='padding: 0.55rem 1.25rem;'>Contact</a>
         </nav>
 
@@ -2468,7 +2549,9 @@ a:hover {
       <a class='nav-link' href="#about">About Academy</a>
       <a class='nav-link' href="#curiosity-machine" style="color: var(--color-accent-gold); font-weight: 600;">Curiosity Machine ✦</a>
       <a class='nav-link' href="#curiosity-machine" style="color: var(--color-accent-gold); font-weight: 600;">Curiosity Machine ✦</a>
+      <a class='nav-link' href="#curiosity-machine" style="color: var(--color-accent-gold); font-weight: 600;">Curiosity Machine ✦</a>
       <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
+          <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
           <a class='nav-link' href="#curiosity-machine" style='color: var(--color-accent-gold); font-weight: 600;'>Curiosity Machine ✦</a>
           <a class='btn btn-primary' href="#contact" style='margin-top: 1rem; text-align: center; justify-content: center;'>Contact Academy</a>
     </div>
@@ -2761,6 +2844,7 @@ a:hover {
           </div>
         </section>
 
+        
         
         
         <!-- =====================================================================
@@ -3765,6 +3849,7 @@ a:hover {
   //]]>
   </script>
 
+  
   
   <script type='text/javascript'>
   //<![CDATA[

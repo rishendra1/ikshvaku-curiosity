@@ -49,10 +49,89 @@ def integrate():
             'family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap'
         )
 
-    # 4. Insert Curiosity Machine CSS before closing </b:skin>
+    # 2. Add Curiosity Machine CSS before closing </b:skin>
     skin_end = b_text.find(']]></b:skin>')
     if skin_end != -1:
-        curiosity_css_block = '\n\n/* ==========================================================================\n   IKSHVAKU CURIOSITY MACHINE STYLES\n   ========================================================================== */\n' + c_css + '\n'
+        responsive_curiosity_css = c_css + '''
+
+/* ── PHONE & DESKTOP RESPONSIVE ENHANCEMENTS ── */
+@media (max-width: 991px) {
+  #iva-curiosity-machine {
+    padding: 1.5rem 1rem !important;
+  }
+  #iva-curiosity-machine .iva-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  #iva-curiosity-machine .iva-header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  #iva-curiosity-machine .iva-hero-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #iva-curiosity-machine {
+    padding: 1rem 0.5rem !important;
+  }
+  #iva-curiosity-machine .iva-categories-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  #iva-curiosity-machine .iva-category-chip {
+    padding: 12px 10px !important;
+    font-size: 0.8rem !important;
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+  #iva-curiosity-machine .iva-curiosity-card {
+    padding: 1.25rem 1rem !important;
+    border-radius: 16px !important;
+  }
+  #iva-curiosity-machine .iva-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  #iva-curiosity-machine .iva-hero-actions .iva-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  #iva-curiosity-machine .iva-card-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  #iva-curiosity-machine .iva-card-actions .iva-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  #iva-curiosity-machine .iva-modal-content {
+    width: 95vw !important;
+    max-height: 90vh !important;
+    padding: 1.25rem 1rem !important;
+    margin: 8px !important;
+  }
+  #iva-curiosity-machine #ivaExportCardCanvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  #iva-curiosity-machine .iva-saved-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 400px) {
+  #iva-curiosity-machine .iva-categories-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+'''
+        curiosity_css_block = '\n\n/* ==========================================================================\n   IKSHVAKU CURIOSITY MACHINE STYLES\n   ========================================================================== */\n' + responsive_curiosity_css + '\n'
         b_text = b_text[:skin_end] + curiosity_css_block + b_text[skin_end:]
 
     # 5. Add Nav links in Desktop Nav and Mobile Drawer cleanly
