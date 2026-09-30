@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Canonical Sitemap Reference
+# Replace https://YOUR-SITE-URL/ with your live domain when deployed
+Sitemap: https://YOUR-SITE-URL/sitemap.xml

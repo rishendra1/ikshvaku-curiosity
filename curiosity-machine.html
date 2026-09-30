@@ -1,0 +1,3369 @@
+<!-- ============================================================
+     IKSHVAKU CURIOSITY MACHINE
+     A digital curiosity playground by Ikshvaku Vidya Academy
+     Single-file HTML — Blogger-compatible
+     ============================================================ -->
+<style>
+/* ── RESET (scoped) ── */
+#iva-curiosity-machine *,
+#iva-curiosity-machine *::before,
+#iva-curiosity-machine *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS VARIABLES ── */
+#iva-curiosity-machine {
+  --iva-primary: #1a1a2e;
+  --iva-secondary: #16213e;
+  --iva-accent: #e94560;
+  --iva-accent2: #f5a623;
+  --iva-accent3: #0f3460;
+  --iva-text: #f0f0f0;
+  --iva-text-dark: #1a1a2e;
+  --iva-card-bg: #ffffff;
+  --iva-card-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  --iva-radius: 16px;
+  --iva-radius-sm: 10px;
+  --iva-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --iva-font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --iva-max-width: 1100px;
+  font-family: var(--iva-font);
+  color: var(--iva-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── BASE ── */
+#iva-curiosity-machine {
+  background: linear-gradient(135deg, var(--iva-primary) 0%, var(--iva-secondary) 50%, var(--iva-accent3) 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#iva-curiosity-machine .iva-container {
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── TYPOGRAPHY ── */
+#iva-curiosity-machine h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.02em; }
+#iva-curiosity-machine h2 { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 700; }
+#iva-curiosity-machine h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; }
+#iva-curiosity-machine p { margin-bottom: 0.8rem; }
+#iva-curiosity-machine a { color: var(--iva-accent2); text-decoration: none; transition: var(--iva-transition); }
+#iva-curiosity-machine a:hover { color: #ffc107; }
+
+/* ── BUTTONS ── */
+#iva-curiosity-machine .iva-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--iva-radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--iva-transition);
+  font-family: var(--iva-font);
+  text-decoration: none;
+  line-height: 1.2;
+  position: relative;
+  overflow: hidden;
+}
+
+#iva-curiosity-machine .iva-btn:focus-visible {
+  outline: 3px solid var(--iva-accent2);
+  outline-offset: 2px;
+}
+
+#iva-curiosity-machine .iva-btn-primary {
+  background: var(--iva-accent);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(233,69,96,0.3);
+}
+#iva-curiosity-machine .iva-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(233,69,96,0.4);
+  background: #d63850;
+}
+
+#iva-curiosity-machine .iva-btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+#iva-curiosity-machine .iva-btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+#iva-curiosity-machine .iva-btn-outline {
+  background: transparent;
+  color: var(--iva-accent2);
+  border: 2px solid var(--iva-accent2);
+}
+#iva-curiosity-machine .iva-btn-outline:hover {
+  background: var(--iva-accent2);
+  color: var(--iva-text-dark);
+}
+
+#iva-curiosity-machine .iva-btn-small {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+}
+
+#iva-curiosity-machine .iva-btn-icon {
+  padding: 10px 16px;
+  font-size: 1.2rem;
+}
+
+#iva-curiosity-machine .iva-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── CARDS ── */
+#iva-curiosity-machine .iva-card {
+  background: var(--iva-card-bg);
+  border-radius: var(--iva-radius);
+  box-shadow: var(--iva-card-shadow);
+  padding: clamp(20px, 4vw, 40px);
+  color: var(--iva-text-dark);
+  transition: var(--iva-transition);
+}
+
+#iva-curiosity-machine .iva-card-dark {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  color: var(--iva-text);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ── HEADER ── */
+#iva-curiosity-machine .iva-header {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26,26,46,0.95);
+  backdrop-filter: blur(10px);
+}
+
+#iva-curiosity-machine .iva-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 16px;
+}
+
+#iva-curiosity-machine .iva-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+#iva-curiosity-machine .iva-logo img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.15);
+  transition: var(--iva-transition);
+}
+
+#iva-curiosity-machine .iva-logo:hover img {
+  transform: rotate(5deg) scale(1.05);
+  border-color: var(--iva-accent2);
+}
+
+#iva-curiosity-machine .iva-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+#iva-curiosity-machine .iva-logo-title {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+#iva-curiosity-machine .iva-logo-sub {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+#iva-curiosity-machine .iva-header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#iva-curiosity-machine .iva-header-link {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: var(--iva-transition);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#iva-curiosity-machine .iva-header-link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── HERO ── */
+#iva-curiosity-machine .iva-hero {
+  text-align: center;
+  padding: clamp(40px, 8vw, 100px) 20px clamp(20px, 4vw, 50px);
+  position: relative;
+}
+
+#iva-curiosity-machine .iva-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(233,69,96,0.08) 0%, transparent 70%);
+  transform: translate(-50%, -30%);
+  pointer-events: none;
+}
+
+#iva-curiosity-machine .iva-hero-title {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #fff 40%, var(--iva-accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+#iva-curiosity-machine .iva-hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+#iva-curiosity-machine .iva-hero-text {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: rgba(255,255,255,0.65);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  line-height: 1.7;
+}
+
+#iva-curiosity-machine .iva-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#iva-curiosity-machine .iva-promise {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 24px;
+  margin-top: 28px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+}
+
+#iva-curiosity-machine .iva-promise span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── SEARCH ── */
+#iva-curiosity-machine .iva-search-section {
+  padding: 0 20px 30px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-search-box {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-search-box input {
+  width: 100%;
+  padding: 14px 20px 14px 48px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  font-size: 1rem;
+  font-family: var(--iva-font);
+  transition: var(--iva-transition);
+  outline: none;
+}
+
+#iva-curiosity-machine .iva-search-box input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+#iva-curiosity-machine .iva-search-box input:focus {
+  border-color: var(--iva-accent2);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 0 20px rgba(245,166,35,0.1);
+}
+
+#iva-curiosity-machine .iva-search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── TODAY'S CURIOSITY ── */
+#iva-curiosity-machine .iva-today-section {
+  padding: 30px 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-section-title {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+#iva-curiosity-machine .iva-today-card {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+#iva-curiosity-machine .iva-today-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+#iva-curiosity-machine .iva-today-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+#iva-curiosity-machine .iva-badge-space { background: #e3f2fd; color: #1565c0; }
+#iva-curiosity-machine .iva-badge-science { background: #e8f5e9; color: #2e7d32; }
+#iva-curiosity-machine .iva-badge-math { background: #fff3e0; color: #e65100; }
+#iva-curiosity-machine .iva-badge-tech { background: #f3e5f5; color: #6a1b9a; }
+#iva-curiosity-machine .iva-badge-thinking { background: #fce4ec; color: #c62828; }
+#iva-curiosity-machine .iva-badge-nature { background: #e0f2f1; color: #00695c; }
+#iva-curiosity-machine .iva-badge-how { background: #e8eaf6; color: #283593; }
+#iva-curiosity-machine .iva-badge-behavior { background: #fff8e1; color: #f57f17; }
+
+#iva-curiosity-machine .iva-today-question {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+#iva-curiosity-machine .iva-today-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* ── CATEGORIES ── */
+#iva-curiosity-machine .iva-categories-section {
+  padding: 30px 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+#iva-curiosity-machine .iva-category-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: var(--iva-transition);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--iva-font);
+}
+
+#iva-curiosity-machine .iva-category-chip:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+  border-color: var(--iva-accent2);
+}
+
+#iva-curiosity-machine .iva-category-chip span:first-child {
+  font-size: 1.3rem;
+}
+
+/* ── RANDOM WALK ── */
+#iva-curiosity-machine .iva-random-section {
+  padding: 30px 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+#iva-curiosity-machine .iva-random-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--iva-radius);
+  padding: 30px;
+  text-align: center;
+}
+
+#iva-curiosity-machine .iva-random-quote {
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  margin: 12px 0 20px;
+  font-size: 1.05rem;
+}
+
+/* ── STRANGE SECTION ── */
+#iva-curiosity-machine .iva-strange-section {
+  padding: 30px 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-strange-card {
+  background: linear-gradient(135deg, rgba(233,69,96,0.1), rgba(245,166,35,0.1));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--iva-radius);
+  padding: clamp(20px, 4vw, 35px);
+  text-align: center;
+}
+
+#iva-curiosity-machine .iva-strange-fact {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  margin: 12px 0;
+  color: var(--iva-accent2);
+}
+
+/* ── CURIOISTY DISPLAY ── */
+#iva-curiosity-machine .iva-curiosity-view {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-curiosity-view .iva-card {
+  margin-bottom: 20px;
+}
+
+#iva-curiosity-machine .iva-curiosity-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+}
+
+#iva-curiosity-machine .iva-curiosity-category {
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#iva-curiosity-machine .iva-curiosity-question {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+#iva-curiosity-machine .iva-curiosity-prompt {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+#iva-curiosity-machine .iva-think-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: var(--iva-font);
+  resize: vertical;
+  min-height: 100px;
+  transition: var(--iva-transition);
+  outline: none;
+  margin-bottom: 16px;
+  background: #fafafa;
+}
+
+#iva-curiosity-machine .iva-think-input:focus {
+  border-color: var(--iva-accent);
+  box-shadow: 0 0 0 4px rgba(233,69,96,0.1);
+  background: #fff;
+}
+
+#iva-curiosity-machine .iva-explanation {
+  margin-top: 20px;
+  animation: ivaFadeIn 0.4s ease;
+}
+
+#iva-curiosity-machine .iva-explanation-level {
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--iva-accent);
+}
+
+#iva-curiosity-machine .iva-explanation-level h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--iva-accent);
+  margin-bottom: 8px;
+}
+
+#iva-curiosity-machine .iva-what-if-box {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  border: 1px solid rgba(245,166,35,0.3);
+}
+
+#iva-curiosity-machine .iva-real-life-box {
+  background: #e8f5e9;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+#iva-curiosity-machine .iva-connected-box {
+  background: #e3f2fd;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+#iva-curiosity-machine .iva-connected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+#iva-curiosity-machine .iva-connected-tag {
+  padding: 4px 14px;
+  background: #bbdefb;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--iva-transition);
+}
+
+#iva-curiosity-machine .iva-connected-tag:hover {
+  background: #90caf9;
+}
+
+#iva-curiosity-machine .iva-curiosity-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ── COMPLETION ── */
+#iva-curiosity-machine .iva-completion {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#iva-curiosity-machine .iva-completion h2 {
+  color: var(--iva-accent2);
+  margin-bottom: 12px;
+}
+
+#iva-curiosity-machine .iva-completion p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto 24px;
+}
+
+/* ── JOURNEY ── */
+#iva-curiosity-machine .iva-journey-section {
+  padding: 30px 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+#iva-curiosity-machine .iva-journey-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+#iva-curiosity-machine .iva-journey-item .iva-count {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--iva-accent2);
+}
+
+#iva-curiosity-machine .iva-journey-item .iva-label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── SAVED ── */
+#iva-curiosity-machine .iva-saved-section {
+  padding: 30px 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-saved-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+#iva-curiosity-machine .iva-saved-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--iva-radius-sm);
+  padding: 18px;
+  cursor: pointer;
+  transition: var(--iva-transition);
+}
+
+#iva-curiosity-machine .iva-saved-item:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── EXPERIMENTS ── */
+#iva-curiosity-machine .iva-experiment-box {
+  background: #f3e5f5;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+#iva-curiosity-machine .iva-experiment-box input[type="range"] {
+  width: 100%;
+  margin: 12px 0;
+  accent-color: var(--iva-accent);
+}
+
+#iva-curiosity-machine .iva-experiment-result {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--iva-accent3);
+  text-align: center;
+  padding: 12px;
+}
+
+/* ── BUILD QUESTION ── */
+#iva-curiosity-machine .iva-build-section {
+  padding: 30px 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+#iva-curiosity-machine .iva-build-numbers {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--iva-accent2);
+  margin: 16px 0;
+  letter-spacing: 0.05em;
+}
+
+#iva-curiosity-machine .iva-build-input {
+  max-width: 400px;
+  margin: 12px auto;
+}
+
+#iva-curiosity-machine .iva-build-input textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  font-size: 1rem;
+  font-family: var(--iva-font);
+  resize: vertical;
+  min-height: 80px;
+  outline: none;
+}
+
+#iva-curiosity-machine .iva-build-input textarea:focus {
+  border-color: var(--iva-accent2);
+}
+
+/* ── IKSHVAKU SECTION ── */
+#iva-curiosity-machine .iva-ikshvaku-section {
+  padding: 50px 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+#iva-curiosity-machine .iva-ikshvaku-section h2 {
+  color: var(--iva-accent2);
+  margin-bottom: 16px;
+}
+
+#iva-curiosity-machine .iva-ikshvaku-section p {
+  max-width: 600px;
+  margin: 0 auto 12px;
+  color: rgba(255,255,255,0.7);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+#iva-curiosity-machine .iva-ikshvaku-section .iva-brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 20px;
+}
+
+#iva-curiosity-machine .iva-ikshvaku-section .iva-brand-sub {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── BORED MODE ── */
+#iva-curiosity-machine .iva-bored-view {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#iva-curiosity-machine .iva-bored-view h2 {
+  color: var(--iva-accent2);
+  margin-bottom: 12px;
+}
+
+#iva-curiosity-machine .iva-bored-challenge {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--iva-radius);
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+/* ── STRANGE FACT DISPLAY ── */
+#iva-curiosity-machine .iva-strange-view {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-strange-fact-display {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 600;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--iva-radius);
+  padding: 30px;
+  margin: 16px 0;
+}
+
+/* ── MODAL / OVERLAY ── */
+#iva-curiosity-machine .iva-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: ivaFadeIn 0.3s ease;
+}
+
+#iva-curiosity-machine .iva-modal {
+  background: #fff;
+  border-radius: var(--iva-radius);
+  padding: clamp(24px, 5vw, 40px);
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: ivaSlideUp 0.3s ease;
+  color: var(--iva-text-dark);
+}
+
+#iva-curiosity-machine .iva-modal h2 {
+  margin-bottom: 12px;
+}
+
+/* ── INTRO ── */
+#iva-curiosity-machine .iva-intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--iva-primary);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  animation: ivaFadeIn 0.5s ease;
+}
+
+#iva-curiosity-machine .iva-intro-text {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 20px;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+#iva-curiosity-machine .iva-intro-title {
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff, var(--iva-accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 16px 0 8px;
+}
+
+#iva-curiosity-machine .iva-intro-by {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+/* ── SEARCH RESULTS ── */
+#iva-curiosity-machine .iva-search-results {
+  padding: 20px;
+  max-width: var(--iva-max-width);
+  margin: 0 auto;
+}
+
+#iva-curiosity-machine .iva-search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+#iva-curiosity-machine .iva-search-result-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--iva-radius-sm);
+  padding: 18px;
+  cursor: pointer;
+  transition: var(--iva-transition);
+}
+
+#iva-curiosity-machine .iva-search-result-item:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+#iva-curiosity-machine .iva-search-result-item .iva-result-question {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+#iva-curiosity-machine .iva-search-result-item .iva-result-category {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+}
+
+#iva-curiosity-machine .iva-search-empty {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── TOAST ── */
+#iva-curiosity-machine .iva-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--iva-text-dark);
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  z-index: 3000;
+  animation: ivaSlideUp 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 90vw;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes ivaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+@keyframes ivaSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── UTILITIES & VIEW TRANSITIONS ── */
+#iva-curiosity-machine .iva-hidden {
+  display: none !important;
+}
+
+#iva-curiosity-machine .iva-view {
+  animation: ivaFadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#iva-curiosity-machine .iva-view.iva-hidden {
+  display: none !important;
+}
+
+#iva-curiosity-machine .iva-category-chip.active {
+  background: var(--iva-accent2);
+  color: var(--iva-text-dark);
+  border-color: var(--iva-accent2);
+  font-weight: 700;
+}
+
+#iva-curiosity-machine .iva-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#iva-curiosity-machine .iva-pointer {
+  cursor: pointer;
+}
+
+#iva-curiosity-machine .iva-modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+  transition: var(--iva-transition);
+}
+
+#iva-curiosity-machine .iva-modal-close-btn:hover {
+  color: var(--iva-accent);
+}
+
+#iva-curiosity-machine .iva-remove-saved-btn {
+  background: none;
+  border: none;
+  color: var(--iva-accent);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: var(--iva-transition);
+}
+
+#iva-curiosity-machine .iva-remove-saved-btn:hover {
+  background: rgba(233,69,96,0.1);
+}
+
+#iva-curiosity-machine .iva-experiment-slider-wrapper {
+  margin: 15px 0 10px;
+}
+
+#iva-curiosity-machine .iva-experiment-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #777;
+}
+
+/* ── RESPONSIVE TWEAKS ── */
+@media (max-width: 640px) {
+  #iva-curiosity-machine .iva-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #iva-curiosity-machine .iva-header-actions {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  #iva-curiosity-machine .iva-header-link {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+  #iva-curiosity-machine .iva-build-numbers {
+    font-size: 1.6rem;
+  }
+}
+</style>
+
+<div id="iva-curiosity-machine">
+  <!-- ── HEADER ── -->
+  <header class="iva-header" role="banner">
+    <div class="iva-header-inner">
+      <div class="iva-logo" id="ivaLogoBtn" role="button" tabindex="0" title="Return to Curiosity Machine Home">
+        <img src="assets/IVA.jpeg" alt="Ikshvaku Vidya Academy Seal" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'44\' height=\'44\' viewBox=\'0 0 44 44\'><circle cx=\'22\' cy=\'22\' r=\'22\' fill=\'%23f5a623\'/><text x=\'22\' y=\'27\' font-size=\'15\' font-weight=\'bold\' fill=\'%231a1a2e\' text-anchor=\'middle\'>IVA</text></svg>'">
+        <div class="iva-logo-text">
+          <span class="iva-logo-title">IKSHVAKU CURIOSITY MACHINE</span>
+          <span class="iva-logo-sub">Education Beyond Commerce</span>
+        </div>
+      </div>
+      <nav class="iva-header-actions" aria-label="Quick Actions">
+        <button type="button" class="iva-header-link" id="ivaNavHomeBtn">🏠 Home</button>
+        <button type="button" class="iva-header-link" id="ivaNavRandomBtn">🎲 Surprise Me</button>
+        <button type="button" class="iva-header-link" id="ivaNavBoredBtn">⚡ Bored?</button>
+        <button type="button" class="iva-header-link" id="ivaNavStrangeBtn">💡 Strange Facts</button>
+        <button type="button" class="iva-header-link" id="ivaNavSavedBtn">🔖 Saved <span id="ivaSavedBadge">(0)</span></button>
+        <button type="button" class="iva-header-link" id="ivaNavAboutBtn">ℹ️ About</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── MAIN CONTENT CONTAINER ── -->
+  <main class="iva-container">
+
+    <!-- ══════════════════════════════════════════════════════════
+         VIEW 1: HOME VIEW
+         ══════════════════════════════════════════════════════════ -->
+    <div id="ivaHomeView" class="iva-view">
+      <!-- HERO -->
+      <section class="iva-hero">
+        <h1 class="iva-hero-title">The Curiosity Machine</h1>
+        <p class="iva-hero-sub">What if curiosity was a daily habit, not an accident?</p>
+        <p class="iva-hero-text">
+          Explore 500,000 fascinating first-principles questions across science, astrophysics, mathematics, psychology, and philosophy. Formulate your intuition first, then unpack mechanisms from first principles.
+        </p>
+        <div class="iva-hero-actions">
+          <button type="button" class="iva-btn iva-btn-primary" id="ivaHeroExploreBtn">🚀 Start Wondering</button>
+          <button type="button" class="iva-btn iva-btn-secondary" id="ivaHeroSurpriseBtn">🎲 Surprise Me</button>
+          <button type="button" class="iva-btn iva-btn-outline" id="ivaHeroBoredBtn">⚡ I'm Bored</button>
+        </div>
+        <div class="iva-promise">
+          <span>📚 500,000 Questions Library</span>
+          <span>🔒 100% Free &amp; Ad-Free</span>
+          <span>🧠 Intuition-First Training</span>
+          <span>🏛️ Education Beyond Commerce</span>
+        </div>
+      </section>
+
+      <!-- SEARCH -->
+      <section class="iva-search-section">
+        <div class="iva-search-box">
+          <span class="iva-search-icon">🔍</span>
+          <input type="text" id="ivaSearchInput" placeholder="Search questions, keywords, or enter Question # (1 - 500,000)..." autocomplete="off">
+        </div>
+        <div style="text-align: center; margin-top: 12px; display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap;">
+          <span style="font-size: 0.85rem; color: rgba(255,255,255,0.7);">Or jump directly to inquiry:</span>
+          <input type="number" id="ivaJumpInput" min="1" max="500000" placeholder="e.g. 42195" style="width: 130px; padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-family: inherit; font-size: 0.85rem; outline: none;">
+          <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaJumpBtn" style="padding: 6px 14px; font-size: 0.85rem;">Jump →</button>
+        </div>
+        <!-- Dynamic search results dropdown -->
+        <div id="ivaSearchResults" class="iva-search-results iva-hidden">
+          <div id="ivaSearchResultsGrid" class="iva-search-results-grid"></div>
+        </div>
+      </section>
+
+      <!-- TODAY'S CURIOSITY -->
+      <section class="iva-today-section">
+        <div class="iva-section-title">
+          <span>📅</span> Today's Curiosity
+        </div>
+        <div class="iva-card iva-today-card" id="ivaTodayCard">
+          <span class="iva-today-badge iva-badge-space" id="ivaTodayBadge">Space &amp; Cosmos</span>
+          <h2 class="iva-today-question" id="ivaTodayQuestion">Why is space pitch black if the universe is filled with hundreds of billions of stars?</h2>
+          <p id="ivaTodayExcerpt" style="color: #666; font-size: 0.95rem; margin-bottom: 16px;">
+            Olbers' Paradox asks a deceptively simple question: In an infinite universe with infinite stars, shouldn't every line of sight end on a burning star?
+          </p>
+          <div class="iva-today-actions">
+            <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaTodayExploreBtn">Explore Question →</button>
+            <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaTodayRollBtn">🎲 Different Pick</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section class="iva-categories-section">
+        <div class="iva-section-title">
+          <span>🧭</span> Explore by Category
+        </div>
+        <div class="iva-categories-grid" id="ivaCategoriesGrid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- RANDOM WALK -->
+      <section class="iva-random-section">
+        <div class="iva-card-dark iva-random-card">
+          <div class="iva-section-title" style="justify-content: center;">
+            <span>🎲</span> The Random Walk
+          </div>
+          <p class="iva-random-quote" id="ivaRandomQuote">"Wonder is the seed of knowledge." — Francis Bacon</p>
+          <button type="button" class="iva-btn iva-btn-primary" id="ivaRandomWalkBtn">Take a Random Leap →</button>
+        </div>
+      </section>
+
+      <!-- STRANGE SECTION -->
+      <section class="iva-strange-section">
+        <div class="iva-strange-card">
+          <div class="iva-section-title" style="justify-content: center; color: var(--iva-accent2);">
+            <span>⚡</span> Strange Reality
+          </div>
+          <div class="iva-strange-fact" id="ivaHomeStrangeFact">
+            A day on Venus is longer than a year on Venus.
+          </div>
+          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaMoreStrangeBtn">Explore Mind-Bending Facts →</button>
+        </div>
+      </section>
+
+      <!-- BUILD A QUESTION SECTION -->
+      <section class="iva-build-section">
+        <div class="iva-card-dark" style="border-radius: var(--iva-radius); padding: 30px;">
+          <div class="iva-section-title" style="justify-content: center;">
+            <span>🧩</span> Spark a New Question
+          </div>
+          <p style="color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 16px;">
+            Creativity is connecting what others keep apart. Connect these 3 random concept sparks into your own inquiry:
+          </p>
+          <div class="iva-build-numbers" id="ivaBuildSparks">Entropy • Honeybees • Soundwaves</div>
+          <div class="iva-build-input">
+            <textarea id="ivaBuildTextarea" placeholder="Write your question connecting these sparks... (e.g., Can sound organize matter into complex beehive geometry?)"></textarea>
+          </div>
+          <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaRerollSparksBtn">🎲 New Sparks</button>
+            <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaSaveSparkQuestionBtn">Save Question</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOURNEY METRICS -->
+      <section class="iva-journey-section">
+        <div class="iva-section-title">
+          <span>📈</span> Your Curiosity Journey
+        </div>
+        <div class="iva-journey-grid">
+          <div class="iva-journey-item">
+            <div class="iva-count" id="ivaJourneyExplored">0</div>
+            <div class="iva-label">Explored Questions</div>
+          </div>
+          <div class="iva-journey-item">
+            <div class="iva-count" id="ivaJourneyReflections">0</div>
+            <div class="iva-label">Reflections Written</div>
+          </div>
+          <div class="iva-journey-item">
+            <div class="iva-count" id="ivaJourneySaved">0</div>
+            <div class="iva-label">Bookmarked Topics</div>
+          </div>
+          <div class="iva-journey-item">
+            <div class="iva-count" id="ivaJourneyStreak">1</div>
+            <div class="iva-label">Day Streak 🔥</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IKSHVAKU SECTION -->
+      <section class="iva-ikshvaku-section">
+        <h2>Curiosity is Not an Extra. It's the Foundation.</h2>
+        <p>
+          At Ikshvaku Vidya Academy, we believe education should expand intellectual reach, critical judgment, and genuine wonder—not reduce learning to mechanical memorization.
+        </p>
+        <p>
+          Founded by <strong>Rishendra</strong> and <strong>Revanth Sai</strong> on the conviction of <em>Education Beyond Commerce</em>.
+        </p>
+        <div class="iva-brand-name">Ikshvaku Vidya Academy</div>
+        <div class="iva-brand-sub">Education Beyond Commerce</div>
+        <div style="margin-top: 20px;">
+          <a href="index.html" class="iva-btn iva-btn-outline iva-btn-small" target="_blank" rel="noopener">Visit Academy Portal →</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         VIEW 2: CURIOSITY DETAIL VIEW
+         ══════════════════════════════════════════════════════════ -->
+    <div id="ivaCuriosityView" class="iva-view iva-curiosity-view iva-hidden">
+      <!-- Back button -->
+      <div style="margin-bottom: 16px;">
+        <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaBackToBrowseBtn">← Back to Overview</button>
+      </div>
+
+      <div class="iva-card">
+        <div class="iva-curiosity-meta">
+          <span class="iva-curiosity-category" id="ivaCuriosityCategoryBadge">Space</span>
+          <span style="color: #888; font-size: 0.85rem;" id="ivaCuriosityReadTime">⏱️ 3 min read</span>
+          <span style="color: #888; font-size: 0.85rem;" id="ivaCuriosityLevel">🎯 First Principles</span>
+        </div>
+
+        <h1 class="iva-curiosity-question" id="ivaCuriosityTitle">Question title</h1>
+
+        <!-- THINK FIRST PROMPT -->
+        <div style="background: #f8f9fa; border-radius: 12px; padding: 20px; margin: 20px 0; border: 1px dashed #d0d7de;">
+          <div style="font-weight: 700; color: var(--iva-secondary); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+            <span>🤔</span> Pause &amp; Think First
+          </div>
+          <p class="iva-curiosity-prompt" id="ivaCuriosityPrompt">
+            Prompt text
+          </p>
+          <textarea class="iva-think-input" id="ivaThinkInput" placeholder="Write your intuition or hypothesis here before revealing... (writing forces true thinking)"></textarea>
+          <div style="display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaRevealExplanationBtn">💡 Save Thought &amp; Reveal Explanation</button>
+            <span id="ivaThinkSavedStatus" style="font-size: 0.85rem; color: #2e7d32; display: none;">✓ Reflection saved!</span>
+          </div>
+        </div>
+
+        <!-- EXPLANATION ACCORDION / TIERS -->
+        <div class="iva-explanation" id="ivaExplanationContainer">
+          <div class="iva-explanation-level">
+            <h4>Level 1: The Intuitive Core</h4>
+            <div id="ivaExpSimple"></div>
+          </div>
+
+          <div class="iva-explanation-level" style="border-left-color: var(--iva-accent2);">
+            <h4 style="color: var(--iva-accent2);">Level 2: The Physical Mechanism</h4>
+            <div id="ivaExpMechanism"></div>
+          </div>
+
+          <div class="iva-explanation-level" style="border-left-color: var(--iva-accent3);">
+            <h4 style="color: var(--iva-accent3);">Level 3: First Principles &amp; Cosmic Consequence</h4>
+            <div id="ivaExpFirstPrinciples"></div>
+          </div>
+
+          <!-- INTERACTIVE EXPERIMENT (if applicable) -->
+          <div class="iva-experiment-box" id="ivaExperimentBox">
+            <div style="font-weight: 700; color: var(--iva-accent3); margin-bottom: 6px;" id="ivaExperimentTitle">🔬 Interactive Thought Experiment</div>
+            <p style="font-size: 0.9rem; color: #555;" id="ivaExperimentDesc">Slide to adjust:</p>
+            <div class="iva-experiment-slider-wrapper">
+              <input type="range" id="ivaExperimentSlider" min="1" max="100" value="50">
+              <div class="iva-experiment-slider-labels">
+                <span id="ivaExpSliderMin">Min</span>
+                <span id="ivaExpSliderMax">Max</span>
+              </div>
+            </div>
+            <div class="iva-experiment-result" id="ivaExperimentResult">Output calculation</div>
+          </div>
+
+          <!-- WHAT IF BOX -->
+          <div class="iva-what-if-box">
+            <h4 style="color: #e65100; margin-bottom: 6px; font-weight: 700;">🌌 What If? (Thought Experiment)</h4>
+            <p id="ivaWhatIfText" style="margin: 0; color: #5d4037; font-size: 0.95rem;"></p>
+          </div>
+
+          <!-- REAL LIFE BOX -->
+          <div class="iva-real-life-box">
+            <h4 style="color: #1b5e20; margin-bottom: 6px; font-weight: 700;">🌱 Real-World Connection</h4>
+            <p id="ivaRealLifeText" style="margin: 0; color: #2e7d32; font-size: 0.95rem;"></p>
+          </div>
+
+          <!-- CONNECTED TOPICS -->
+          <div class="iva-connected-box">
+            <h4 style="color: #0d47a1; margin-bottom: 6px; font-weight: 700;">🔗 Connected Curiosities</h4>
+            <div class="iva-connected-tags" id="ivaConnectedTags"></div>
+          </div>
+        </div>
+
+        <!-- CURIOSITY ACTIONS -->
+        <div class="iva-curiosity-actions">
+          <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaBookmarkBtn">🔖 Save Question</button>
+          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaNextRandomBtn">🎲 Next Random Question</button>
+          <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaShareBtn">📤 Share Curiosity</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         VIEW 3: BORED MODE
+         ══════════════════════════════════════════════════════════ -->
+    <div id="ivaBoredView" class="iva-view iva-bored-view iva-hidden">
+      <h2>⚡ The 60-Second Boredom Antidote</h2>
+      <p style="color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 20px;">
+        Boredom is just your brain asking for high-quality stimulation. Try this physical or cognitive experiment right now:
+      </p>
+      <div class="iva-bored-challenge" id="ivaBoredChallengeText">
+        Look at any shadow cast in the room right now. Notice the blurry penumbra around its edges. Why is the edge fuzzy instead of razor-sharp? (Hint: The light source is an area, not a single mathematical point.)
+      </div>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button type="button" class="iva-btn iva-btn-primary" id="ivaNextBoredBtn">⚡ Give Me Another Challenge</button>
+        <button type="button" class="iva-btn iva-btn-secondary" id="ivaBoredBackHomeBtn">🏠 Back to Machine</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         VIEW 4: STRANGE FACTS VIEW
+         ══════════════════════════════════════════════════════════ -->
+    <div id="ivaStrangeView" class="iva-view iva-strange-view iva-hidden">
+      <h2 style="color: var(--iva-accent2);">💡 Strange Reality Archive</h2>
+      <p style="color: rgba(255,255,255,0.7); max-width: 550px; margin: 0 auto 20px;">
+        The universe is under no obligation to conform to our everyday human intuition. Here are verified strange phenomena:
+      </p>
+      <div class="iva-strange-fact-display" id="ivaStrangeFactDisplay">
+        If you took all the empty space out of the atoms of all 8 billion humans on Earth, the remaining solid mass would fit into the volume of a single sugar cube.
+      </div>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button type="button" class="iva-btn iva-btn-primary" id="ivaNextStrangeBtn">💡 Next Strange Truth</button>
+        <button type="button" class="iva-btn iva-btn-secondary" id="ivaStrangeBackHomeBtn">🏠 Back to Machine</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         VIEW 5: SAVED / BOOKMARKS VIEW
+         ══════════════════════════════════════════════════════════ -->
+    <div id="ivaSavedView" class="iva-view iva-saved-section iva-hidden">
+      <div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <h2 style="color: #fff;">🔖 Your Saved Curiosities</h2>
+        <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaSavedBackHomeBtn">🏠 Back to Home</button>
+      </div>
+      <div class="iva-saved-grid" id="ivaSavedGrid"></div>
+      <div id="ivaSavedEmpty" class="iva-card-dark" style="text-align: center; padding: 40px; border-radius: 12px; display: none;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">📚</div>
+        <h3 style="color: #fff; margin-bottom: 8px;">No Curiosities Bookmarked Yet</h3>
+        <p style="color: rgba(255,255,255,0.6); margin-bottom: 16px;">
+          As you explore questions, click "🔖 Save Question" to build your personal library of wonder.
+        </p>
+        <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaSavedExploreNowBtn">Start Exploring →</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         VIEW 6: CATEGORY QUESTIONS VIEW
+         ══════════════════════════════════════════════════════════ -->
+    <div id="ivaCategoryView" class="iva-view iva-hidden" style="padding: 30px 20px; max-width: var(--iva-max-width); margin: 0 auto;">
+      <div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <span class="iva-today-badge" id="ivaCategoryViewBadge">Category</span>
+          <h2 style="color: #fff; margin-top: 8px;" id="ivaCategoryViewTitle">Category Questions</h2>
+        </div>
+        <button type="button" class="iva-btn iva-btn-secondary iva-btn-small" id="ivaCategoryBackHomeBtn">🏠 All Categories</button>
+      </div>
+      <div id="ivaCategoryLoading" style="text-align: center; padding: 24px; color: var(--iva-accent2); font-weight: 600; display: none;">
+        ⏳ Loading questions from the 100,000 library...
+      </div>
+      <div class="iva-saved-grid" id="ivaCategoryQuestionsGrid"></div>
+      <div style="text-align: center; margin-top: 24px;">
+        <button type="button" class="iva-btn iva-btn-primary" id="ivaCategoryLoadMoreBtn" style="display: none; margin: 0 auto;">
+          Load More Questions (+20) ↓
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── INTRO OVERLAY ── -->
+  <div class="iva-intro-overlay iva-hidden" id="ivaIntroOverlay">
+    <div class="iva-intro-text">
+      "The important thing is not to stop questioning. Curiosity has its own reason for existence."
+    </div>
+    <div class="iva-intro-title">Welcome to the Curiosity Machine</div>
+    <div class="iva-intro-by">By Ikshvaku Vidya Academy — Education Beyond Commerce</div>
+    <button type="button" class="iva-btn iva-btn-primary" id="ivaIntroEnterBtn">Enter The Machine →</button>
+  </div>
+
+  <!-- ── ABOUT MODAL OVERLAY ── -->
+  <div class="iva-overlay iva-hidden" id="ivaAboutModalOverlay">
+    <div class="iva-modal" style="position: relative;">
+      <button type="button" class="iva-modal-close-btn" id="ivaAboutCloseBtn" aria-label="Close dialog">✕</button>
+      <h2 style="color: var(--iva-secondary); margin-bottom: 8px;">Ikshvaku Vidya Academy</h2>
+      <p style="color: var(--iva-accent); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.08em; margin-bottom: 16px;">
+        Education Beyond Commerce
+      </p>
+      <p style="color: #444; line-height: 1.7; margin-bottom: 12px;">
+        The <strong>Curiosity Machine</strong> is an independent open-access digital playground built to cultivate the habit of asking deep, first-principles questions across mathematics, physics, computing, and philosophy.
+      </p>
+      <p style="color: #444; line-height: 1.7; margin-bottom: 12px;">
+        We believe that education must prioritize genuine understanding, intellectual agency, and affordable opportunity over commercial coaching culture.
+      </p>
+      <div style="background: #f8f9fa; border-left: 4px solid var(--iva-accent2); padding: 12px 16px; border-radius: 8px; margin: 16px 0;">
+        <div style="font-weight: 700; color: #1a1a2e; margin-bottom: 4px;">Founders</div>
+        <div style="font-size: 0.9rem; color: #555;"><strong>Rishendra</strong> (Founder) &amp; <strong>Revanth Sai</strong> (Co-Founder)</div>
+      </div>
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button type="button" class="iva-btn iva-btn-primary iva-btn-small" id="ivaAboutGotItBtn">Got It</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TOAST NOTIFICATION CONTAINER ── -->
+  <div class="iva-toast iva-hidden" id="ivaToast">
+    <span id="ivaToastIcon">✨</span>
+    <span id="ivaToastMessage">Notification message</span>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ════════════════════════════════════════════════════════════════
+  // DATA SOURCE CONFIGURATION
+  // ════════════════════════════════════════════════════════════════
+  // Defaults to local 'questions/' folder.
+  // When hosting on GitHub Pages, replace with your live URL, e.g.:
+  // var QUESTIONS_DATA_BASE_URL = 'https://YOUR-USERNAME.github.io/YOUR-REPO/questions/';
+  var QUESTIONS_DATA_BASE_URL = 'questions/';
+
+  // ════════════════════════════════════════════════════════════════
+  // 1. DATA REPOSITORY: 24 CURATED FIRST-PRINCIPLES CURIOSITIES
+  // ════════════════════════════════════════════════════════════════
+  var CURIOSITIES = [
+    // ── Space & Cosmos ──
+    {
+      id: "space-1",
+      category: "space",
+      categoryLabel: "Space & Cosmos",
+      badgeClass: "iva-badge-space",
+      readTime: "3 min read",
+      question: "Why is space pitch black if the universe is filled with hundreds of billions of stars?",
+      prompt: "Think about this: If the universe were infinite and eternal, wouldn't every single line of sight eventually hit a burning star? Why isn't the night sky as bright as the surface of the Sun?",
+      simple: "Light travels at a finite speed (300,000 km/s), and the universe has a finite age (~13.8 billion years). Light from infinitely distant stars simply hasn't had enough time to reach our eyes yet.",
+      mechanism: "The universe is also rapidly expanding. As photons travel billions of light-years across stretching spacetime, their wavelengths are stretched out (cosmological redshift). What started as blazing visible starlight has been shifted down into infrared and invisible microwave bands.",
+      firstPrinciples: "Known as <strong>Olbers' Paradox</strong>, this proves two foundational cosmic truths: the universe is NOT static, and it is NOT eternally old. The darkness of the night sky was the first historical clue that our cosmos had a beginning in time (the Big Bang).",
+      whatIf: "If human eyes could detect electromagnetic radiation in the microwave spectrum, the night sky would blaze with the cosmic microwave background—the oldest light in the cosmos, left over from 380,000 years after the Big Bang.",
+      realLife: "This exact principle led to the engineering of the James Webb Space Telescope (JWST). JWST was designed specifically with gold-plated infrared mirrors to catch the oldest, most red-shifted light in creation.",
+      experiment: {
+        title: "🌌 Cosmic Age & Visibility Slider",
+        desc: "Drag to simulate the age of the observable universe (in billions of years):",
+        min: 1,
+        max: 50,
+        val: 14,
+        unit: " billion years",
+        calculate: function(v) {
+          if (v < 5) return "Observable Universe Age: " + v + "B yrs → Sky is almost pitch black (very few light horizons reached Earth).";
+          if (v <= 20) return "Observable Universe Age: " + v + "B yrs (Current Reality ~13.8B) → Sky is black; light travel time + expansion redshift limit visible starlight.";
+          return "Observable Universe Age: " + v + "B yrs (Hypothetical Deep Future) → Far galaxies redshift entirely past the cosmological horizon into complete silence.";
+        }
+      },
+      connectedTags: ["Olbers' Paradox", "Redshift", "Big Bang", "JWST"]
+    },
+    {
+      id: "space-2",
+      category: "space",
+      categoryLabel: "Space & Cosmos",
+      badgeClass: "iva-badge-space",
+      readTime: "4 min read",
+      question: "What actually happens to time if you fall toward a black hole?",
+      prompt: "If your friend stood far away with a telescope watching you descend toward an event horizon, would they ever see you fall in?",
+      simple: "Gravity bends not just space, but time itself. To an outside observer watching you from safety, your clock appears to tick slower and slower until you appear frozen at the event horizon forever.",
+      mechanism: "According to Einstein's General Relativity, gravitational time dilation reaches infinity at the Schwarzschild radius (the event horizon). As you near it, photons emitted by you are stretched infinitely in wavelength (gravitational redshift), turning you dim, red, and eventually invisible.",
+      firstPrinciples: "Space and time are not separate rigid stages; they form a single four-dimensional fabric called spacetime. Near infinite mass density, time and radial space swap mathematical roles: falling toward the singularity becomes as unavoidable as moving toward tomorrow.",
+      whatIf: "From your own subjective perspective as the falling astronaut, your wristwatch ticks completely normally. You cross the event horizon without feeling time stop—only tidal gravitational forces ('spaghettification') pulling your feet faster than your head.",
+      realLife: "Gravitational time dilation isn't science fiction: GPS satellites in Earth's weaker gravitational field tick ~45 microseconds faster per day than clocks on Earth's surface and must be mathematically corrected continuously.",
+      experiment: {
+        title: "⏳ Gravitational Time Dilation Calculator",
+        desc: "Adjust distance to a 10-Solar-Mass Black Hole (km from center; Event Horizon = 30 km):",
+        min: 31,
+        max: 300,
+        val: 90,
+        unit: " km",
+        calculate: function(r) {
+          var rs = 30; // approx event horizon in km
+          var factor = Math.sqrt(1 - (rs / r));
+          var slowPercent = ((1 - factor) * 100).toFixed(1);
+          return "Distance: " + r + " km → Clocks run " + slowPercent + "% slower relative to deep space observers.";
+        }
+      },
+      connectedTags: ["General Relativity", "Event Horizon", "Time Dilation", "Black Holes"]
+    },
+    {
+      id: "space-3",
+      category: "space",
+      categoryLabel: "Space & Cosmos",
+      badgeClass: "iva-badge-space",
+      readTime: "3 min read",
+      question: "Why don't planets and satellites fall into the stars they orbit?",
+      prompt: "The Sun's gravity is immense. Why doesn't Earth get sucked directly into the fiery center of the Sun?",
+      simple: "Earth IS falling toward the Sun every single second—it is just moving sideways so fast that it continually misses the Sun!",
+      mechanism: "Orbital mechanics is perpetual free fall. An orbit occurs when an object's tangential velocity creates a forward path whose curve perfectly matches the spherical curvature of the gravitational body underneath it.",
+      firstPrinciples: "Newton's cannon thought experiment demonstrates this: fire a cannonball fast enough (~8 km/s at low Earth orbit), and the Earth's surface curves downward by 4.9 meters for every 8,000 meters the cannonball travels forward—the exact distance gravity pulls it down in 1 second.",
+      whatIf: "If Earth's orbital speed (~30 km/s) were suddenly reduced to zero, it would plunge in a straight line and incinerate in the Sun within roughly 64 days.",
+      realLife: "Astronauts aboard the International Space Station are not 'outside of Earth's gravity' (gravity up there is still ~90% of ground level). They float because they and the station are in continuous free fall together.",
+      experiment: {
+        title: "🚀 Orbital Speed vs Height Simulator",
+        desc: "Adjust altitude above Earth (in km):",
+        min: 200,
+        max: 36000,
+        val: 400,
+        unit: " km",
+        calculate: function(alt) {
+          // v = sqrt(GM / (R + h))
+          var R = 6371;
+          var speed = Math.sqrt(398600 / (R + alt)).toFixed(2);
+          var period = (2 * Math.PI * (R + alt) / speed / 60).toFixed(0);
+          return "Altitude: " + alt + " km → Required Orbital Speed: " + speed + " km/s (Orbit period: " + period + " minutes).";
+        }
+      },
+      connectedTags: ["Orbital Mechanics", "Gravity", "Newtonian Physics", "Free Fall"]
+    },
+
+    // ── Science & Nature ──
+    {
+      id: "science-1",
+      category: "science",
+      categoryLabel: "Science & Nature",
+      badgeClass: "iva-badge-science",
+      readTime: "3 min read",
+      question: "Why is the sky blue at noon but blazing crimson and gold at sunset?",
+      prompt: "Sunlight appears pure white or slightly yellowish. What happens in Earth's atmosphere that separates it into such striking colors?",
+      simple: "Sunlight is composed of all colors of the rainbow. Air molecules are tiny enough to scatter short blue waves much more easily than long red waves, filling the dome of the sky with scattered blue light.",
+      mechanism: "Lord Rayleigh proved that scattering intensity is inversely proportional to the 4th power of wavelength (1/λ⁴). Blue light (λ ~400nm) scatters almost 10 times more effectively than red light (λ ~700nm). At sunset, the Sun's light must travel through 10 times more atmospheric thickness; almost all blue light is scattered away before reaching your eye, leaving the triumphant reds and oranges.",
+      firstPrinciples: "Wave-particle interaction depends on scale: when particles are significantly smaller than the wavelength of light (~0.1 nm gas molecules vs ~500 nm light), Rayleigh scattering dominates.",
+      whatIf: "If Earth had no atmosphere (like the Moon), the sky would be pitch black day and night, even with the Sun blazing brightly in the center.",
+      realLife: "The same scattering phenomenon makes blue eyes look blue! Blue eyes have no blue pigment—the iris stroma is translucent and scatters light just like the atmosphere (Tyndall scattering).",
+      experiment: {
+        title: "🌅 Atmospheric Path Length Simulator",
+        desc: "Adjust Sun elevation angle above horizon (degrees):",
+        min: 0,
+        max: 90,
+        val: 45,
+        unit: "°",
+        calculate: function(deg) {
+          if (deg === 0) return "Sun at 0° (Sunset/Sunrise) → Sunlight travels through ~10x atmosphere. Blue scattered out completely; Sky is deep red/crimson.";
+          if (deg < 20) return "Sun at " + deg + "° (Golden Hour) → Intermediate scattering; sky is orange, amber, and gold.";
+          return "Sun at " + deg + "° (Midday) → Direct path through atmosphere; intense Rayleigh scattering makes the zenith vibrant sky blue.";
+        }
+      },
+      connectedTags: ["Rayleigh Scattering", "Electromagnetic Spectrum", "Atmosphere", "Optics"]
+    },
+    {
+      id: "science-2",
+      category: "science",
+      categoryLabel: "Science & Nature",
+      badgeClass: "iva-badge-science",
+      readTime: "3 min read",
+      question: "How can 300-foot redwood trees pull tons of water upward without mechanical pumps?",
+      prompt: "A column of water in a pipe can only be sucked upward by a vacuum pump to about 33 feet (10 meters) before water boils at atmospheric pressure. How do redwoods defy this by a factor of 10?",
+      simple: "Trees don't push water up from the roots, nor do they rely on simple suction pumps. They pull water upward using evaporation through microscopic leaf pores and the immense intermolecular glue of water itself.",
+      mechanism: "The Cohesion-Tension Theory: Water molecules form dense networks of hydrogen bonds. As water evaporates from microscopic leaf stomata (transpiration), it creates massive negative pressure (up to -20 atmospheres). Because water's cohesion is so strong, it behaves like an unbroken steel cable pulled upward through xylem capillary tubes.",
+      firstPrinciples: "Hydrogen bonding creates a tensile strength in liquid water that rivals metal wires when confined in microscopic, bubble-free capillaries.",
+      whatIf: "If an air bubble enters the xylem conduit (an embolism), the liquid 'rope' snaps and the column of water can no longer be pulled until the tree can repair it.",
+      realLife: "Engineers are studying synthetic tree xylem to design powerless, passive cooling systems for skyscrapers that pull moisture through building facades without electric motors.",
+      experiment: {
+        title: "🌲 Transpiration Negative Pressure Calculator",
+        desc: "Tree height in feet:",
+        min: 10,
+        max: 380,
+        val: 200,
+        unit: " ft",
+        calculate: function(h) {
+          var bar = (h * 0.03048).toFixed(1);
+          return "Height: " + h + " ft → Requires negative tension of roughly -" + bar + " atmospheres to lift water against gravity and viscous drag.";
+        }
+      },
+      connectedTags: ["Cohesion-Tension", "Hydrogen Bonds", "Capillary Action", "Botany"]
+    },
+    {
+      id: "science-3",
+      category: "science",
+      categoryLabel: "Science & Nature",
+      badgeClass: "iva-badge-science",
+      readTime: "3 min read",
+      question: "Why is water one of the only substances that expands when it freezes?",
+      prompt: "Almost every substance in nature shrinks and gets denser when freezing into a solid. Why does ice float on water instead of sinking to the bottom?",
+      simple: "As water cools below 4°C, hydrogen bonds force the molecules into a rigid, open hexagonal lattice with empty pockets of space, making ice ~9% less dense than liquid water.",
+      mechanism: "In liquid water, molecules tumble and crowd tightly together. Below 4°C, kinetic energy drops enough for tetrahedral hydrogen bonds to lock into place. This open cage-like crystal structure increases volume, reducing density from 1.00 g/cm³ to 0.917 g/cm³.",
+      firstPrinciples: "The geometry of the water molecule: the 104.5° bond angle between the two hydrogen atoms and the oxygen atom's lone electron pairs dictates an open hexagonal geometry upon solidification.",
+      whatIf: "If ice sank like normal solids, lakes and oceans would freeze solid from the bottom up every winter, killing all aquatic life and locking Earth into an irreversible global ice age.",
+      realLife: "Because ice expands with tremendous force (up to 200,000 kPa), water freezing inside rock crevices is the primary driver of geological weathering and mountain erosion across the planet.",
+      experiment: {
+        title: "🧊 Water Density vs Temperature",
+        desc: "Temperature in Celsius (°C):",
+        min: -10,
+        max: 20,
+        val: 4,
+        unit: "°C",
+        calculate: function(t) {
+          if (t <= 0) return "At " + t + "°C (Solid Ice) → Density is ~0.917 g/cm³ (Floats! 9% expansion).";
+          if (t === 4) return "At 4°C (Maximum Density) → Exactly 1.000 g/cm³. Water is at its absolute densest point.";
+          return "At " + t + "°C (Liquid) → Density decreases slightly due to thermal expansion (~0.998 g/cm³).";
+        }
+      },
+      connectedTags: ["Hydrogen Bonding", "Density", "Thermodynamics", "Evolution"]
+    },
+
+    // ── Math & Patterns ──
+    {
+      id: "math-1",
+      category: "math",
+      categoryLabel: "Math & Patterns",
+      badgeClass: "iva-badge-math",
+      readTime: "4 min read",
+      question: "Why do sunflowers, pinecones, and spirals in nature follow the Fibonacci sequence?",
+      prompt: "Why should the arrangement of seeds in a flower head have anything to do with adding the two previous numbers together: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55...?",
+      simple: "Plants want to pack the maximum number of seeds without leaving gaps or overlapping. The mathematically optimal angle to turn between new seeds is the Golden Angle (~137.5°), directly derived from Fibonacci ratios.",
+      mechanism: "As consecutive Fibonacci numbers grow (e.g., 55/34 ≈ 1.618033...), their ratio converges to Phi (φ), the Golden Ratio. The Golden Ratio is the 'most irrational' number because its continued fraction consists entirely of 1s (1 + 1/(1 + 1/...)). A turn of 360° / φ² ≈ 137.5077° ensures no seed ever aligns with an older seed, producing interlocking spirals.",
+      firstPrinciples: "Biological efficiency: Natural selection favors energy minimization. Evolution didn't 'learn' Fibonacci math; geometry and physics penalize any seed angle other than 137.5° with wasted space.",
+      whatIf: "If a plant tried a simple rational fraction like 1/4 of a turn (90°), the seeds would form 4 straight spokes with huge empty gaps between them.",
+      realLife: "Solar power engineers use Fibonacci spiral arrays (heliostats) to position solar reflectors around central collector towers, minimizing shading and capturing 15% more sunlight.",
+      experiment: {
+        title: "🌻 Golden Angle Packing Simulator",
+        desc: "Divergence Angle between successive seeds:",
+        min: 130,
+        max: 145,
+        val: 137,
+        unit: "°",
+        calculate: function(a) {
+          if (a === 137 || a === 138) return "Angle: " + a + "° (Golden Angle ~137.5°) → Perfect packing! Natural interlocking clockwise & counterclockwise Fibonacci spirals appear.";
+          return "Angle: " + a + "° → Sub-optimal packing. Seeds clump into ugly radial spokes with large wasted spaces.";
+        }
+      },
+      connectedTags: ["Fibonacci", "Golden Ratio", "Geometry", "Mathematical Biology"]
+    },
+    {
+      id: "math-2",
+      category: "math",
+      categoryLabel: "Math & Patterns",
+      badgeClass: "iva-badge-math",
+      readTime: "4 min read",
+      question: "How can some infinities be mathematically larger than other infinities?",
+      prompt: "Isn't infinity just 'endless'? How could one endless collection have more members than another endless collection?",
+      simple: "Mathematician Georg Cantor proved that while you can count integers and fractions one by one (countable infinity), you can never count the continuous real numbers between 0 and 1—there are infinitely more of them!",
+      mechanism: "Cantor's Diagonal Argument: Suppose you made a list of all decimal numbers between 0 and 1. Cantor showed you can always construct a brand new number by taking the first digit of row 1 and changing it, the second digit of row 2 and changing it, and so on. This new diagonal number is guaranteed to differ from every number on your list, proving the list is incomplete!",
+      firstPrinciples: "Two sets have the same size (cardinality) if and only if there is a 1-to-1 matching (bijection) between them. No bijection can ever exist between the integers (ℵ₀, Aleph-null) and the continuum of real numbers (𝖈).",
+      whatIf: "There are even larger infinities: Cantor proved that the Power Set (the set of all subsets) of any infinite set is strictly larger than the set itself, creating an unending infinite hierarchy of infinities.",
+      realLife: "This discovery led directly to Alan Turing's proof of the Halting Problem, proving that there are computer programs whose behavior cannot be predicted by any algorithm—founding modern computer science.",
+      experiment: {
+        title: "🔢 Infinity Tier Explorer",
+        desc: "Select Infinity Level:",
+        min: 1,
+        max: 3,
+        val: 1,
+        unit: " Tier",
+        calculate: function(lvl) {
+          if (lvl === 1) return "Tier 1: ℵ₀ (Aleph-Null) → Countable infinity (Integers, Even Numbers, Fractions). All have the exact same size!";
+          if (lvl === 2) return "Tier 2: 𝖈 (The Continuum) → Uncountable infinity (Real numbers, points on a line). Strictly larger than all fractions combined.";
+          return "Tier 3: 2^𝖈 (Power Set of Continuum) → The space of all mathematical functions. Mind-bogglingly larger still.";
+        }
+      },
+      connectedTags: ["Cantor's Proof", "Set Theory", "Infinities", "Foundations of Math"]
+    },
+    {
+      id: "math-3",
+      category: "math",
+      categoryLabel: "Math & Patterns",
+      badgeClass: "iva-badge-math",
+      readTime: "3 min read",
+      question: "The Monty Hall Paradox: Why does switching doors double your chance of winning?",
+      prompt: "You pick Door 1 out of 3. The host opens Door 3 to reveal a goat. Should you switch to Door 2, or does it not matter (50/50)?",
+      simple: "You should ALWAYS switch. When you first picked Door 1, you had a 1/3 chance of being right and a 2/3 chance of being wrong. The host's knowledge concentrates all that 2/3 probability onto the remaining closed door!",
+      mechanism: "The host is not choosing randomly; he MUST reveal a goat from the doors you didn't pick. If you picked a goat initially (2 out of 3 times!), switching guarantees you win the car. If you picked the car initially (1 out of 3 times), switching loses. Therefore, switching wins 2/3 (66.7%) of the time.",
+      firstPrinciples: "Conditional probability and Bayes' Theorem: New information that is constrained by fixed rules updates probability distributions asymmetrically.",
+      whatIf: "If the host did NOT know where the car was and opened a door completely at random, and accidentally revealed a goat, the probability would indeed collapse to 50/50.",
+      realLife: "This counter-intuitive bias fools doctors interpreting medical test results and investors misjudging market options every day. Human intuition struggles with conditional probability.",
+      experiment: {
+        title: "🚪 Monty Hall Win Probability",
+        desc: "Simulate Strategy:",
+        min: 1,
+        max: 2,
+        val: 2,
+        unit: " Strategy",
+        calculate: function(s) {
+          if (s === 1) return "Strategy: Stay with original pick → Win Rate: 33.3% (1 in 3).";
+          return "Strategy: ALWAYS SWITCH DOORS → Win Rate: 66.7% (2 in 3) — Exactly double the odds!";
+        }
+      },
+      connectedTags: ["Probability", "Bayes' Theorem", "Cognitive Bias", "Game Theory"]
+    },
+
+    // ── Tech & Future ──
+    {
+      id: "tech-1",
+      category: "tech",
+      categoryLabel: "Tech & Future",
+      badgeClass: "iva-badge-tech",
+      readTime: "3 min read",
+      question: "How does a microchip transistor switch billions of times a second without any moving parts?",
+      prompt: "Modern smartphone chips contain 15 billion transistors in a square inch. How can a microscopic slice of rock act like a physical light switch without anything moving?",
+      simple: "A transistor controls the flow of electricity using an electric field. Applying a tiny voltage at a 'gate' either opens or closes a microscopic bridge for electrons to cross through silicon.",
+      mechanism: "Silicon is a semiconductor. By doping silicon with impurities (like phosphorus or boron), engineers create channels with excess or deficit electrons. Applying a positive charge to the gate pulls electrons into the channel, creating a conductive highway (1/ON). Removing the voltage collapses the highway (0/OFF).",
+      firstPrinciples: "Quantum bandgap physics: In insulators, electrons cannot jump energy bands. In conductors, they move freely. In semiconductors, the bandgap is tunable by voltage fields (the Field Effect).",
+      whatIf: "At current 3-nanometer scales, transistors are only ~15 atoms wide. Electrons can literally teleport across closed gates through quantum tunneling, threatening the physical limit of Moore's Law.",
+      realLife: "Without the solid-state transistor (invented in 1947), computers would still use glowing glass vacuum tubes; a modern iPhone would require the electricity of a power plant and the size of a city block.",
+      experiment: {
+        title: "⚡ Transistor Gate Voltage Simulation",
+        desc: "Gate Voltage Level:",
+        min: 0,
+        max: 10,
+        val: 7,
+        unit: " V",
+        calculate: function(v) {
+          if (v < 3) return "Gate Voltage: " + v + "V (< Threshold ~3V) → Channel is Closed. Current = 0 (State: Binary 0).";
+          return "Gate Voltage: " + v + "V (≥ Threshold) → Channel is Conductive! Electrons flow freely (State: Binary 1).";
+        }
+      },
+      connectedTags: ["Semiconductors", "Transistors", "Moore's Law", "Quantum Tunneling"]
+    },
+    {
+      id: "tech-2",
+      category: "tech",
+      categoryLabel: "Tech & Future",
+      badgeClass: "iva-badge-tech",
+      readTime: "4 min read",
+      question: "Why are quantum computers fundamentally different from classical supercomputers?",
+      prompt: "Are quantum computers just computers with faster processors, or do they compute in an entirely alien way?",
+      simple: "Classical computers process bits that are either 0 or 1. Quantum computers use quantum bits (qubits) that can exist in combinations of both simultaneously, exploring millions of possibilities at once.",
+      mechanism: "Through superposition and quantum entanglement, an N-qubit system can exist in a superposition of 2^N states simultaneously. For 300 entangled qubits, 2^300 is more numbers than there are atoms in the observable universe. Quantum algorithms choreograph constructive interference to amplify the correct answer while destructive interference cancels wrong answers.",
+      firstPrinciples: "State space in quantum mechanics grows exponentially, not linearly. Quantum mechanics operates on probability amplitudes that can cancel each other out like waves.",
+      whatIf: "Quantum computers will easily crack modern RSA internet encryption in minutes using Shor's algorithm, prompting governments worldwide to transition to post-quantum cryptography.",
+      realLife: "Quantum computers excel at simulating quantum physics itself—allowing scientists to simulate new drug molecules and battery chemistry that classical computers could never model.",
+      experiment: {
+        title: "⚛️ Qubit State Space Growth",
+        desc: "Number of Entangled Qubits (N):",
+        min: 2,
+        max: 60,
+        val: 10,
+        unit: " qubits",
+        calculate: function(n) {
+          var states = Math.pow(2, n);
+          if (n > 50) return n + " Qubits → > 1,000,000,000,000,000 simultaneous quantum states! Exceeds memory of the largest supercomputer on Earth.";
+          return n + " Qubits → Represents " + states.toLocaleString() + " simultaneous state amplitudes.";
+        }
+      },
+      connectedTags: ["Quantum Computing", "Qubits", "Superposition", "Cryptography"]
+    },
+    {
+      id: "tech-3",
+      category: "tech",
+      categoryLabel: "Tech & Future",
+      badgeClass: "iva-badge-tech",
+      readTime: "3 min read",
+      question: "How does public key cryptography let two strangers share a secret over an open internet?",
+      prompt: "When you enter a credit card online, eavesdroppers can record every packet. How do your browser and the bank agree on an unbreakable encryption key without ever sending the secret?",
+      simple: "It relies on mathematical 'trapdoor' one-way functions: operations that are trivial to perform in one direction, but practically impossible to reverse without a secret mathematical key.",
+      mechanism: "Multiplying two 300-digit prime numbers together takes a fraction of a millisecond on a smartphone. But if you are given just the 600-digit product, finding the original two prime factors would take all supercomputers on Earth trillions of years.",
+      firstPrinciples: "Computational asymmetry: Asymmetric algorithms (like RSA and Diffie-Hellman) split the key into a public padlock (visible to everyone) and a private key (held only by the recipient).",
+      whatIf: "If a mathematician discovers an efficient polynomial-time algorithm for factoring large prime numbers, almost all encrypted communications on Earth could be compromised overnight.",
+      realLife: "Every HTTPS padlock in your browser, every cryptocurrency transaction, and every secure messaging app relies on this exact mathematical principle.",
+      experiment: {
+        title: "🔑 Prime Factorization Complexity",
+        desc: "Key bit-length size:",
+        min: 8,
+        max: 2048,
+        val: 512,
+        unit: " bits",
+        calculate: function(b) {
+          if (b <= 64) return b + " bits → Cracked in milliseconds on any laptop.";
+          if (b <= 512) return b + " bits → Crackable by modern supercomputers within days.";
+          return b + " bits (Standard RSA 2048+) → Would require billions of years for all Earth's computers to brute-force factor.";
+        }
+      },
+      connectedTags: ["Cryptography", "RSA", "One-Way Functions", "Cybersecurity"]
+    },
+
+    // ── Thinking & Philosophy ──
+    {
+      id: "thinking-1",
+      category: "thinking",
+      categoryLabel: "Thinking & Philosophy",
+      badgeClass: "iva-badge-thinking",
+      readTime: "4 min read",
+      question: "The Ship of Theseus: If every plank is replaced over time, is it still the same ship?",
+      prompt: "Theseus sailed a wooden ship. Every time a wooden plank rotted, it was replaced with a new oak plank. Eventually, every single original plank was replaced. Is it the same ship? What if someone gathered the old rotten planks and reassembled them?",
+      simple: "Identity is not an intrinsic physical particle embedded in matter; it is an organizational pattern maintained through continuity over time.",
+      mechanism: "This ancient paradox exposes the conflict between mereological essentialism (an object is defined by its exact constituent parts) and structural functionalism (an object is defined by its ongoing organization and causal continuity).",
+      firstPrinciples: "Almost every cell in your biological human body dies and is replaced every 7 to 10 years. The atoms that made up your childhood body are scattered across the planet. You are not a static substance; you are a continuous process.",
+      whatIf: "If a Star Trek transporter scans every atom in your brain, destroys your original body, and rebuilds an identical copy with new atoms on Mars, did you survive, or did you die while a clone was created?",
+      realLife: "This paradox governs modern legal concepts of corporations, biological identity in organ transplants, and philosophical debates on brain-computer interfaces.",
+      experiment: {
+        title: "🚢 Replaced Parts Percentage",
+        desc: "Percentage of original parts replaced (%):",
+        min: 0,
+        max: 100,
+        val: 50,
+        unit: "%",
+        calculate: function(p) {
+          if (p === 0) return "0% Replaced → Undisputedly the original physical object.";
+          if (p === 100) return "100% Replaced → Zero original atoms remain. Is identity a physical object or a continuity of pattern?";
+          return p + "% Replaced → A hybrid of original matter and new matter, operating under continuous functional identity.";
+        }
+      },
+      connectedTags: ["Identity", "Ship of Theseus", "Consciousness", "Philosophy of Mind"]
+    },
+    {
+      id: "thinking-2",
+      category: "thinking",
+      categoryLabel: "Thinking & Philosophy",
+      badgeClass: "iva-badge-thinking",
+      readTime: "3 min read",
+      question: "Why did Richard Feynman say 'The first principle is that you must not fool yourself'?",
+      prompt: "Why did one of history's greatest physicists warn that the easiest person in the world to fool is always yourself?",
+      simple: "The human brain evolved for tribal social cohesion and survival, not pure truth-seeking. We instinctively cherry-pick evidence that flatters our existing beliefs and protects our ego.",
+      mechanism: "Cognitive biases—such as confirmation bias, motivated reasoning, and the sunk cost fallacy—operate below conscious awareness. When presented with counter-evidence, our brain's amygdala treats the threat to our worldview like a physical attack.",
+      firstPrinciples: "True scientific inquiry requires designing experiments specifically intended to DISPROVE our favorite hypotheses (Karl Popper's falsification criterion).",
+      whatIf: "If scientists only published findings that confirmed their expectations, scientific progress would grind to a halt under a mountain of self-deceiving p-hacked illusions.",
+      realLife: "In medicine, this is why double-blind randomized clinical trials are mandatory: neither the patient nor the doctor giving the drug knows who received the placebo, eliminating human bias.",
+      experiment: {
+        title: "🧠 Confirmation Bias Tester",
+        desc: "Rate your willingness to disconfirm your pet theory (1 = Defend at all costs, 10 = Actively seek disproof):",
+        min: 1,
+        max: 10,
+        val: 5,
+        unit: "/10",
+        calculate: function(r) {
+          if (r < 5) return "Score " + r + "/10: High risk of self-deception! The brain will seek rationalizations to protect comforting assumptions.";
+          return "Score " + r + "/10: Feynman Mindset! Actively hunting for flaws in your own logic is the true hallmark of deep intellectual maturity.";
+        }
+      },
+      connectedTags: ["Richard Feynman", "Confirmation Bias", "Falsification", "First Principles"]
+    },
+    {
+      id: "thinking-3",
+      category: "thinking",
+      categoryLabel: "Thinking & Philosophy",
+      badgeClass: "iva-badge-thinking",
+      readTime: "3 min read",
+      question: "Is mathematics discovered by human minds or invented as a cognitive tool?",
+      prompt: "Did the ratio Pi (3.14159...) exist in the cosmos before humans walked the Earth, or is math merely an elaborate linguistic invention of our primate brains?",
+      simple: "Mathematicians are divided: Platonists believe mathematical truths exist independently in an objective realm, while Formalists argue math is an invented symbolic game that happens to model reality well.",
+      mechanism: "Physicist Eugene Wigner wrote of 'The Unreasonable Effectiveness of Mathematics in the Natural Sciences.' Abstract mathematics invented purely for aesthetic pleasure (such as non-Euclidean geometry) often turns out decades later to perfectly describe deep physical laws (like Einstein's General Relativity).",
+      firstPrinciples: "If an alien civilization in another galaxy developed science, their notation would differ, but their value for the ratio of a circle's circumference to its diameter would be identically 3.14159... and prime numbers would still be indivisible.",
+      whatIf: "What if our mathematical formulations are bounded by how our human brains perceive continuous space and sequential time? Could there be realities that require cognitive modes beyond math?",
+      realLife: "This question directly influences the search for extraterrestrial intelligence (SETI), where prime number radio sequences are viewed as the universal language for first contact.",
+      experiment: {
+        title: "📐 Discovery vs Invention Balance",
+        desc: "Philosophical Stance Slider (1 = Pure Invention, 10 = Objective Universal Discovery):",
+        min: 1,
+        max: 10,
+        val: 7,
+        unit: "/10",
+        calculate: function(v) {
+          if (v <= 3) return "Stance: Formalism / Social Constructivism → Math is an axiomatic game invented by human neurons.";
+          if (v <= 7) return "Stance: Complementary Dualism → We invent the symbols and grammar, but discover the eternal relations.";
+          return "Stance: Mathematical Platonism → Math is the fundamental architecture of reality, waiting eternally to be discovered.";
+        }
+      },
+      connectedTags: ["Platonism", "Epistemology", "Philosophy of Math", "SETI"]
+    },
+
+    // ── How Things Work ──
+    {
+      id: "how-1",
+      category: "how",
+      categoryLabel: "How Things Work",
+      badgeClass: "iva-badge-how",
+      readTime: "3 min read",
+      question: "How do noise-canceling headphones silence outside noise by making more sound?",
+      prompt: "It seems paradoxical: how can blasting extra sound waves directly into your ear canal result in complete silence?",
+      simple: "Sound is a pressure wave. Noise-canceling headphones listen to incoming sound, instantly generate an exact inverted 'anti-sound' wave, and the two waves collide and cancel each other out to zero.",
+      mechanism: "Active Noise Cancellation (ANC) uses external microphones to sample ambient acoustic waves. A digital signal processor (DSP) calculates an identical wave shifted by 180 degrees out of phase (peaks aligned with troughs). By the principle of linear superposition, peak (+1) plus trough (-1) equals absolute zero acoustic pressure.",
+      firstPrinciples: "Wave interference: Whenever two coherent waves occupy the same space, their amplitudes sum algebraically. Complete destructive interference leaves no vibrational energy for the eardrum to detect.",
+      whatIf: "ANC works brilliantly on predictable, low-frequency sounds (jet engines, air conditioners, train hums) but struggles with sudden high-frequency snaps or human speech because the latency to invert high frequencies is too short.",
+      realLife: "The same destructive wave interference principle is used in optical anti-reflective coatings on glasses lenses and in seismic dampeners in earthquake-proof skyscrapers.",
+      experiment: {
+        title: "🎧 Wave Phase Cancellation Simulator",
+        desc: "Phase Offset between Noise and Anti-Sound (degrees):",
+        min: 0,
+        max: 180,
+        val: 180,
+        unit: "°",
+        calculate: function(deg) {
+          if (deg === 180) return "Phase Offset: 180° (Anti-Phase) → Complete destructive interference! Net sound amplitude = 0 (Total Silence).";
+          if (deg === 0) return "Phase Offset: 0° (In-Phase) → Constructive interference! The noise is doubled in volume (+6 dB).";
+          return "Phase Offset: " + deg + "° → Partial cancellation. Muffled residual noise remains.";
+        }
+      },
+      connectedTags: ["Destructive Interference", "Acoustics", "Wave Physics", "DSP"]
+    },
+    {
+      id: "how-2",
+      category: "how",
+      categoryLabel: "How Things Work",
+      badgeClass: "iva-badge-how",
+      readTime: "3 min read",
+      question: "How does GPS pinpoint your location using Einstein's theory of relativity?",
+      prompt: "Your smartphone GPS communicates with satellites 20,000 km in orbit. Why would a navigation app fail within minutes without Einstein's cosmic equations?",
+      simple: "GPS calculates your position by measuring the time it takes radio signals to travel from satellites to your phone. Because satellite clocks tick at a different speed than Earth clocks, relativistic corrections are mandatory.",
+      mechanism: "Two opposing relativistic effects occur: Special Relativity predicts fast-moving satellite clocks run slower by ~7 microseconds/day. General Relativity predicts clocks in weaker gravity higher up run faster by ~45 microseconds/day. The net result is that satellite atomic clocks run 38 microseconds faster per day.",
+      firstPrinciples: "Light travels at 300,000 meters every microsecond. An uncorrected timing error of just 38 microseconds per day would compound into a location error of roughly 11 kilometers (7 miles) every single day!",
+      whatIf: "Without Einstein's general and special relativistic compensation hardcoded into GPS satellite transmitters, turn-by-turn navigation would be completely unusable within 24 hours.",
+      realLife: "GPS is everyday physical proof of Einstein's relativity running silently on every smartphone on planet Earth.",
+      experiment: {
+        title: "🛰️ Relativistic GPS Drift Calculator",
+        desc: "Elapsed time without relativistic clock correction (days):",
+        min: 1,
+        max: 30,
+        val: 3,
+        unit: " days",
+        calculate: function(d) {
+          var errorKm = (d * 11.4).toFixed(1);
+          return "After " + d + " days without relativity: GPS location drift = ~" + errorKm + " km! (Your phone thinks you are in the next city).";
+        }
+      },
+      connectedTags: ["GPS", "Special Relativity", "General Relativity", "Atomic Clocks"]
+    },
+    {
+      id: "how-3",
+      category: "how",
+      categoryLabel: "How Things Work",
+      badgeClass: "iva-badge-how",
+      readTime: "3 min read",
+      question: "How does ordinary hand soap destroy deadly viruses on a molecular level?",
+      prompt: "Why is washing hands with plain soap and warm water for 20 seconds more effective against viruses than fancy chemical disinfectants?",
+      simple: "Soap molecules are shaped like microscopic crowbars with one water-loving end and one fat-loving end. They pry apart the virus's fatty protective coat, tearing it into dead pieces.",
+      mechanism: "Many dangerous pathogens (like influenza and coronaviruses) are enveloped viruses encased in a delicate lipid bilayer membrane. Soap molecules are amphiphilic: their hydrophobic tails wedge themselves into the virus's lipid membrane like wedges, ripping the membrane apart and trapping the debris in soluble spheres called micelles.",
+      firstPrinciples: "Intermolecular forces: Like dissolves like. The non-polar hydrophobic tail of soap has a higher chemical affinity for the virus's lipid fats than the fats have for each other.",
+      whatIf: "Rinsing with pure water alone won't work because water molecules cannot bind to non-polar fats; the water simply rolls over the oily virus membrane without disrupting it.",
+      realLife: "Soap was invented over 4,000 years ago in ancient Babylon and remains the single most effective public health intervention in human history.",
+      experiment: {
+        title: "🧼 Handwashing Time vs Viral Inactivation",
+        desc: "Handwashing scrub duration (seconds):",
+        min: 3,
+        max: 40,
+        val: 20,
+        unit: " sec",
+        calculate: function(s) {
+          if (s < 10) return "Duration: " + s + "s → Incomplete lipid penetration. Many viral particles survive intact.";
+          if (s < 20) return "Duration: " + s + "s → Partial micelle formation; majority of viral membranes destabilized.";
+          return "Duration: " + s + "s (Gold Standard) → Complete dissolution of viral lipid envelopes; 99.9% destroyed and rinsed away.";
+        }
+      },
+      connectedTags: ["Biochemistry", "Amphiphilic", "Lipid Bilayer", "Public Health"]
+    },
+
+    // ── Human Behavior ──
+    {
+      id: "behavior-1",
+      category: "behavior",
+      categoryLabel: "Human Behavior",
+      badgeClass: "iva-badge-behavior",
+      readTime: "4 min read",
+      question: "Why do intelligent people procrastinate on things they genuinely want to achieve?",
+      prompt: "If you know that completing an essay or project will make your life significantly better, why does your brain fight so hard to avoid starting it?",
+      simple: "Procrastination is not a time management flaw or laziness; it is an emotional regulation problem. Your brain treats the prospect of imperfect performance as a threat to your self-worth.",
+      mechanism: "The limbic system (our primitive emotional survival center) seeks immediate relief from stress. When a task triggers anxiety, fear of failure, or perfectionism, the limbic system hijacks cognitive control from the rational prefrontal cortex, directing attention toward instant dopamine rewards.",
+      firstPrinciples: "Temporal Discounting: Humans evolved in an immediate-return environment where immediate safety trumped delayed abstract rewards. Our brains naturally undervalue rewards that occur far in the future.",
+      whatIf: "If you lower the barrier to starting so drastically that the brain perceives zero threat (e.g. 'I will only write for 2 minutes'), the prefrontal cortex retains control and the limbic panic subsides.",
+      realLife: "Understanding this is the key to deep work: productivity systems that focus on reducing emotional friction succeed far better than rigid scheduling tools.",
+      experiment: {
+        title: "⏱️ Task Threat vs Starting Friction",
+        desc: "Scale down the starting commitment (Minutes):",
+        min: 1,
+        max: 60,
+        val: 2,
+        unit: " min",
+        calculate: function(m) {
+          if (m <= 5) return "Commitment: " + m + " Minutes → Micro-habit threshold! Emotional friction collapses; momentum takes over easily.";
+          return "Commitment: " + m + " Minutes → High cognitive load; the limbic system perceives an overwhelming threat and triggers avoidance.";
+        }
+      },
+      connectedTags: ["Procrastination", "Limbic System", "Prefrontal Cortex", "Psychology"]
+    },
+    {
+      id: "behavior-2",
+      category: "behavior",
+      categoryLabel: "Human Behavior",
+      badgeClass: "iva-badge-behavior",
+      readTime: "3 min read",
+      question: "The Bystander Effect: Why does a crowd reduce the chance of someone helping?",
+      prompt: "If someone collapses in a busy subway station with 100 people watching, why are they often less likely to receive immediate help than if only one person was present?",
+      simple: "When other people are present, every individual feels less personal responsibility to act, assuming someone else has already called for help or knows what to do.",
+      mechanism: "Two psychological mechanisms drive this: 1) Diffusion of responsibility (the psychological cost of inaction is divided among the crowd), and 2) Pluralistic ignorance (people look at others' calm faces to gauge danger; because everyone masks their concern, everyone concludes it isn't an emergency).",
+      firstPrinciples: "Social proof: Humans are social mimics. When ambiguous situations occur, our evolutionary instinct is to look at the tribe's behavior before taking unpredictable personal risks.",
+      whatIf: "If you are in an emergency in a crowd, psychologists advise: point at a specific person, make eye contact, and say: 'You in the blue shirt, call 911 right now.' Breaking the ambiguity destroys the diffusion of responsibility.",
+      realLife: "This principle applies to corporate meetings and group emails: an email sent to 20 people receives far fewer replies than an email directed specifically to one person.",
+      experiment: {
+        title: "👥 Crowd Size vs Help Probability",
+        desc: "Number of bystanders present:",
+        min: 1,
+        max: 50,
+        val: 1,
+        unit: " bystanders",
+        calculate: function(n) {
+          if (n === 1) return "1 Bystander → 85% probability of immediate intervention (Full individual responsibility).";
+          if (n <= 5) return n + " Bystanders → ~60% probability of help.";
+          return n + " Bystanders → Probability of prompt individual intervention drops below 30% due to acute diffusion of responsibility.";
+        }
+      },
+      connectedTags: ["Bystander Effect", "Social Psychology", "Diffusion of Responsibility", "Decision Making"]
+    },
+    {
+      id: "behavior-3",
+      category: "behavior",
+      categoryLabel: "Human Behavior",
+      badgeClass: "iva-badge-behavior",
+      readTime: "3 min read",
+      question: "Why does time seem to accelerate as we grow older?",
+      prompt: "Remember how endless a summer vacation felt when you were 8 years old? Why do entire years seem to flash by in an instant once you reach adulthood?",
+      simple: "Your brain measures perceived time by the number of novel memories it creates. As routine takes over adulthood, the brain compresses repetitive days into a single blur.",
+      mechanism: "Two complementary theories explain this: 1) Proportional Theory: At age 10, a year is 10% of your entire existence; at age 50, a year is merely 2% of your life. 2) Neural processing & novelty: Children encounter new stimuli constantly, forcing the brain to encode rich, granular neural memories that feel long in retrospect.",
+      firstPrinciples: "Cognitive efficiency: The brain is an energy-saving prediction machine. When an environment is familiar and predictable, the brain shifts to autopilot and discards the memory buffer.",
+      whatIf: "You can actively slow down perceived time as an adult! Traveling, learning a difficult new instrument, taking unfamiliar routes, and breaking daily routines forces the brain to record rich new neural timestamps.",
+      realLife: "This explains why time during a vacation to an unfamiliar country feels like weeks, yet returning to a familiar office routine causes months to evaporate unnoticed.",
+      experiment: {
+        title: "⏳ Perceived Life Ratio Calculator",
+        desc: "Enter your age:",
+        min: 5,
+        max: 80,
+        val: 20,
+        unit: " years old",
+        calculate: function(age) {
+          var pct = (100 / age).toFixed(1);
+          return "At age " + age + ": 1 year represents " + pct + "% of your entire lived life. Subjective compression is active!";
+        }
+      },
+      connectedTags: ["Perception of Time", "Neuroscience", "Memory", "Cognitive Aging"]
+    },
+
+    // ── Deep Mysteries / Nature ──
+    {
+      id: "nature-1",
+      category: "nature",
+      categoryLabel: "Deep Mysteries",
+      badgeClass: "iva-badge-nature",
+      readTime: "4 min read",
+      question: "Where did all the antimatter in the universe disappear to?",
+      prompt: "Every law of quantum physics states that matter and antimatter must be created in exact equal pairs. When they meet, they instantly annihilate into pure energy. Why does our universe exist at all?",
+      simple: "In the first billionth of a second after the Big Bang, for every 1,000,000,000 particles of antimatter created, there were roughly 1,000,000,001 particles of normal matter. That tiny asymmetry left behind everything we see today.",
+      mechanism: "Known as Baryon Asymmetry, this requires three Sakharov conditions: 1) Baryon number violation, 2) C and CP symmetry violation, and 3) Interactions out of thermal equilibrium. Physicists at CERN are studying CP violation in B-mesons to understand why the universe preferred matter.",
+      firstPrinciples: "Our entire cosmos—every star, planet, tree, and human being—is literally the leftover wreckage of a nearly complete matter-antimatter mutually assured destruction.",
+      whatIf: "If the universe had been perfectly symmetrical, all matter and antimatter would have annihilated into a featureless sea of photons; no atoms, stars, or observers could ever have formed.",
+      realLife: "Antimatter is real and used every day in hospitals: Positron Emission Tomography (PET scans) uses positrons (antimatter electrons) to detect cancer tumors in human organs.",
+      experiment: {
+        title: "💥 Matter-Antimatter Ratio Asymmetry",
+        desc: "Matter Excess over Antimatter (Parts per Billion):",
+        min: 0,
+        max: 5,
+        val: 1,
+        unit: " ppb",
+        calculate: function(ppb) {
+          if (ppb === 0) return "0 ppb Asymmetry → Perfect balance! Total annihilation; the universe is 100% empty light, zero matter.";
+          return ppb + " ppb Matter Excess → 1 part per billion survived cosmic annihilation to form all stars, galaxies, and life.";
+        }
+      },
+      connectedTags: ["Antimatter", "Baryon Asymmetry", "Particle Physics", "Cosmology"]
+    },
+    {
+      id: "nature-2",
+      category: "nature",
+      categoryLabel: "Deep Mysteries",
+      badgeClass: "iva-badge-nature",
+      readTime: "3 min read",
+      question: "Why did evolution preserve sleep when it leaves animals helpless to predators?",
+      prompt: "For millions of years, an animal that falls unconscious for 8 hours every night risks being eaten alive. Why couldn't nature eliminate sleep?",
+      simple: "Sleep is so biologically essential that evolution had to accept the risk of death. During sleep, your brain literally power-washes toxic proteins and reorganizes memories.",
+      mechanism: "In 2012, neuroscientists discovered the Glymphatic System: during deep sleep, brain glial cells shrink by ~60%, allowing cerebrospinal fluid to rush through brain tissue and flush out metabolic waste, including beta-amyloid plaques linked to Alzheimer's disease.",
+      firstPrinciples: "Neural homeostasis: Synapses cannot stay continuously strengthened without saturating neural circuits. Sleep downscales baseline synaptic weights, saving metabolic energy while consolidating long-term memories.",
+      whatIf: "Rats subjected to total sleep deprivation die faster than rats deprived of food. Total sleep deprivation causes multi-organ failure and blood poisoning within weeks.",
+      realLife: "Sleep is the ultimate cognitive multiplier: REM sleep connects distant memories, which is why historical breakthroughs (from the periodic table to musical melodies) famously occurred right after waking up.",
+      experiment: {
+        title: "🧠 Sleep Duration vs Waste Clearance",
+        desc: "Nightly Sleep Hours:",
+        min: 3,
+        max: 10,
+        val: 8,
+        unit: " hrs",
+        calculate: function(h) {
+          if (h < 6) return h + " Hours Sleep → Impaired glymphatic clearance; accumulated metabolic toxins reduce reaction time equivalent to legal alcohol intoxication.";
+          if (h >= 7 && h <= 9) return h + " Hours Sleep (Optimal) → Full synaptic consolidation and glymphatic detoxification.";
+          return h + " Hours Sleep → Prolonged sleep inertia; often a sign of underlying systemic inflammation or recovery catch-up.";
+        }
+      },
+      connectedTags: ["Sleep Science", "Glymphatic System", "Neuroscience", "Evolution"]
+    },
+    {
+      id: "nature-3",
+      category: "nature",
+      categoryLabel: "Deep Mysteries",
+      badgeClass: "iva-badge-nature",
+      readTime: "4 min read",
+      question: "What is dark matter, and how do we know it exists if we cannot see or touch it?",
+      prompt: "Roughly 85% of all matter in the universe is completely invisible. It emits no light, absorbs no radiation, and passes through walls like a ghost. How can physicists be confident it exists?",
+      simple: "We know dark matter exists because we can see its immense gravitational pull tugging on galaxies and bending beams of light across the cosmos.",
+      mechanism: "In the 1970s, astronomer Vera Rubin observed that stars at the outer rim of spiral galaxies orbit just as fast as stars near the galactic core. Under Newtonian physics, outer stars should fly off into space unless an invisible halo of massive matter surrounds the galaxy, binding it together.",
+      firstPrinciples: "Gravitational lensing: Einstein's General Relativity proved that mass curves spacetime. When astronomers look at deep space, they see background galaxy light warped by giant invisible lenses of mass that emit zero electromagnetic radiation.",
+      whatIf: "Without the scaffolding of dark matter to create gravitational wells in the early universe, hydrogen gas would never have clumped together densely enough to ignite the first stars and galaxies.",
+      realLife: "Underground particle detectors deep in abandoned gold mines across Earth are currently waiting for a rare collision between a dark matter particle (WIMP or axion) and an atom of liquid xenon.",
+      experiment: {
+        title: "🌌 Cosmic Mass Composition",
+        desc: "Universe Mass-Energy Proportion Explorer:",
+        min: 1,
+        max: 3,
+        val: 2,
+        unit: " Component",
+        calculate: function(c) {
+          if (c === 1) return "Ordinary Matter (~5%) → Everything you can touch, see, and build: stars, planets, atoms, humans, and books.";
+          if (c === 2) return "Dark Matter (~27%) → Invisible gravitational scaffolding that holds galaxies together.";
+          return "Dark Energy (~68%) → The mysterious repulsive force driving the accelerating expansion of the entire universe.";
+        }
+      },
+      connectedTags: ["Dark Matter", "Gravitational Lensing", "Astrophysics", "Vera Rubin"]
+    }
+  ];
+
+  // ════════════════════════════════════════════════════════════════
+  // 2. STRANGE FACTS DATA
+  // ════════════════════════════════════════════════════════════════
+  var STRANGE_FACTS = [
+    "A day on Venus is longer than a year on Venus: it takes Venus 243 Earth days to rotate once on its axis, but only 225 Earth days to complete an orbit around the Sun.",
+    "If you removed all the empty space from the atoms of all 8 billion human beings on Earth, the remaining solid atomic nuclei would fit inside the volume of a single sugar cube.",
+    "There are more possible iterations of a standard game of chess (Shannon number ~10^120) than there are estimated atoms in the observable universe (~10^80).",
+    "Water can freeze and boil at the exact same temperature and pressure at its 'triple point' (0.01°C and 0.006 atm).",
+    "Every hydrogen atom in every molecule of water in your body was forged in the first 3 minutes of the Big Bang, 13.8 billion years ago.",
+    "Light takes roughly 100,000 years to travel from the core of the Sun to its surface, bouncing through dense plasma, but only 8 minutes and 20 seconds to travel from the Sun to your eyes.",
+    "Sharks are older than trees. Sharks have existed for roughly 400 million years, while the earliest proto-trees appeared around 350 million years ago.",
+    "Cleopatra lived closer in time to the launch of the iPhone (2007) than she did to the construction of the Great Pyramid of Giza (~2560 BC).",
+    "If you fold a standard piece of paper in half 42 times, its thickness would reach from the Earth to the Moon due to exponential growth (2^42 layers).",
+    "You cannot hum while holding your nose closed. (Go ahead, test it right now!)",
+    "Bananas are naturally radioactive because they are rich in potassium-40; eating one banana exposes you to ~0.1 microsieverts of harmless background radiation.",
+    "Neutron stars are so dense that a single teaspoon of neutron star material would weigh roughly 6 billion tons on Earth.",
+    "Hot water can freeze faster than cold water under specific conditions—a counter-intuitive phenomenon known as the Mpemba Effect.",
+    "The human eye has a blind spot where the optic nerve passes through the retina. Your brain actively hallucinates visual texture to fill the hole seamlessly every second.",
+    "Butterflies taste with their feet. Their taste sensors are located on their tarsi to help them find edible plants for their caterpillars."
+  ];
+
+  // ════════════════════════════════════════════════════════════════
+  // 3. BORED CHALLENGES DATA
+  // ════════════════════════════════════════════════════════════════
+  var BORED_CHALLENGES = [
+    "Look at any shadow on the wall near you. Notice the blurry penumbra around its borders. Why isn't the edge razor-sharp? (Answer: Light sources have physical width; rays from different points of the light bulb overlap.)",
+    "Pick up any object within arm's reach. Trace backwards through history: how many distinct human discoveries (mining, metallurgy, chemistry, logistics) had to occur for this exact object to exist on your desk?",
+    "Stare at a single letter in this sentence without blinking for 20 seconds. Notice how words start to look alien and lose their meaning? This is called 'Semantic Satiation'—your neural pattern detectors are temporarily fatigued.",
+    "Close your eyes and try to listen to the farthest away sound you can detect in this moment. What is the physical mechanism generating that vibration right now?",
+    "Place a hand on the tabletop. Is the table actually cold, or is it simply conducting heat away from your skin faster than air does? (Thermal conductivity vs true temperature).",
+    "Hold out your thumb at arm's length. Your thumb can completely block the Moon from your field of view. The Moon is 3,474 km wide. Calculate the ratio between thumb distance and Moon distance.",
+    "Try counting backward from 100 by 7s in your head (100, 93, 86...). Notice the sudden jump in working memory load in your dorsolateral prefrontal cortex.",
+    "Look at your palm. Every iron atom in your blood was forged inside the crushing furnace of an exploding supernova star billions of years ago. You are literally stardust studying itself.",
+    "Think of one opinion you held strongly three years ago that you have since changed your mind on. What specific evidence caused that shift?",
+    "Look at a mirror. The person you see is looking at photons that left your face 2 nanoseconds ago. You are technically looking 2 nanoseconds into your own personal past."
+  ];
+
+  // ════════════════════════════════════════════════════════════════
+  // 4. CONCEPT SPARKS FOR QUESTION BUILDER
+  // ════════════════════════════════════════════════════════════════
+  var CONCEPT_SPARKS = [
+    "Entropy", "Black Holes", "Honeybees", "Soundwaves", "Origami",
+    "Quantum Spin", "DNA", "Photosynthesis", "Lightning", "Fibonacci",
+    "Neural Networks", "Bioluminescence", "Echoes", "Primes", "Time Dilation",
+    "Plate Tectonics", "Capillaries", "Memory", "Superconductors", "Mirrors",
+    "Crows", "Redshift", "Tides", "Fungi Networks", "Solar Flares",
+    "Crystallization", "Gravity Waves", "Enzymes", "Chaos Theory", "Optical Illusions"
+  ];
+
+  // ════════════════════════════════════════════════════════════════
+  // 5. INSPIRATIONAL QUOTES
+  // ════════════════════════════════════════════════════════════════
+  var QUOTES = [
+    '"Wonder is the seed of knowledge." — Francis Bacon',
+    '"The important thing is not to stop questioning." — Albert Einstein',
+    '"I have no special talents. I am only passionately curious." — Albert Einstein',
+    '"The first principle is that you must not fool yourself." — Richard Feynman',
+    '"Somewhere, something incredible is waiting to be known." — Carl Sagan',
+    '"Curiosity is the engine of intellectual achievement." — Ikshvaku Vidya Academy',
+    '"Equipped with his five senses, man explores the universe around him and calls the adventure Science." — Edwin Hubble',
+    '"We live on an island surrounded by a sea of ignorance. As our island of knowledge grows, so does the shore of our wonder." — John Archibald Wheeler'
+  ];
+
+
+  // ════════════════════════════════════════════════════════════════
+  // 500,000 PROCEDURAL IN-BROWSER CURIOSITY ENGINE
+  // ════════════════════════════════════════════════════════════════
+  var PROCEDURAL_CURRICULUM = {
+    space: {
+      topics: [
+        ["Neutron Stars", "crushing nuclear density", "electron degeneracy pressure collapse", "pulsar timing navigation"],
+        ["Black Hole Event Horizon", "infinite gravitational redshift", "unidirectional spacetime geodesics", "Event Horizon Telescope imaging"],
+        ["Cosmic Microwave Background", "primordial recombination photon decoupling", "380,000-year post-Big Bang relic radiation", "Planck satellite anisotropy mapping"],
+        ["Orbital Free Fall", "tangential orbital velocity balancing gravitational acceleration", "Newton's cannon spherical curvature matching", "International Space Station trajectory"],
+        ["Solar Wind & Magnetosphere", "charged plasma particle deflection", "planetary magnetic dipole Lorentz force shielding", "aurora borealis and grid protection"],
+        ["Gravitational Waves", "quadrupole mass acceleration spacetime ripples", "speed-of-light metric strain distortion", "LIGO laser interferometry"],
+        ["Dark Matter Halos", "flat galactic rotation curves defying Newtonian drop-off", "non-baryonic collisionless gravitational mass", "gravitational lensing arc reconstruction"],
+        ["Thermonuclear Fusion", "proton-proton chain Coulomb barrier tunneling", "mass-to-energy conversion via E=mc²", "ITER tokamak magnetic confinement"],
+        ["Supernova Nucleosynthesis", "rapid neutron-capture r-process", "iron core collapse explosive element forging", "origin of gold and platinum on Earth"],
+        ["Lagrange Points", "gravitational equilibrium in three-body orbital systems", "centrifugal and gravitational vector cancellation", "James Webb Space Telescope L2 orbit"],
+        ["Planetary Atmosphere Stripping", "solar wind thermal atmospheric sputtering", "lack of intrinsic magnetic dynamo shielding", "Martian terraforming feasibility"],
+        ["Hawking Radiation", "virtual particle-antiparticle quantum horizon separation", "black hole thermodynamic temperature and evaporation", "quantum gravity information paradox"],
+        ["Cosmic Expansion Acceleration", "negative pressure dark energy", "cosmological constant vacuum energy density", "Type Ia supernova standard candles"],
+        ["Tidal Locking & Resonance", "gravitational tidal friction torque dissipation", "rotational period synchronizing with orbital period", "Moon's permanent near-side orientation"],
+        ["Relativistic Frame Dragging", "rotating massive bodies twisting surrounding spacetime", "Lense-Thirring precession effect", "Gravity Probe B gyroscope verification"]
+      ],
+      angles: [
+        "Why doesn't the phenomenon collapse under its own extreme internal forces?",
+        "What fundamental conservation law prevents this process from running in reverse?",
+        "How did nineteenth-century astronomers first deduce this without direct sensors?",
+        "What happens to the local passage of time when interacting with this structure?",
+        "Why is this counter-intuitive behavior an unavoidable mathematical necessity?",
+        "How does this demonstrate that space is a dynamic physical fabric rather than empty void?"
+      ]
+    },
+    science: {
+      topics: [
+        ["Rayleigh Scattering", "wavelength-dependent photon deflection", "dipole oscillation of atmospheric gas molecules", "polarization sun compasses"],
+        ["Xylem Capillary Cohesion", "negative pressure hydrogen-bonded water tension", "evaporative transpiration pull defying vacuum limits", "biomimetic skyscraper water transport"],
+        ["Water Density Inversion", "open tetrahedral hexagonal crystal lattice expansion", "maximum liquid density at 4°C preserving aquatic life", "cryogenic cellular preservation"],
+        ["Photosynthetic Quantum Coherence", "exciton energy transfer across pigment proteins", "superposition finding the most efficient molecular path", "next-generation artificial solar cells"],
+        ["CRISPR Bacterial Immunity", "spacer acquisition and Cas endonuclease cleavage", "targeted RNA-guided genomic surgery", "gene drive eradication of vector diseases"],
+        ["Superfluid Helium Vortexes", "Bose-Einstein quantum condensation", "zero viscosity and infinite thermal conductivity", "quantum turbulence visualization"],
+        ["Enzyme Catalytic Acceleration", "transition state stabilization and activation barrier lowering", "induced fit molecular conformational shifts", "targeted pharmaceutical inhibitor design"],
+        ["Gecko Van der Waals Adhesion", "spatulae microscopic surface contact maximization", "electrostatic dipole-dipole intermolecular attraction", "reusable dry adhesive space pads"],
+        ["Bioluminescent Luciferin Oxidation", "chemiluminescent energy transfer without heat waste", "luciferase enzymatic oxygenation emitting cold light", "real-time tumor bioluminescence imaging"],
+        ["Extreme Hydrothermal Acidophiles", "reverse proton pumping and ether-linked lipid membranes", "chemosynthetic sulfur oxidation in absolute darkness", "astrobiology criteria for icy ocean moons"],
+        ["Brownian Molecular Motion", "incessant thermal collisions from solvent molecules", "diffusion coefficient and Avogadro's constant determination", "stochastic nanofluidic heat dissipation"],
+        ["Piezoelectric Lattice Stress", "non-centrosymmetric crystalline ionic displacement", "mechanical strain inducing electric dipole potentials", "ultrasound medical transducer arrays"],
+        ["Cavitation Shockwaves", "rapid liquid depressurization vapor bubble collapse", "localized extreme temperatures exceeding solar surface", "ultrasonic medical kidney stone destruction"],
+        ["Entropy & Irreversibility", "statistical microstate probability evolution", "Boltzmann's H-theorem and thermal dispersal", "molecular machine thermodynamic efficiency"],
+        ["Cephalopod RNA Editing", "adenosine-to-inosine post-transcriptional recoding", "temperature-adaptive neural proteome diversification", "human RNA therapeutics development"]
+      ],
+      angles: [
+        "How does nature solve an engineering problem that completely baffles human technology?",
+        "What microscale quantum mechanism dictates this macroscopic biological marvel?",
+        "Why does simple thermodynamic equilibrium fail to predict this intricate adaptation?",
+        "How do tiny intermolecular bonds accumulate enough cumulative force to move macroscopic masses?",
+        "What would happen to planetary ecosystems if this single physical constant shifted by 5%?",
+        "Why is this phenomenon impossible to explain using classical Newtonian assumptions alone?"
+      ]
+    },
+    math: {
+      topics: [
+        ["Fibonacci & Golden Angle", "irrational turn divergence preventing radial clumping", "optimal phyllotaxis geometry packing efficiency", "solar panel heliostat field optimization"],
+        ["Cantor's Diagonalization", "uncountable cardinality of continuous real numbers", "bijection failure between integers and continuum", "computability theory limits"],
+        ["Monty Hall Conditional Odds", "asymmetric probability concentration via host knowledge", "Bayes' theorem posterior probability update", "medical diagnosis risk misinterpretation"],
+        ["Euler's Identity e^(iπ) + 1 = 0", "complex exponential rotation connecting five fundamental constants", "unification of geometry, calculus, and algebra", "alternating current electrical impedance"],
+        ["Mandelbrot Fractal Dimension", "recursive complex polynomial iteration z = z² + c", "infinite boundary complexity enclosed in finite space", "coastal shoreline fractal modeling"],
+        ["Riemann Zeta & Prime Distribution", "zeros on critical line controlling prime counting oscillations", "analytic continuation of Dirichlet series", "quantum chaotic energy level spacing"],
+        ["Möbius Topology & Non-Orientability", "single continuous surface with only one boundary edge", "intrinsic chiral inversion along closed paths", "wear-resistant endless conveyor belts"],
+        ["Gödel's Incompleteness Theorems", "self-referential arithmetic statement undecidability", "inherent limitations of formal axiomatic mathematical systems", "algorithmic completeness boundaries"],
+        ["Fourier Transform Decomposition", "projecting complex waveforms onto orthogonal sinusoidal bases", "frequency spectrum decomposition and convolution", "magnetic resonance imaging reconstruction"],
+        ["Nash Game Equilibrium", "strategy profile where no agent benefits from unilateral deviation", "mixed-strategy minimax optimization", "auction mechanism design and resource allocation"],
+        ["Benford's Law of First Digits", "logarithmic scale invariance across natural datasets", "scale-free multiplicative stochastic growth processes", "forensic financial accounting fraud detection"],
+        ["Four Color Map Theorem", "planar graph dual vertex coloring without adjacent clashes", "discharging method and computer-assisted proof verification", "frequency allocation in cellular networks"],
+        ["Conway's Game of Life Cellular Automata", "simple local transition rules creating Turing-complete complexity", "emergent computational gliders and oscillators", "origins of complex biological self-organization"],
+        ["Poincaré Sphere & Geodesics", "curvature altering the sum of interior triangle angles", "Riemannian geometry and shortest metric paths", "Einsteinian relativistic trajectory modeling"],
+        ["Birthday Paradox Combinatorics", "quadratic growth of pairwise comparison combinations", "collision probability in finite pigeonhole hash spaces", "cryptographic hash function birthday attacks"]
+      ],
+      angles: [
+        "Why does a seemingly abstract proof end up solving real-world physical engineering bottlenecks?",
+        "What makes human intuition consistently fail when estimating this mathematical outcome?",
+        "How does changing a single geometric axiom completely revolutionize this mathematical branch?",
+        "Why is this counter-intuitive result an inevitable logical certainty rather than a fluke?",
+        "How does this bridge the divide between discrete numbers and continuous smooth nature?",
+        "What philosophical implication does this theorem hold for the limits of human knowledge?"
+      ]
+    },
+    tech: {
+      topics: [
+        ["Transistor Bandgap Gating", "electrostatic field modulating semiconductor carrier channels", "energy bandgap control without physical moving parts", "nanometer microchip lithography"],
+        ["Quantum Qubit Superposition", "coherent state amplitudes in multi-qubit Hilbert space", "constructive and destructive quantum phase interference", "Shor's prime factorization algorithm"],
+        ["Asymmetric RSA Cryptography", "computational asymmetry of prime multiplication vs factorization", "trapdoor one-way modular exponentiation", "secure internet banking SSL handshakes"],
+        ["Transformer Neural Attention", "pairwise token dot-product affinity self-attention matrices", "parallelized contextual representation learning", "large language model emergent reasoning"],
+        ["Reed-Solomon Error Correction", "polynomial oversampling recovering punctured or corrupted bits", "Galois field arithmetic and syndrome decoding", "deep-space spacecraft transmission fidelity"],
+        ["Turing Halting Problem", "undecidability of self-referential program termination", "diagonalization proof of algorithmic limits", "automated formal software verification"],
+        ["Lithium-Ion Battery Solid Electrolyte", "dendrite suppression and high-voltage ion conductivity", "intercalation kinetics without volatile liquid solvents", "long-range electric aviation feasibility"],
+        ["Memristive Neuromorphic Synapses", "resistance state varying continuously with historical current flow", "analog vector-matrix multiplication at the memory site", "ultra-low-power brain-inspired AI chips"],
+        ["Fiber Optic Total Internal Reflection", "core refractive index exceeding cladding boundary threshold", "evanescent wave confinement preserving optical pulses", "transoceanic internet backbone throughput"],
+        ["Quantum Tunneling in Flash Memory", "Fowler-Nordheim wave function penetration through oxide barriers", "trapped floating-gate charge storing persistent bits", "high-density solid state drive longevity"],
+        ["Atomic Clock Cesium Resonance", "hyperfine ground state transition frequency at 9,192,631,770 Hz", "microwave cavity interrogation feedback locking", "relativistic satellite constellation timing"],
+        ["Blockchain Byzantine Fault Tolerance", "cryptographic proof-of-work and distributed state consensus", "asymmetric gossip protocol reaching Nash equilibrium", "censorship-resistant transaction ledgers"],
+        ["Silicon Photonic Waveguides", "monolithic optical interconnects directly inside silicon dies", "photonic data transfer bypassing electrical resistance heat", "hyperscale AI cluster interconnects"],
+        ["Laser Interferometric Gyroscopes", "Sagnac effect interference between counter-propagating beams", "phase shift directly proportional to angular rotation rate", "inertial missile and spacecraft guidance"],
+        ["DNA Digital Data Storage", "quaternary nucleotide encoding density exceeding magnetic tape", "polymerase synthesis and sequencing random retrieval", "century-scale archival data preservation"]
+      ],
+      angles: [
+        "How does this breakthrough bypass a physical limitation previously thought insurmountable?",
+        "What quantum phenomenon must engineers actively suppress to keep this device working reliably?",
+        "Why is the theoretical mathematical concept far older than the engineering ability to build it?",
+        "How does this technology fundamentally restructure the flow of information across human civilization?",
+        "What security or privacy catastrophe would unfold if this underlying algorithm were cracked?",
+        "Why does scaling this technology down by another order of magnitude require entirely new physics?"
+      ]
+    },
+    thinking: {
+      topics: [
+        ["Ship of Theseus Identity", "functional organization vs constituent material permanence", "mereological essentialism vs structural continuity", "continuity of personal human consciousness"],
+        ["Feynman's First Principle", "cognitive confirmation bias and motivated rationalization", "rigorous scientific humility and self-disconfirmation", "blind randomized clinical trial protocols"],
+        ["Platonism vs Formalism in Math", "objective metaphysical existence of mathematical objects", "invented symbolic language vs discovered cosmic structure", "universal messaging for interstellar contact"],
+        ["The Chinese Room Argument", "syntactic symbol manipulation vs authentic semantic understanding", "functionalist behaviorism vs genuine subjective experience", "evaluating artificial general intelligence"],
+        ["Popper's Falsification Criterion", "asymmetry between verification and empirical refutation", "demarcation line separating science from pseudoscience", "epistemic humility in medical hypotheses"],
+        ["Hume's Problem of Induction", "unjustified presumption that the future must resemble the past", "habitual psychological expectation vs deductive proof", "machine learning generalization bounds"],
+        ["Occam's Epistemic Razor", "minimizing unevidenced ontological assumptions", "parsimony in competing physical explanatory models", "diagnostic parsimony in clinical medicine"],
+        ["Hard Problem of Consciousness", "explanatory gap between physical neural firing and qualia", "integrated information theory vs biological physicalism", "philosophical implications of anaesthesia"],
+        ["Newcomb's Free Will Paradox", "conflict between dominance principle and expected utility", "deterministic future prediction vs subjective decision agency", "predictive behavioral algorithms"],
+        ["The Trolley Moral Dilemma", "deontological duty rights vs utilitarian outcome calculus", "doctrine of double effect in intentional action", "ethical programming for autonomous vehicles"],
+        ["Fermi Paradox & Great Filter", "statistical probability of cosmic life vs complete radio silence", "evolutionary or technological bottlenecks terminating civilizations", "long-term existential risk mitigation"],
+        ["Descartes' Radical Skepticism", "systematic doubt stripping unproven sensory perceptions", "indubitable self-awareness of the thinking subject", "epistemology of simulated reality hypotheses"],
+        ["Zeno's Motion Paradoxes", "infinite infinite divisibility of finite spatial intervals", "calculus limits resolving continuous motion dilemmas", "Planck scale discrete spacetime debates"],
+        ["Mary the Color Scientist Qualia", "physical knowledge vs direct subjective experiential qualia", "incompleteness of third-person physical descriptions", "mind-body dualism in neurobiology"],
+        ["The Anthropic Cosmological Principle", "fine-tuned physical constants required for conscious observers", "selection bias in an ensemble multiverse hypothesis", "string theory landscape vacuum solutions"]
+      ],
+      angles: [
+        "Why does this simple paradox challenge our most deeply held assumptions about reality?",
+        "What flaw in human cognitive evolution makes this philosophical trap so easy to fall into?",
+        "How does resolving this paradox directly transform practical modern decision-making?",
+        "Why is the obvious intuitive answer demonstrably contradictory upon rigorous logical inspection?",
+        "What does this thought experiment reveal about the boundary between observer and observed?",
+        "How do modern neural and physical discoveries shed unexpected light on this ancient debate?"
+      ]
+    },
+    how: {
+      topics: [
+        ["Noise-Canceling Active Sound", "180-degree anti-phase wave destructive interference", "digital signal processor real-time acoustic inversion", "acoustic dampening in aircraft cabins"],
+        ["GPS Relativistic Clock Adjustment", "compensating 38 microseconds daily gravitational and speed dilation", "nanosecond time-of-flight trilateration across four satellites", "precision autonomous drone landing"],
+        ["Soap Viral Disruption", "amphiphilic molecules wedging into lipid bilayer envelopes", "hydrophobic tail interaction prying pathogen membranes apart", "hospital sterile protocol standards"],
+        ["Touch Screen Capacitive Coupling", "conductive human finger perturbing electrostatic sensor grids", "mutual capacitance charge transfer coordinate mapping", "glove-compatible touch sensor algorithms"],
+        ["Microwave Dipole Water Rotation", "alternating 2.45 GHz electric field oscillating polar water molecules", "dielectric heating through intermolecular friction", "industrial RF freeze-drying"],
+        ["MRI Nuclear Magnetic Precession", "hydrogen proton spin alignment in multi-Tesla magnetic fields", "radiofrequency pulse perturbation and T1/T2 relaxation listening", "non-invasive soft tissue neuroimaging"],
+        ["Jet Engine Turbofan Bypass", "high-bypass ratio shroud fan accelerating massive cool air columns", "Brayton thermodynamic cycle compression and expansion", "commercial transcontinental fuel efficiency"],
+        ["LED Semiconductor Recombination", "electrons crossing p-n junction dropping to lower valence states", "direct energy bandgap emission of discrete photons without heat", "ultra-efficient indoor vertical farming"],
+        ["Barometric Altimeter Calibration", "hydrostatic atmospheric pressure drop with altitude", "pitot-static tube Bernoulli pressure differential measurement", "commercial avionics terrain collision warnings"],
+        ["Airbag Sodium Azide Deflation", "electric igniter triggering instant sodium azide decomposition", "nitrogen gas generation inflating nylon cushions in 30 milliseconds", "vehicle passive safety survival rates"],
+        ["Refrigeration Phase-Change Loop", "closed thermodynamic Rankine vapor-compression cycle", "latent heat absorption during low-pressure refrigerant vaporization", "cold chain vaccine preservation"],
+        ["Smoke Detector Alpha Ionization", "americium-241 alpha particles ionizing internal air chambers", "combustion smoke particles neutralizing electric ion current", "early residential fire warning systems"],
+        ["Photolithographic Silicon Etching", "deep ultraviolet laser projecting circuit masks onto photoresist", "chemical developer washing exposed polymers to etch nano-traces", "3nm semiconductor fabrication plants"],
+        ["Induction Cooktop Eddy Currents", "high-frequency electromagnetic coil inducing magnetic hysteresis", "eddy currents directly heating ferrous pan base without hot surface", "commercial kitchen thermal safety"],
+        ["Barcode Scanner Laser Rastering", "laser beam sweep measuring differential light reflectance", "photodiode translating bar widths into binary digit strings", "global supply chain inventory automation"]
+      ],
+      angles: [
+        "Why did earlier mechanical attempts at this device fail before modern solid-state physics?",
+        "What unseen physical conversion of energy makes this device function with such extreme efficiency?",
+        "How does this machine protect human users from the dangerous forces harnessed inside its core?",
+        "What tiny tolerance failure inside this mechanism would cause the entire system to fail catastrophically?",
+        "Why is this everyday household device actually an extraordinary triumph of twentieth-century physics?",
+        "How does this technology turn an annoying physical nuisance into a clever operational advantage?"
+      ]
+    },
+    behavior: {
+      topics: [
+        ["Limbic System Hijacking", "amygdala threat detection overriding rational prefrontal control", "emotional regulation failure manifesting as task avoidance", "behavioral micro-habit initiation"],
+        ["Bystander Diffusion of Responsibility", "social proof mimicry and divided psychological cost of inaction", "pluralistic ignorance masking emergency awareness", "crisis leadership directive delegation"],
+        ["Subjective Time Acceleration", "proportional lived experience ratio and novel memory encoding rates", "neural prediction automation skipping routine days", "lifelong cognitive novelty enrichment"],
+        ["Cognitive Dissonance Reduction", "psychological discomfort between conflicting beliefs and actions", "motivated self-justification altering attitudes retrospectively", "rehabilitative behavioral therapy"],
+        ["Dunbar's Neocortical Group Limit", "correlation between primate neocortex volume and social group size", "cognitive memory capacity capping stable relationships at ~150", "organizational team scaling architecture"],
+        ["Anchoring Heuristic Pricing", "initial numerical exposure disproportionately biasing subsequent estimates", "insufficient adjustment heuristic under uncertainty", "high-stakes negotiation arbitration"],
+        ["Dunning-Kruger Metacognition", "incompetence masking the ability to recognize incompetence", "dual burden of deficit in skill and deficit in self-evaluation", "rigorous objective competence auditing"],
+        ["Loss Aversion Asymmetry", "psychological pain of losing an asset feeling twice as potent as gaining", "prospect theory non-linear value function", "financial investment panic management"],
+        ["Dopamine Prediction Errors", "neurotransmitter spikes driven by unexpected rewards, not steady rewards", "variable ratio reinforcement schedules sustaining engagement", "gamification and habit engineering"],
+        ["Split-Brain Hemispheric Isolation", "surgical corpus callosum severance revealing dual independent consciousnesses", "left hemisphere confabulation inventing post-hoc reasons for right actions", "neuroscience of unified selfhood illusions"],
+        ["Flow State Neurochemistry", "transient hypofrontality downregulating self-critical inner voice", "optimal balance of challenge and high skill producing effortless focus", "deep work peak cognitive performance"],
+        ["Confirmation Bias Filter Bubbles", "selective attention and recall favoring pre-existing worldview models", "neural reward circuitry reinforcing identity-protective cognition", "adversarial peer-review protocols"],
+        ["Social Conformity Asch Effect", "perceptual consensus pressure driving individuals to deny direct sensory evidence", "fear of normative tribal social ostracism", "whistleblower protection systems"],
+        ["Grounded Cognition & Body Metaphor", "sensorimotor neural representations shaping abstract thoughts", "physical warmth or weight altering interpersonal judgments", "ergonomic learning environment design"],
+        ["Ego Depletion & Decision Fatigue", "metabolic and neural resource limits on sustained executive function", "prefrontal self-control fatigue defaulting to status quo choices", "strategic high-priority morning scheduling"]
+      ],
+      angles: [
+        "Why did evolutionary survival reward a behavioral trait that causes so much distress in modern life?",
+        "How can understanding this psychological bias allow you to completely re-engineer your habits?",
+        "What experiment first exposed the shocking gap between how we think we act vs how we actually act?",
+        "Why is this cognitive blind spot almost impossible to notice in yourself, even when you know it exists?",
+        "How do predatory modern commercial systems exploit this exact neural loop for profit?",
+        "What simple counter-measure can restore rational decision-making when this bias is triggered?"
+      ]
+    },
+    nature: {
+      topics: [
+        ["Baryon Matter-Antimatter Asymmetry", "Sakharov conditions creating slight particle imbalance post-Big Bang", "CP symmetry violation in subatomic particle decays", "CERN LHCb antimatter research"],
+        ["Evolutionary Necessity of Sleep", "glymphatic cerebrospinal fluid toxic protein power-washing", "synaptic renormalization preventing neural saturation", "mitigating neurodegenerative diseases"],
+        ["Dark Matter Gravitational Scaffolding", "anomalous galactic rotation velocities and gravitational lensing arcs", "non-baryonic matter creating early cosmic structure wells", "underground xenon particle detectors"],
+        ["Primordial Abiogenesis Origins", "catalytic RNA world pre-dating modern DNA-protein systems", "hydrothermal vent proton gradients powering proto-metabolism", "synthetic artificial protocell assembly"],
+        ["Cosmic Constant Vacuum Catastrophe", "120-order-of-magnitude discrepancy between quantum zero-point energy and dark energy", "fine-tuning problem in cosmological vacuum density", "quantum gravity unification theories"],
+        ["Fermi Paradox Great Filter Silence", "high drake equation probability contrasting with silent interstellar sky", "evolutionary or technological bottlenecks eliminating civilizations", "search for extraterrestrial techno-signatures"],
+        ["Arrow of Time Thermodynamic Asymmetry", "second law of thermodynamics entropy growth dictating directionality", "past low-entropy boundary condition of the Big Bang", "time-reversal invariance in microscopic laws"],
+        ["Quantum Wave Function Collapse", "superposition transitioning to single deterministic observed states", "Copenhagen measurement problem vs Many-Worlds interpretation", "quantum decoherence experiments"],
+        ["Geomagnetic Polarity Reversals", "chaotic outer-core convective dynamo turbulence", "periodic magnetic dipole collapse and polarity flips in geological strata", "satellite radiation shielding during flips"],
+        ["Mass Extinction Event Periodicity", "cyclical geological volcanism or astronomical impact rhythms", "oceanic anoxia and basalt flood trap greenhouse releases", "planetary biosphere resilience limits"],
+        ["Origin of Homochirality in Life", "biological preference for left-handed amino acids and right-handed sugars", "parity violation in electroweak forces or circularly polarized starlight", "meteoritic asymmetric organic synthesis"],
+        ["Dark Energy State Equation w = -1", "accelerating expansion driving galaxies beyond observable horizons", "cosmic horizon freeze and Big Freeze / Big Rip scenarios", "Euclid space telescope cosmic mapping"],
+        ["The Origin of the Genetic Code", "universal triplet codon mapping to twenty amino acids across all life", "frozen accident vs chemical stereochemical optimization", "expanded synthetic genetic code research"],
+        ["Fine-Structure Constant α ≈ 1/137", "dimensionless coupling constant governing electromagnetic interaction strength", "fine-tuning required for stable atomic electron shells and chemistry", "astronomical tests for constant drift"],
+        ["Cosmic Neutrino Background Relic", "relic neutrinos decoupling one second after the Big Bang", "ultra-low energy cosmic background permeating every cubic centimeter", "PTOLEMY quantum target detection experiments"]
+      ],
+      angles: [
+        "Why does solving this single paradox have the potential to rewrite all known physics textbooks?",
+        "What makes this mystery stubbornly resistant to even our most advanced particle accelerators?",
+        "How does this unanswered question directly challenge our understanding of why the universe exists at all?",
+        "What radical hypothesis have leading physicists proposed to reconcile this impossible contradiction?",
+        "Why is the simplest intuitive explanation for this phenomenon completely ruled out by hard data?",
+        "How could a breakthrough in this deep mystery unlock entirely new technologies for human civilization?"
+      ]
+    }
+  };
+
+  function generateProceduralQuestion(globalIndex) {
+    var TOTAL_PER_CAT = 62500;
+    var catKeys = ["space", "science", "math", "tech", "thinking", "how", "behavior", "nature"];
+    var catIdx = Math.floor(globalIndex / TOTAL_PER_CAT) % 8;
+    var catKey = catKeys[catIdx];
+    var catData = PROCEDURAL_CURRICULUM[catKey];
+    var catInfo = CATEGORIES.find(function(c) { return c.key === catKey; }) || { label: catKey, badge: "iva-badge-space" };
+
+    var localIdx = globalIndex % TOTAL_PER_CAT;
+    var tLen = catData.topics.length;
+    var aLen = catData.angles.length;
+
+    var topicIdx = localIdx % tLen;
+    var angleIdx = Math.floor(localIdx / tLen) % aLen;
+    var variation = Math.floor(localIdx / (tLen * aLen));
+
+    var top = catData.topics[topicIdx];
+    var tName = top[0];
+    var tCore = top[1];
+    var tMech = top[2];
+    var tApp = top[3];
+    var angleQ = catData.angles[angleIdx];
+
+    var qTitle = "";
+    if (variation === 0) qTitle = tName + ": " + angleQ;
+    else if (variation === 1) qTitle = "How does " + tName.toLowerCase() + " operate under " + tCore + "?";
+    else if (variation === 2) qTitle = "Why is " + tName.toLowerCase() + " fundamentally driven by " + tMech + "?";
+    else if (variation === 3) qTitle = "From first principles: " + angleQ + " (" + tName + ")";
+    else if (variation === 4) qTitle = "The mystery of " + tName.toLowerCase() + ": What governs " + tCore + "?";
+    else if (variation === 5) qTitle = "Can " + tMech + " fully explain the dynamics of " + tName.toLowerCase() + "?";
+    else if (variation === 6) qTitle = "What happens when " + tName.toLowerCase() + " meets extreme " + tCore + "?";
+    else if (variation === 7) qTitle = "How " + tName.toLowerCase() + " revolutionized modern " + tApp + ".";
+    else if (variation === 8) qTitle = "Why " + tName.toLowerCase() + " defies common human intuition.";
+    else qTitle = "Investigating " + tName.toLowerCase() + " through " + tCore + " (Inquiry #" + (variation + 1) + ")";
+
+    var padded = String(localIdx + 1);
+    while (padded.length < 6) padded = "0" + padded;
+
+    return {
+      id: catKey + "-" + padded,
+      globalNumber: globalIndex + 1,
+      category: catKey,
+      categoryLabel: catInfo.label,
+      badgeClass: catInfo.badge,
+      readTime: "3 min read",
+      question: qTitle,
+      prompt: "Before analyzing the science: Consider " + tName.toLowerCase() + ". " + angleQ + " How would you test this using only basic observations?",
+      simple: tName + " is governed by " + tCore + ". It follows strict thermodynamic and physical constraints to preserve equilibrium.",
+      mechanism: "The primary mechanism relies on " + tMech + ". Energy transfer occurs through localized field gradients.",
+      firstPrinciples: "At the first-principles level, this reflects fundamental conservation laws (energy, momentum, and quantum information).",
+      whatIf: "What if " + tCore + " were weakened by an order of magnitude? The equilibrium of " + tName.toLowerCase() + " would collapse.",
+      realLife: "Practical application: Understanding this principle directly powers advances in " + tApp + ".",
+      connectedTags: [tName, catInfo.label, "Inquiry #" + (globalIndex + 1), "First Principles"]
+    };
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 6. CATEGORY METADATA
+  // ════════════════════════════════════════════════════════════════
+  var CATEGORIES = [
+    { key: "space", label: "Space & Cosmos", icon: "🌌", badge: "iva-badge-space" },
+    { key: "science", label: "Science & Nature", icon: "🌱", badge: "iva-badge-science" },
+    { key: "math", label: "Math & Patterns", icon: "📐", badge: "iva-badge-math" },
+    { key: "tech", label: "Tech & Future", icon: "⚡", badge: "iva-badge-tech" },
+    { key: "thinking", label: "Thinking & Philosophy", icon: "🧠", badge: "iva-badge-thinking" },
+    { key: "how", label: "How Things Work", icon: "⚙️", badge: "iva-badge-how" },
+    { key: "behavior", label: "Human Behavior", icon: "🎭", badge: "iva-badge-behavior" },
+    { key: "nature", label: "Deep Mysteries", icon: "🔮", badge: "iva-badge-nature" }
+  ];
+
+  // ════════════════════════════════════════════════════════════════
+  // 7. APP STATE & LOCAL STORAGE PERSISTENCE
+  // ════════════════════════════════════════════════════════════════
+  var STORAGE_KEY = 'iva_curiosity_store_v1';
+  var appState = {
+    currentView: 'home',
+    currentQuestionId: null,
+    currentCategory: null,
+    exploredIds: [],
+    savedIds: [],
+    reflections: {},
+    sparkQuestions: [],
+    streak: 1,
+    lastActiveDate: new Date().toDateString()
+  };
+
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        appState.exploredIds = parsed.exploredIds || [];
+        appState.savedIds = parsed.savedIds || [];
+        appState.reflections = parsed.reflections || {};
+        appState.sparkQuestions = parsed.sparkQuestions || [];
+        appState.streak = parsed.streak || 1;
+        appState.lastActiveDate = parsed.lastActiveDate || new Date().toDateString();
+
+        // Calculate streak
+        var today = new Date().toDateString();
+        if (appState.lastActiveDate !== today) {
+          var last = new Date(appState.lastActiveDate);
+          var now = new Date(today);
+          var diffDays = Math.round((now - last) / (1000 * 60 * 60 * 24));
+          if (diffDays === 1) {
+            appState.streak += 1;
+          } else if (diffDays > 1) {
+            appState.streak = 1;
+          }
+          appState.lastActiveDate = today;
+          saveState();
+        }
+      }
+    } catch(e) {
+      console.warn("Storage not available or error parsing state", e);
+    }
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        exploredIds: appState.exploredIds,
+        savedIds: appState.savedIds,
+        reflections: appState.reflections,
+        sparkQuestions: appState.sparkQuestions,
+        streak: appState.streak,
+        lastActiveDate: appState.lastActiveDate
+      }));
+    } catch(e) {
+      console.warn("Unable to save state", e);
+    }
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 8. DOM ELEMENT REFERENCES
+  // ════════════════════════════════════════════════════════════════
+  var dom = {};
+  function bindElements() {
+    dom.views = {
+      home: document.getElementById('ivaHomeView'),
+      curiosity: document.getElementById('ivaCuriosityView'),
+      bored: document.getElementById('ivaBoredView'),
+      strange: document.getElementById('ivaStrangeView'),
+      saved: document.getElementById('ivaSavedView'),
+      category: document.getElementById('ivaCategoryView')
+    };
+
+    dom.nav = {
+      logo: document.getElementById('ivaLogoBtn'),
+      home: document.getElementById('ivaNavHomeBtn'),
+      random: document.getElementById('ivaNavRandomBtn'),
+      bored: document.getElementById('ivaNavBoredBtn'),
+      strange: document.getElementById('ivaNavStrangeBtn'),
+      saved: document.getElementById('ivaNavSavedBtn'),
+      about: document.getElementById('ivaNavAboutBtn'),
+      savedBadge: document.getElementById('ivaSavedBadge')
+    };
+
+    dom.hero = {
+      explore: document.getElementById('ivaHeroExploreBtn'),
+      surprise: document.getElementById('ivaHeroSurpriseBtn'),
+      bored: document.getElementById('ivaHeroBoredBtn')
+    };
+
+    dom.search = {
+      input: document.getElementById('ivaSearchInput'),
+      container: document.getElementById('ivaSearchResults'),
+      grid: document.getElementById('ivaSearchResultsGrid')
+    };
+
+    dom.today = {
+      card: document.getElementById('ivaTodayCard'),
+      badge: document.getElementById('ivaTodayBadge'),
+      question: document.getElementById('ivaTodayQuestion'),
+      excerpt: document.getElementById('ivaTodayExcerpt'),
+      explore: document.getElementById('ivaTodayExploreBtn'),
+      roll: document.getElementById('ivaTodayRollBtn')
+    };
+
+    dom.categoriesGrid = document.getElementById('ivaCategoriesGrid');
+    dom.randomQuote = document.getElementById('ivaRandomQuote');
+    dom.randomWalkBtn = document.getElementById('ivaRandomWalkBtn');
+    dom.homeStrangeFact = document.getElementById('ivaHomeStrangeFact');
+    dom.moreStrangeBtn = document.getElementById('ivaMoreStrangeBtn');
+
+    dom.build = {
+      sparks: document.getElementById('ivaBuildSparks'),
+      input: document.getElementById('ivaBuildTextarea'),
+      reroll: document.getElementById('ivaRerollSparksBtn'),
+      save: document.getElementById('ivaSaveSparkQuestionBtn')
+    };
+
+    dom.journey = {
+      explored: document.getElementById('ivaJourneyExplored'),
+      reflections: document.getElementById('ivaJourneyReflections'),
+      saved: document.getElementById('ivaJourneySaved'),
+      streak: document.getElementById('ivaJourneyStreak')
+    };
+
+    dom.curiosity = {
+      backBtn: document.getElementById('ivaBackToBrowseBtn'),
+      categoryBadge: document.getElementById('ivaCuriosityCategoryBadge'),
+      readTime: document.getElementById('ivaCuriosityReadTime'),
+      level: document.getElementById('ivaCuriosityLevel'),
+      title: document.getElementById('ivaCuriosityTitle'),
+      prompt: document.getElementById('ivaCuriosityPrompt'),
+      thinkInput: document.getElementById('ivaThinkInput'),
+      revealBtn: document.getElementById('ivaRevealExplanationBtn'),
+      savedStatus: document.getElementById('ivaThinkSavedStatus'),
+      expContainer: document.getElementById('ivaExplanationContainer'),
+      expSimple: document.getElementById('ivaExpSimple'),
+      expMechanism: document.getElementById('ivaExpMechanism'),
+      expFirstPrinciples: document.getElementById('ivaExpFirstPrinciples'),
+      experimentBox: document.getElementById('ivaExperimentBox'),
+      expTitle: document.getElementById('ivaExperimentTitle'),
+      expDesc: document.getElementById('ivaExperimentDesc'),
+      expSlider: document.getElementById('ivaExperimentSlider'),
+      expSliderMin: document.getElementById('ivaExpSliderMin'),
+      expSliderMax: document.getElementById('ivaExpSliderMax'),
+      expResult: document.getElementById('ivaExperimentResult'),
+      whatIfText: document.getElementById('ivaWhatIfText'),
+      realLifeText: document.getElementById('ivaRealLifeText'),
+      connectedTags: document.getElementById('ivaConnectedTags'),
+      bookmarkBtn: document.getElementById('ivaBookmarkBtn'),
+      nextRandomBtn: document.getElementById('ivaNextRandomBtn'),
+      shareBtn: document.getElementById('ivaShareBtn')
+    };
+
+    dom.bored = {
+      text: document.getElementById('ivaBoredChallengeText'),
+      nextBtn: document.getElementById('ivaNextBoredBtn'),
+      backBtn: document.getElementById('ivaBoredBackHomeBtn')
+    };
+
+    dom.strange = {
+      display: document.getElementById('ivaStrangeFactDisplay'),
+      nextBtn: document.getElementById('ivaNextStrangeBtn'),
+      backBtn: document.getElementById('ivaStrangeBackHomeBtn')
+    };
+
+    dom.saved = {
+      grid: document.getElementById('ivaSavedGrid'),
+      empty: document.getElementById('ivaSavedEmpty'),
+      backBtn: document.getElementById('ivaSavedBackHomeBtn'),
+      exploreNowBtn: document.getElementById('ivaSavedExploreNowBtn')
+    };
+
+    dom.categoryView = {
+      badge: document.getElementById('ivaCategoryViewBadge'),
+      title: document.getElementById('ivaCategoryViewTitle'),
+      grid: document.getElementById('ivaCategoryQuestionsGrid'),
+      backBtn: document.getElementById('ivaCategoryBackHomeBtn'),
+      loading: document.getElementById('ivaCategoryLoading'),
+      loadMoreBtn: document.getElementById('ivaCategoryLoadMoreBtn')
+    };
+
+    dom.intro = {
+      overlay: document.getElementById('ivaIntroOverlay'),
+      enterBtn: document.getElementById('ivaIntroEnterBtn')
+    };
+
+    dom.about = {
+      overlay: document.getElementById('ivaAboutModalOverlay'),
+      closeBtn: document.getElementById('ivaAboutCloseBtn'),
+      gotItBtn: document.getElementById('ivaAboutGotItBtn')
+    };
+
+    dom.toast = {
+      el: document.getElementById('ivaToast'),
+      icon: document.getElementById('ivaToastIcon'),
+      msg: document.getElementById('ivaToastMessage')
+    };
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 9. UI TOAST & VIEW NAVIGATION
+  // ════════════════════════════════════════════════════════════════
+  var toastTimeout = null;
+  function showToast(icon, message) {
+    if (!dom.toast.el) return;
+    dom.toast.icon.textContent = icon || "✨";
+    dom.toast.msg.textContent = message;
+    dom.toast.el.classList.remove('iva-hidden');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(function() {
+      dom.toast.el.classList.add('iva-hidden');
+    }, 2800);
+  }
+
+  function showView(viewName) {
+    appState.currentView = viewName;
+    for (var key in dom.views) {
+      if (dom.views[key]) {
+        if (key === viewName) {
+          dom.views[key].classList.remove('iva-hidden');
+        } else {
+          dom.views[key].classList.add('iva-hidden');
+        }
+      }
+    }
+    // Scroll smoothly to top of curiosity machine container
+    var root = document.getElementById('iva-curiosity-machine');
+    if (root) {
+      root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    updateJourneyMetrics();
+  }
+
+  function updateJourneyMetrics() {
+    if (dom.journey.explored) dom.journey.explored.textContent = appState.exploredIds.length;
+    if (dom.journey.reflections) dom.journey.reflections.textContent = Object.keys(appState.reflections).length;
+    if (dom.journey.saved) dom.journey.saved.textContent = appState.savedIds.length;
+    if (dom.journey.streak) dom.journey.streak.textContent = appState.streak;
+    if (dom.nav.savedBadge) dom.nav.savedBadge.textContent = "(" + appState.savedIds.length + ")";
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 10. TODAY'S CURIOSITY PICKER
+  // ════════════════════════════════════════════════════════════════
+  var currentTodayCuriosity = null;
+  function getTodayCuriosity(forceRandom) {
+    if (forceRandom) {
+      var randIndex = Math.floor(Math.random() * CURIOSITIES.length);
+      return CURIOSITIES[randIndex];
+    }
+    // Deterministic daily pick based on date
+    var todayStr = new Date().toISOString().slice(0, 10);
+    var hash = 0;
+    for (var i = 0; i < todayStr.length; i++) {
+      hash = (hash * 31 + todayStr.charCodeAt(i)) & 0xffffffff;
+    }
+    var index = Math.abs(hash) % CURIOSITIES.length;
+    return CURIOSITIES[index];
+  }
+
+  function renderTodayCuriosity(curiosity) {
+    currentTodayCuriosity = curiosity;
+    dom.today.badge.className = "iva-today-badge " + curiosity.badgeClass;
+    dom.today.badge.textContent = curiosity.categoryLabel;
+    dom.today.question.textContent = curiosity.question;
+    dom.today.excerpt.textContent = curiosity.simple;
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 11. CATEGORIES RENDERER
+  // ════════════════════════════════════════════════════════════════
+  function renderCategories() {
+    if (!dom.categoriesGrid) return;
+    dom.categoriesGrid.innerHTML = "";
+    CATEGORIES.forEach(function(cat) {
+      var chip = document.createElement('button');
+      chip.type = "button";
+      chip.className = "iva-category-chip";
+      chip.innerHTML = "<span>" + cat.icon + "</span> <span>" + cat.label + " (62,500)</span>";
+      chip.addEventListener('click', function() {
+        openCategoryView(cat.key);
+      });
+      dom.categoriesGrid.appendChild(chip);
+    });
+  }
+
+  var loadedCategoryCache = {};
+  var currentCategoryQuestions = [];
+  var currentCategoryRenderedIndex = 0;
+  var CATEGORY_BATCH_SIZE = 20;
+
+  function renderCategoryBatch() {
+    var nextBatch = currentCategoryQuestions.slice(currentCategoryRenderedIndex, currentCategoryRenderedIndex + CATEGORY_BATCH_SIZE);
+    nextBatch.forEach(function(q) {
+      var card = document.createElement('div');
+      card.className = "iva-saved-item";
+      card.innerHTML = '<div style="margin-bottom:8px;"><span class="iva-today-badge ' + (q.badgeClass || 'iva-badge-space') + '">' + (q.categoryLabel || 'Curiosity') + '</span></div>' +
+                       '<div style="font-weight:700; color:#fff; font-size:1.1rem; margin-bottom:8px;">' + q.question + '</div>' +
+                       '<div style="color:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.5;">' + q.simple + '</div>';
+      card.addEventListener('click', function() {
+        openCuriosity(q.id, q);
+      });
+      dom.categoryView.grid.appendChild(card);
+    });
+
+    currentCategoryRenderedIndex += nextBatch.length;
+
+    if (dom.categoryView.loadMoreBtn) {
+      if (currentCategoryRenderedIndex < currentCategoryQuestions.length) {
+        dom.categoryView.loadMoreBtn.style.display = "inline-flex";
+        dom.categoryView.loadMoreBtn.textContent = "Load More Questions (" + currentCategoryRenderedIndex + " of " + currentCategoryQuestions.length.toLocaleString() + ") ↓";
+      } else {
+        dom.categoryView.loadMoreBtn.style.display = "none";
+      }
+    }
+  }
+
+  function openCategoryView(categoryKey) {
+    appState.currentCategory = categoryKey;
+    var catInfo = CATEGORIES.find(function(c) { return c.key === categoryKey; }) || { label: categoryKey, badge: "iva-badge-space" };
+    dom.categoryView.badge.className = "iva-today-badge " + catInfo.badge;
+    dom.categoryView.badge.textContent = catInfo.label;
+    dom.categoryView.title.textContent = "Explore " + catInfo.label;
+    dom.categoryView.grid.innerHTML = "";
+    currentCategoryRenderedIndex = 0;
+
+    if (dom.categoryView.loadMoreBtn) dom.categoryView.loadMoreBtn.style.display = "none";
+    if (dom.categoryView.loading) dom.categoryView.loading.style.display = "block";
+
+    showView('category');
+
+    // Check if category questions are already loaded in memory
+    if (loadedCategoryCache[categoryKey] && loadedCategoryCache[categoryKey].length > 0) {
+      currentCategoryQuestions = loadedCategoryCache[categoryKey];
+      if (dom.categoryView.loading) dom.categoryView.loading.style.display = "none";
+      renderCategoryBatch();
+      return;
+    }
+
+    // Attempt to fetch from 100k repository
+    var url = QUESTIONS_DATA_BASE_URL + categoryKey + ".json";
+    fetch(url)
+      .then(function(res) {
+        if (!res.ok) throw new Error("HTTP error " + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        if (Array.isArray(data) && data.length > 0) {
+          loadedCategoryCache[categoryKey] = data;
+          currentCategoryQuestions = data;
+          // Register questions into master lookup
+          data.forEach(function(item) {
+            if (!CURIOSITIES.some(function(c) { return c.id === item.id; })) {
+              CURIOSITIES.push(item);
+            }
+          });
+          dom.categoryView.title.textContent = "Explore " + catInfo.label + " (" + data.length.toLocaleString() + " Questions)";
+        } else {
+          fallbackCategory(categoryKey);
+        }
+      })
+      .catch(function(err) {
+        console.info("Could not fetch remote category pack, using built-in questions:", err);
+        fallbackCategory(categoryKey);
+      })
+      .finally(function() {
+        if (dom.categoryView.loading) dom.categoryView.loading.style.display = "none";
+        renderCategoryBatch();
+      });
+  }
+
+  function fallbackCategory(categoryKey) {
+    var catKeys = ["space", "science", "math", "tech", "thinking", "how", "behavior", "nature"];
+    var catIdx = catKeys.indexOf(categoryKey);
+    if (catIdx === -1) catIdx = 0;
+    var baseOffset = catIdx * 62500;
+    var generatedPack = [];
+    // Generate initial pack of 100 questions for instant browsing
+    for (var i = 0; i < 100; i++) {
+      generatedPack.push(generateProceduralQuestion(baseOffset + i));
+    }
+    loadedCategoryCache[categoryKey] = generatedPack;
+    currentCategoryQuestions = generatedPack;
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 12. CURIOSITY DETAIL VIEW RENDERER
+  // ════════════════════════════════════════════════════════════════
+  var activeExperimentHandler = null;
+  function openCuriosity(questionId, directObj) {
+    var q = directObj || CURIOSITIES.find(function(item) { return item.id === questionId; });
+    if (!q) return;
+
+    appState.currentQuestionId = q.id;
+
+    // Track exploration
+    if (appState.exploredIds.indexOf(q.id) === -1) {
+      appState.exploredIds.push(q.id);
+      saveState();
+    }
+
+    // Set meta & texts
+    dom.curiosity.categoryBadge.className = "iva-curiosity-category " + q.badgeClass;
+    dom.curiosity.categoryBadge.textContent = q.categoryLabel;
+    dom.curiosity.readTime.textContent = "⏱️ " + q.readTime;
+    dom.curiosity.title.textContent = q.question;
+    dom.curiosity.prompt.textContent = q.prompt;
+
+    // Reflection textarea
+    var existingReflection = appState.reflections[q.id] || "";
+    dom.curiosity.thinkInput.value = existingReflection;
+    dom.curiosity.savedStatus.style.display = existingReflection ? "inline" : "none";
+
+    // Explanations
+    dom.curiosity.expSimple.innerHTML = q.simple;
+    dom.curiosity.expMechanism.innerHTML = q.mechanism;
+    dom.curiosity.expFirstPrinciples.innerHTML = q.firstPrinciples;
+    dom.curiosity.whatIfText.innerHTML = q.whatIf;
+    dom.curiosity.realLifeText.innerHTML = q.realLife;
+
+    // Interactive Experiment setup
+    if (q.experiment) {
+      dom.curiosity.experimentBox.style.display = "block";
+      dom.curiosity.expTitle.textContent = q.experiment.title;
+      dom.curiosity.expDesc.textContent = q.experiment.desc;
+      dom.curiosity.expSlider.min = q.experiment.min;
+      dom.curiosity.expSlider.max = q.experiment.max;
+      dom.curiosity.expSlider.value = q.experiment.val;
+      dom.curiosity.expSliderMin.textContent = q.experiment.min + q.experiment.unit;
+      dom.curiosity.expSliderMax.textContent = q.experiment.max + q.experiment.unit;
+      dom.curiosity.expResult.textContent = q.experiment.calculate(q.experiment.val);
+
+      if (activeExperimentHandler) {
+        dom.curiosity.expSlider.removeEventListener('input', activeExperimentHandler);
+      }
+      activeExperimentHandler = function(e) {
+        var val = parseFloat(e.target.value);
+        dom.curiosity.expResult.textContent = q.experiment.calculate(val);
+      };
+      dom.curiosity.expSlider.addEventListener('input', activeExperimentHandler);
+    } else {
+      dom.curiosity.experimentBox.style.display = "none";
+    }
+
+    // Connected tags
+    dom.curiosity.connectedTags.innerHTML = "";
+    if (q.connectedTags && q.connectedTags.length > 0) {
+      q.connectedTags.forEach(function(tag) {
+        var tagBtn = document.createElement('button');
+        tagBtn.type = "button";
+        tagBtn.className = "iva-connected-tag";
+        tagBtn.textContent = "# " + tag;
+        tagBtn.addEventListener('click', function() {
+          // Search for this tag
+          dom.search.input.value = tag;
+          showView('home');
+          performSearch(tag);
+        });
+        dom.curiosity.connectedTags.appendChild(tagBtn);
+      });
+    }
+
+    // Bookmark button text update
+    updateBookmarkButtonState(q.id);
+
+    // Switch view
+    showView('curiosity');
+
+    // Update URL hash for clean shareability without page reloads
+    try {
+      history.replaceState(null, null, '#curiosity-' + q.id);
+    } catch(e) {}
+  }
+
+  function updateBookmarkButtonState(questionId) {
+    var isSaved = appState.savedIds.indexOf(questionId) !== -1;
+    if (isSaved) {
+      dom.curiosity.bookmarkBtn.textContent = "✓ Saved in Bookmarks";
+      dom.curiosity.bookmarkBtn.className = "iva-btn iva-btn-secondary iva-btn-small";
+    } else {
+      dom.curiosity.bookmarkBtn.textContent = "🔖 Save Question";
+      dom.curiosity.bookmarkBtn.className = "iva-btn iva-btn-primary iva-btn-small";
+    }
+  }
+
+  function toggleBookmark(questionId) {
+    var idx = appState.savedIds.indexOf(questionId);
+    if (idx === -1) {
+      appState.savedIds.push(questionId);
+      showToast("🔖", "Question saved to your bookmarks!");
+    } else {
+      appState.savedIds.splice(idx, 1);
+      showToast("🗑️", "Removed from bookmarks");
+    }
+    saveState();
+    updateBookmarkButtonState(questionId);
+    updateJourneyMetrics();
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 13. SEARCH FUNCTIONALITY
+  // ════════════════════════════════════════════════════════════════
+  function performSearch(query) {
+    var q = query.trim().toLowerCase();
+    // Direct numerical jump support (e.g. user typed a number)
+    var num = parseInt(q.replace(/#/g, ''), 10);
+    if (!isNaN(num) && num >= 1 && num <= 500000) {
+      var directQ = generateProceduralQuestion(num - 1);
+      dom.search.grid.innerHTML = '<div class="iva-search-result-item" style="border: 2px solid var(--iva-accent2);">' +
+        '<div class="iva-result-category"><span class="iva-today-badge ' + directQ.badgeClass + '">Direct Jump: #' + num.toLocaleString() + '</span></div>' +
+        '<div class="iva-result-question" style="color:#fff; margin-top:6px; font-weight:700;">' + directQ.question + '</div>' +
+        '<div style="color:var(--iva-accent2); font-size:0.8rem; margin-top:4px;">Click to open this exact inquiry →</div></div>';
+      dom.search.grid.querySelector('.iva-search-result-item').addEventListener('click', function() {
+        dom.search.input.value = "";
+        dom.search.container.classList.add('iva-hidden');
+        openCuriosity(directQ.id, directQ);
+      });
+      dom.search.container.classList.remove('iva-hidden');
+      return;
+    }
+    if (!q) {
+      dom.search.container.classList.add('iva-hidden');
+      dom.search.grid.innerHTML = "";
+      return;
+    }
+
+    var matches = CURIOSITIES.filter(function(item) {
+      return item.question.toLowerCase().indexOf(q) !== -1 ||
+             item.categoryLabel.toLowerCase().indexOf(q) !== -1 ||
+             item.simple.toLowerCase().indexOf(q) !== -1 ||
+             (item.connectedTags && item.connectedTags.some(function(t) { return t.toLowerCase().indexOf(q) !== -1; }));
+    });
+
+    dom.search.grid.innerHTML = "";
+    if (matches.length === 0) {
+      dom.search.grid.innerHTML = '<div class="iva-search-empty">No curiosities found matching "' + query + '". Try "space", "quantum", "infinity", or "brain".</div>';
+    } else {
+      matches.slice(0, 6).forEach(function(item) {
+        var el = document.createElement('div');
+        el.className = "iva-search-result-item";
+        el.innerHTML = '<div class="iva-result-category"><span class="iva-today-badge ' + item.badgeClass + '" style="font-size:0.7rem; padding:2px 8px;">' + item.categoryLabel + '</span></div>' +
+                       '<div class="iva-result-question" style="color:#fff; margin-top:6px;">' + item.question + '</div>';
+        el.addEventListener('click', function() {
+          dom.search.input.value = "";
+          dom.search.container.classList.add('iva-hidden');
+          openCuriosity(item.id);
+        });
+        dom.search.grid.appendChild(el);
+      });
+    }
+    dom.search.container.classList.remove('iva-hidden');
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 14. SAVED VIEW RENDERER
+  // ════════════════════════════════════════════════════════════════
+  function renderSavedView() {
+    dom.saved.grid.innerHTML = "";
+    if (appState.savedIds.length === 0) {
+      dom.saved.empty.style.display = "block";
+      return;
+    }
+    dom.saved.empty.style.display = "none";
+
+    appState.savedIds.forEach(function(savedId) {
+      var q = CURIOSITIES.find(function(item) { return item.id === savedId; });
+      if (!q) return;
+
+      var card = document.createElement('div');
+      card.className = "iva-saved-item";
+      card.innerHTML = '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">' +
+                       '  <span class="iva-today-badge ' + q.badgeClass + '">' + q.categoryLabel + '</span>' +
+                       '  <button type="button" class="iva-remove-saved-btn" title="Remove bookmark">✕ Remove</button>' +
+                       '</div>' +
+                       '<div style="font-weight:700; color:#fff; font-size:1.1rem; margin-bottom:8px;">' + q.question + '</div>' +
+                       '<div style="color:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.5;">' + q.simple + '</div>';
+
+      card.querySelector('.iva-remove-saved-btn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleBookmark(q.id);
+        renderSavedView();
+      });
+
+      card.addEventListener('click', function() {
+        openCuriosity(q.id);
+      });
+
+      dom.saved.grid.appendChild(card);
+    });
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 15. BORED CHALLENGE & STRANGE FACTS GENERATORS
+  // ════════════════════════════════════════════════════════════════
+  function rollNextBoredChallenge() {
+    var rand = BORED_CHALLENGES[Math.floor(Math.random() * BORED_CHALLENGES.length)];
+    dom.bored.text.textContent = rand;
+  }
+
+  function rollNextStrangeFact() {
+    var rand = STRANGE_FACTS[Math.floor(Math.random() * STRANGE_FACTS.length)];
+    dom.strange.display.textContent = rand;
+  }
+
+  function rollBuildSparks() {
+    var copy = CONCEPT_SPARKS.slice();
+    copy.sort(function() { return 0.5 - Math.random(); });
+    var selected = copy.slice(0, 3);
+    dom.build.sparks.textContent = selected.join(" • ");
+  }
+
+  function rollRandomQuote() {
+    var quote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+    if (dom.randomQuote) dom.randomQuote.textContent = quote;
+  }
+
+  function takeRandomLeap() {
+    var randNum = Math.floor(Math.random() * 500000);
+    var q = generateProceduralQuestion(randNum);
+    openCuriosity(q.id, q);
+    showToast("🎲", "Leaped to Question #" + (randNum + 1).toLocaleString() + " of 500,000!");
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 16. EVENT LISTENERS SETUP
+  // ════════════════════════════════════════════════════════════════
+  function setupEventListeners() {
+    // Navigation
+    dom.nav.logo.addEventListener('click', function() { showView('home'); });
+    dom.nav.home.addEventListener('click', function() { showView('home'); });
+    dom.nav.random.addEventListener('click', takeRandomLeap);
+    dom.nav.bored.addEventListener('click', function() { rollNextBoredChallenge(); showView('bored'); });
+    dom.nav.strange.addEventListener('click', function() { rollNextStrangeFact(); showView('strange'); });
+    dom.nav.saved.addEventListener('click', function() { renderSavedView(); showView('saved'); });
+    dom.nav.about.addEventListener('click', function() { dom.about.overlay.classList.remove('iva-hidden'); });
+
+    // Hero buttons
+    dom.hero.explore.addEventListener('click', function() {
+      // Open today's curiosity or scroll to categories
+      if (currentTodayCuriosity) openCuriosity(currentTodayCuriosity.id);
+    });
+    dom.hero.surprise.addEventListener('click', takeRandomLeap);
+    dom.hero.bored.addEventListener('click', function() { rollNextBoredChallenge(); showView('bored'); });
+
+    // Search & Direct Jump
+    var jumpBtn = document.getElementById('ivaJumpBtn');
+    var jumpInput = document.getElementById('ivaJumpInput');
+    if (jumpBtn && jumpInput) {
+      var handleJump = function() {
+        var val = parseInt(jumpInput.value, 10);
+        if (isNaN(val) || val < 1 || val > 500000) {
+          showToast("⚠️", "Please enter a valid number between 1 and 500,000");
+          return;
+        }
+        var jumpQ = generateProceduralQuestion(val - 1);
+        openCuriosity(jumpQ.id, jumpQ);
+        showToast("🚀", "Jumped to Question #" + val.toLocaleString() + "!");
+      };
+      jumpBtn.addEventListener('click', handleJump);
+      jumpInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') handleJump();
+      });
+    }
+
+    dom.search.input.addEventListener('input', function(e) {
+      performSearch(e.target.value);
+    });
+
+    // Today's curiosity card
+    dom.today.card.addEventListener('click', function() {
+      if (currentTodayCuriosity) openCuriosity(currentTodayCuriosity.id);
+    });
+    dom.today.explore.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (currentTodayCuriosity) openCuriosity(currentTodayCuriosity.id);
+    });
+    dom.today.roll.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var pick = getTodayCuriosity(true);
+      renderTodayCuriosity(pick);
+      showToast("🎲", "Selected a new daily curiosity!");
+    });
+
+    // Random walk & Strange fact on home
+    dom.randomWalkBtn.addEventListener('click', takeRandomLeap);
+    dom.moreStrangeBtn.addEventListener('click', function() {
+      rollNextStrangeFact();
+      showView('strange');
+    });
+
+    // Build question
+    dom.build.reroll.addEventListener('click', rollBuildSparks);
+    dom.build.save.addEventListener('click', function() {
+      var text = dom.build.input.value.trim();
+      if (!text) {
+        showToast("⚠️", "Please write a question before saving!");
+        return;
+      }
+      appState.sparkQuestions.push({
+        sparks: dom.build.sparks.textContent,
+        question: text,
+        date: new Date().toLocaleDateString()
+      });
+      dom.build.input.value = "";
+      saveState();
+      showToast("✨", "Your original question was saved!");
+    });
+
+    // Curiosity View details
+    dom.curiosity.backBtn.addEventListener('click', function() { showView('home'); });
+    dom.curiosity.revealBtn.addEventListener('click', function() {
+      var note = dom.curiosity.thinkInput.value.trim();
+      if (note && appState.currentQuestionId) {
+        appState.reflections[appState.currentQuestionId] = note;
+        saveState();
+        dom.curiosity.savedStatus.style.display = "inline";
+        updateJourneyMetrics();
+        showToast("💡", "Reflection recorded in your curiosity journal!");
+      }
+      dom.curiosity.expContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    dom.curiosity.bookmarkBtn.addEventListener('click', function() {
+      if (appState.currentQuestionId) toggleBookmark(appState.currentQuestionId);
+    });
+
+    dom.curiosity.nextRandomBtn.addEventListener('click', takeRandomLeap);
+
+    dom.curiosity.shareBtn.addEventListener('click', function() {
+      var shareUrl = window.location.href.split('#')[0] + '#curiosity-' + appState.currentQuestionId;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(function() {
+          showToast("📋", "Curiosity link copied to clipboard!");
+        });
+      } else {
+        prompt("Copy this direct curiosity link:", shareUrl);
+      }
+    });
+
+    // Bored view buttons
+    dom.bored.nextBtn.addEventListener('click', rollNextBoredChallenge);
+    dom.bored.backBtn.addEventListener('click', function() { showView('home'); });
+
+    // Strange view buttons
+    dom.strange.nextBtn.addEventListener('click', rollNextStrangeFact);
+    dom.strange.backBtn.addEventListener('click', function() { showView('home'); });
+
+    // Saved view buttons
+    dom.saved.backBtn.addEventListener('click', function() { showView('home'); });
+    dom.saved.exploreNowBtn.addEventListener('click', function() { showView('home'); });
+
+    // Category view buttons
+    dom.categoryView.backBtn.addEventListener('click', function() { showView('home'); });
+    if (dom.categoryView.loadMoreBtn) {
+      dom.categoryView.loadMoreBtn.addEventListener('click', renderCategoryBatch);
+    }
+
+    // Intro Overlay
+    dom.intro.enterBtn.addEventListener('click', function() {
+      dom.intro.overlay.classList.add('iva-hidden');
+      try { localStorage.setItem('iva_seen_intro', 'true'); } catch(e) {}
+    });
+
+    // About Modal
+    dom.about.closeBtn.addEventListener('click', function() { dom.about.overlay.classList.add('iva-hidden'); });
+    dom.about.gotItBtn.addEventListener('click', function() { dom.about.overlay.classList.add('iva-hidden'); });
+    dom.about.overlay.addEventListener('click', function(e) {
+      if (e.target === dom.about.overlay) dom.about.overlay.classList.add('iva-hidden');
+    });
+
+    // Handle deep-linking via hash on initial load
+    window.addEventListener('hashchange', checkUrlHash);
+  }
+
+  function checkUrlHash() {
+    var hash = window.location.hash;
+    if (hash && hash.indexOf('#curiosity-') === 0) {
+      var id = hash.replace('#curiosity-', '');
+      var found = CURIOSITIES.find(function(q) { return q.id === id; });
+      if (found) {
+        openCuriosity(found.id);
+      }
+    }
+  }
+
+  // ════════════════════════════════════════════════════════════════
+  // 17. APPLICATION INITIALIZATION
+  // ════════════════════════════════════════════════════════════════
+  function init() {
+    loadState();
+    bindElements();
+    setupEventListeners();
+
+    renderCategories();
+    renderTodayCuriosity(getTodayCuriosity(false));
+    rollBuildSparks();
+    rollRandomQuote();
+
+    // Check if intro should be shown (first time only)
+    try {
+      var hasSeen = localStorage.getItem('iva_seen_intro');
+      if (!hasSeen) {
+        dom.intro.overlay.classList.remove('iva-hidden');
+      }
+    } catch(e) {}
+
+    updateJourneyMetrics();
+
+    // Check URL hash for direct links
+    if (window.location.hash) {
+      checkUrlHash();
+    } else {
+      showView('home');
+    }
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>

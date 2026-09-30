@@ -1,0 +1,192 @@
+/**
+ * Ikshvaku Vidya Academy — Editorial Typography
+ * High-contrast editorial hierarchy: Newsreader (Classical Serif) + Plus Jakarta Sans (Humanist Sans)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  line-height: 1.65;
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+}
+
+/* Eyebrows / Section Indicators */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+  margin-bottom: var(--space-sm);
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.eyebrow-dark {
+  color: var(--color-accent-gold);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-navy-deep);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heading-display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 2rem + 4.5vw, 5.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-md);
+}
+
+.heading-display em,
+.heading-display .italic {
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.heading-section {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-md);
+}
+
+.heading-sub {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.heading-light {
+  color: var(--color-text-light);
+}
+
+/* Lead & Body Paragraphs */
+.lead-text {
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 1.05rem + 0.45vw, 1.35rem);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  max-width: 68ch;
+}
+
+.lead-text-serif {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.15rem + 0.6vw, 1.6rem);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lead-light {
+  color: var(--color-text-light-secondary);
+}
+
+.text-editorial {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.text-editorial p + p {
+  margin-top: var(--space-md);
+}
+
+/* Manifesto Statements */
+.statement-large {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 1.15rem + 1.2vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--color-navy-deep);
+}
+
+/* Quotes */
+.quote-editorial {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 1.2rem + 1.2vw, 2.25rem);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-navy-deep);
+  border-left: 2px solid var(--color-accent-gold);
+  padding-left: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.quote-citation {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+  margin-top: var(--space-xs);
+}
+
+/* Links & Text Utilities */
+a {
+  color: var(--color-navy-deep);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-gold);
+}
+
+.link-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-navy-deep);
+  border-bottom: 1px solid var(--color-accent-gold);
+  padding-bottom: 2px;
+  transition: all var(--transition-fast);
+}
+
+.link-editorial:hover {
+  color: var(--color-accent-gold-hover);
+  border-bottom-color: var(--color-navy-deep);
+  gap: 0.65rem;
+}
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-muted { color: var(--color-text-muted); }
+.text-gold { color: var(--color-accent-gold); }

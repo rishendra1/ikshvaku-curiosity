@@ -1,0 +1,401 @@
+{
+  "title": "Ikshvaku Curiosity Machine — 500,000 Questions Library",
+  "totalQuestions": 500000,
+  "categories": {
+    "space": {
+      "label": "Space & Cosmos",
+      "badge": "iva-badge-space",
+      "totalCount": 62500,
+      "packs": [
+        {
+          "pack": 1,
+          "file": "space/pack_01.json",
+          "count": 10000,
+          "sizeMb": 12.7
+        },
+        {
+          "pack": 2,
+          "file": "space/pack_02.json",
+          "count": 10000,
+          "sizeMb": 12.71
+        },
+        {
+          "pack": 3,
+          "file": "space/pack_03.json",
+          "count": 10000,
+          "sizeMb": 12.71
+        },
+        {
+          "pack": 4,
+          "file": "space/pack_04.json",
+          "count": 10000,
+          "sizeMb": 12.71
+        },
+        {
+          "pack": 5,
+          "file": "space/pack_05.json",
+          "count": 10000,
+          "sizeMb": 12.71
+        },
+        {
+          "pack": 6,
+          "file": "space/pack_06.json",
+          "count": 10000,
+          "sizeMb": 12.71
+        },
+        {
+          "pack": 7,
+          "file": "space/pack_07.json",
+          "count": 2500,
+          "sizeMb": 3.18
+        }
+      ]
+    },
+    "science": {
+      "label": "Science & Nature",
+      "badge": "iva-badge-science",
+      "totalCount": 62500,
+      "packs": [
+        {
+          "pack": 1,
+          "file": "science/pack_01.json",
+          "count": 10000,
+          "sizeMb": 13.29
+        },
+        {
+          "pack": 2,
+          "file": "science/pack_02.json",
+          "count": 10000,
+          "sizeMb": 13.3
+        },
+        {
+          "pack": 3,
+          "file": "science/pack_03.json",
+          "count": 10000,
+          "sizeMb": 13.3
+        },
+        {
+          "pack": 4,
+          "file": "science/pack_04.json",
+          "count": 10000,
+          "sizeMb": 13.3
+        },
+        {
+          "pack": 5,
+          "file": "science/pack_05.json",
+          "count": 10000,
+          "sizeMb": 13.3
+        },
+        {
+          "pack": 6,
+          "file": "science/pack_06.json",
+          "count": 10000,
+          "sizeMb": 13.3
+        },
+        {
+          "pack": 7,
+          "file": "science/pack_07.json",
+          "count": 2500,
+          "sizeMb": 3.33
+        }
+      ]
+    },
+    "math": {
+      "label": "Math & Patterns",
+      "badge": "iva-badge-math",
+      "totalCount": 62500,
+      "packs": [
+        {
+          "pack": 1,
+          "file": "math/pack_01.json",
+          "count": 10000,
+          "sizeMb": 13.6
+        },
+        {
+          "pack": 2,
+          "file": "math/pack_02.json",
+          "count": 10000,
+          "sizeMb": 13.62
+        },
+        {
+          "pack": 3,
+          "file": "math/pack_03.json",
+          "count": 10000,
+          "sizeMb": 13.62
+        },
+        {
+          "pack": 4,
+          "file": "math/pack_04.json",
+          "count": 10000,
+          "sizeMb": 13.62
+        },
+        {
+          "pack": 5,
+          "file": "math/pack_05.json",
+          "count": 10000,
+          "sizeMb": 13.62
+        },
+        {
+          "pack": 6,
+          "file": "math/pack_06.json",
+          "count": 10000,
+          "sizeMb": 13.62
+        },
+        {
+          "pack": 7,
+          "file": "math/pack_07.json",
+          "count": 2500,
+          "sizeMb": 3.4
+        }
+      ]
+    },
+    "tech": {
+      "label": "Tech & Future",
+      "badge": "iva-badge-tech",
+      "totalCount": 62500,
+      "packs": [
+        {
+          "pack": 1,
+          "file": "tech/pack_01.json",
+          "count": 10000,
+          "sizeMb": 13.75
+        },
+        {
+          "pack": 2,
+          "file": "tech/pack_02.json",
+          "count": 10000,
+          "sizeMb": 13.77
+        },
+        {
+          "pack": 3,
+          "file": "tech/pack_03.json",
+          "count": 10000,
+          "sizeMb": 13.77
+        },
+        {
+          "pack": 4,
+          "file": "tech/pack_04.json",
+          "count": 10000,
+          "sizeMb": 13.77
+        },
+        {
+          "pack": 5,
+          "file": "tech/pack_05.json",
+          "count": 10000,
+          "sizeMb": 13.77
+        },
+        {
+          "pack": 6,
+          "file": "tech/pack_06.json",
+          "count": 10000,
+          "sizeMb": 13.77
+        },
+        {
+          "pack": 7,
+          "file": "tech/pack_07.json",
+          "count": 2500,
+          "sizeMb": 3.44
+        }
+      ]
+    },
+    "thinking": {
+      "label": "Thinking & Philosophy",
+      "badge": "iva-badge-thinking",
+      "totalCount": 62500,
+      "packs": [
+        {
+          "pack": 1,
+          "file": "thinking/pack_01.json",
+          "count": 10000,
+          "sizeMb": 13.84
+        },
+        {
+          "pack": 2,
+          "file": "thinking/pack_02.json",
+          "count": 10000,
+          "sizeMb": 13.86
+        },
+        {
+          "pack": 3,
+          "file": "thinking/pack_03.json",
+          "count": 10000,
+          "sizeMb": 13.86
+        },
+        {
+          "pack": 4,
+          "file": "thinking/pack_04.json",
+          "count": 10000,
+          "sizeMb": 13.86
+        },
+        {
+          "pack": 5,
+          "file": "thinking/pack_05.json",
+          "count": 10000,
+          "sizeMb": 13.86
+        },
+        {
+          "pack": 6,
+          "file": "thinking/pack_06.json",
+          "count": 10000,
+          "sizeMb": 13.86
+        },
+        {
+          "pack": 7,
+          "file": "thinking/pack_07.json",
+          "count": 2500,
+          "sizeMb": 3.46
+        }
+      ]
+    },
+    "how": {
+      "label": "How Things Work",
+      "badge": "iva-badge-how",
+      "totalCount": 62500,
+      "packs": [
+        {
+          "pack": 1,
+          "file": "how/pack_01.json",
+          "count": 10000,
+          "sizeMb": 13.87
+        },
+        {
+          "pack": 2,
+          "file": "how/pack_02.json",
+          "count": 10000,
+          "sizeMb": 13.89
+        },
+        {
+          "pack": 3,
+          "file": "how/pack_03.json",
+          "count": 10000,
+          "sizeMb": 13.89
+        },
+        {
+          "pack": 4,
+          "file": "how/pack_04.json",
+          "count": 10000,
+          "sizeMb": 13.89
+        },
+        {
+          "pack": 5,
+          "file": "how/pack_05.json",
+          "count": 10000,
+          "sizeMb": 13.89
+        },
+        {
+          "pack": 6,
+          "file": "how/pack_06.json",
+          "count": 10000,
+          "sizeMb": 13.89
+        },
+        {
+          "pack": 7,
+          "file": "how/pack_07.json",
+          "count": 2500,
+          "sizeMb": 3.47
+        }
+      ]
+    },
+    "behavior": {
+      "label": "Human Behavior",
+      "badge": "iva-badge-behavior",
+      "totalCount": 62500,
+      "packs": [
+        {
+          "pack": 1,
+          "file": "behavior/pack_01.json",
+          "count": 10000,
+          "sizeMb": 14.14
+        },
+        {
+          "pack": 2,
+          "file": "behavior/pack_02.json",
+          "count": 10000,
+          "sizeMb": 14.16
+        },
+        {
+          "pack": 3,
+          "file": "behavior/pack_03.json",
+          "count": 10000,
+          "sizeMb": 14.16
+        },
+        {
+          "pack": 4,
+          "file": "behavior/pack_04.json",
+          "count": 10000,
+          "sizeMb": 14.16
+        },
+        {
+          "pack": 5,
+          "file": "behavior/pack_05.json",
+          "count": 10000,
+          "sizeMb": 14.16
+        },
+        {
+          "pack": 6,
+          "file": "behavior/pack_06.json",
+          "count": 10000,
+          "sizeMb": 14.16
+        },
+        {
+          "pack": 7,
+          "file": "behavior/pack_07.json",
+          "count": 2500,
+          "sizeMb": 3.54
+        }
+      ]
+    },
+    "nature": {
+      "label": "Deep Mysteries",
+      "badge": "iva-badge-nature",
+      "totalCount": 62500,
+      "packs": [
+        {
+          "pack": 1,
+          "file": "nature/pack_01.json",
+          "count": 10000,
+          "sizeMb": 14.25
+        },
+        {
+          "pack": 2,
+          "file": "nature/pack_02.json",
+          "count": 10000,
+          "sizeMb": 14.27
+        },
+        {
+          "pack": 3,
+          "file": "nature/pack_03.json",
+          "count": 10000,
+          "sizeMb": 14.27
+        },
+        {
+          "pack": 4,
+          "file": "nature/pack_04.json",
+          "count": 10000,
+          "sizeMb": 14.27
+        },
+        {
+          "pack": 5,
+          "file": "nature/pack_05.json",
+          "count": 10000,
+          "sizeMb": 14.27
+        },
+        {
+          "pack": 6,
+          "file": "nature/pack_06.json",
+          "count": 10000,
+          "sizeMb": 14.27
+        },
+        {
+          "pack": 7,
+          "file": "nature/pack_07.json",
+          "count": 2500,
+          "sizeMb": 3.57
+        }
+      ]
+    }
+  },
+  "generatedAt": "2026-09-30 12:33:23",
+  "organization": "Ikshvaku Vidya Academy",
+  "ethos": "Education Beyond Commerce"
+}

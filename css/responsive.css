@@ -1,0 +1,199 @@
+/**
+ * Ikshvaku Vidya Academy — Responsive & Viewport Enhancements
+ * Explicit responsive rules for 320px, 375px, 430px, 768px, 1024px, 1440px, and 1920px.
+ */
+
+/* ==========================================================================
+   1. SMALL MOBILE (320px - 374px)
+   ========================================================================== */
+@media (max-width: 374px) {
+  :root {
+    --nav-height: 68px;
+  }
+
+  .container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .brand-logo-img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.625rem;
+  }
+
+  .hero-seal-frame {
+    width: 120px;
+    height: 120px;
+    padding: 4px;
+  }
+
+  .heading-display {
+    font-size: 2.2rem;
+  }
+
+  .heading-section {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .triad-card,
+  .flow-step-card,
+  .comparison-box,
+  .student-see-card,
+  .founder-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .manifesto-card {
+    padding-left: 0.75rem;
+  }
+
+  .manifesto-statement {
+    font-size: 1.2rem;
+  }
+}
+
+/* ==========================================================================
+   2. STANDARD MOBILE (375px - 430px)
+   ========================================================================== */
+@media (min-width: 375px) and (max-width: 600px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-seal-frame {
+    width: 136px;
+    height: 136px;
+  }
+
+  .student-observation-item {
+    font-size: 1.15rem;
+  }
+}
+
+/* ==========================================================================
+   3. TABLET & MID-VIEWPORT (601px - 991px)
+   ========================================================================== */
+@media (min-width: 601px) and (max-width: 991px) {
+  .hero-seal-frame {
+    width: 150px;
+    height: 150px;
+  }
+
+  .editorial-grid-asym {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .learning-flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   4. DESKTOP & LAPTOPS (992px - 1439px)
+   ========================================================================== */
+@media (min-width: 992px) {
+  .site-header {
+    height: var(--nav-height);
+  }
+
+  .hero-section {
+    min-height: 88vh;
+  }
+
+  .learning-flow {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .triad-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   5. WIDE & ULTRA-WIDE DESKTOPS (1440px - 1920px+)
+   ========================================================================== */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1240px;
+  }
+
+  .container-text {
+    max-width: 920px;
+  }
+
+  .heading-display {
+    font-size: 5.25rem;
+    line-height: 1.04;
+  }
+
+  .lead-text {
+    font-size: 1.25rem;
+    line-height: 1.65;
+  }
+
+  .section {
+    padding-top: calc(var(--space-2xl) * 1.15);
+    padding-bottom: calc(var(--space-2xl) * 1.15);
+  }
+}
+
+/* ==========================================================================
+   6. PRINT STYLESHEET
+   ========================================================================== */
+@media print {
+  .site-header,
+  .mobile-menu-toggle,
+  .mobile-drawer,
+  .hero-actions,
+  .footer-bottom {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    page-break-inside: avoid;
+  }
+
+  .manifesto-wrapper,
+  .site-footer {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .heading-light,
+  .lead-light,
+  .manifesto-statement {
+    color: #000000 !important;
+  }
+}
