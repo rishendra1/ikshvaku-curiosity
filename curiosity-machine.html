@@ -1493,7 +1493,7 @@
   // Defaults to local 'questions/' folder.
   // When hosting on GitHub Pages, replace with your live URL, e.g.:
   // var QUESTIONS_DATA_BASE_URL = 'https://YOUR-USERNAME.github.io/YOUR-REPO/questions/';
-  var QUESTIONS_DATA_BASE_URL = 'questions/';
+  var QUESTIONS_DATA_BASE_URL = 'https://rishendra1.github.io/ikshvaku-curiosity/questions/';
 
   // ════════════════════════════════════════════════════════════════
   // 1. DATA REPOSITORY: 24 CURATED FIRST-PRINCIPLES CURIOSITIES
@@ -2883,7 +2883,7 @@
     }
 
     // Attempt to fetch from 100k repository
-    var url = QUESTIONS_DATA_BASE_URL + categoryKey + ".json";
+    var url = QUESTIONS_DATA_BASE_URL + categoryKey + "/pack_01.json";
     fetch(url)
       .then(function(res) {
         if (!res.ok) throw new Error("HTTP error " + res.status);
